@@ -5,6 +5,7 @@ date: '2019-07-19'
 slug: tidy-text-mining
 categories:
   - R
+  - Text Mining
 tags:
   - Tidytext
   - Tidyverse

@@ -3,7 +3,8 @@ title: Publish R blogdown by Netlify
 author: Yuan Du
 date: '2019-07-18'
 slug: netlifypub
-categories: []
+categories: 
+  - Blogdown
 tags: []
 subtitle: ''
 summary: ''

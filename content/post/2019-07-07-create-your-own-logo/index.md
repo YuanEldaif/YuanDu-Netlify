@@ -5,9 +5,9 @@ author:
 date: '2019-07-07'
 slug: create-your-own-logo
 categories:
-  - R
-tags:
   - Blogdown
+tags:
+  - Logo
 ---
 
 I have no background of editing html and css. It took me a while to figure out how to modify the [Hugo Lithium theme](https://github.com/yihui/hugo-lithium) for my own blog. so I would like to share it with you, by no means that this is the only way to do it.
