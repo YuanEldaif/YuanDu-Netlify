@@ -2,7 +2,7 @@
 title: Significance Test
 event: Advanced Statisticas on Significance Test
 
-location: TRI, Research Institute, Adventhealth Orlando Campus, FL
+location: TRI, Research Institute, AdventHealth Orlando Campus, FL
 summary: This is an Advanced Statistical course followed by the Statistical Basics. The most commonly used tests are introduced in this class for general research. I highly recommend that you attend the Statistical Basics before attending this course. 
 
 # Talk start and end times.
