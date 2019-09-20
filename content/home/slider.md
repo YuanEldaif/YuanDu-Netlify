@@ -3,7 +3,7 @@
 widget = "slider"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
-weight = 1  # Order that this section will appear.
+weight = 20  # Order that this section will appear.
 
 # Slide interval.
 # Use `false` to disable animation or enter a time in ms, e.g. `5000` (5s).
@@ -15,6 +15,19 @@ height = ""
 
 # Slides.
 # Duplicate an `[[item]]` block to add more slides.
+
+
+[[item]]
+  title = ""
+  content = "Happy is a man who finds wisdom and who acquires understanding. :smile:"
+  align = "center"
+  
+  overlay_img = "headers/lightbulb.jpg"  # Image path relative to your `static/img/` folder.
+  overlay_filter = 0.5 
+#   overlay_color = "#555"  # An HTML color value.
+#   overlay_img = ""  # Image path relative to your `static/img/` folder.
+#   overlay_filter = 0.5  # Darken the image. Value in range 0-1.
+
 [[item]]
   title = ""
   content = "The fear of the LORD is the beginning of knowledge: but fools despise wisdom and instruction."
@@ -34,16 +47,6 @@ height = ""
 # cta_icon_pack = "fas"
 #cta_icon = "graduation-cap"
 
-[[item]]
-  title = ""
-  content = "Happy is a man who finds wisdom and who acquires understanding. :smile:"
-  align = "center"
-  
-  overlay_img = "headers/lightbulb.jpg"  # Image path relative to your `static/img/` folder.
-  overlay_filter = 0.5 
-#   overlay_color = "#555"  # An HTML color value.
-#   overlay_img = ""  # Image path relative to your `static/img/` folder.
-#   overlay_filter = 0.5  # Darken the image. Value in range 0-1.
 
 # [[item]]
 #   title = "Right"
