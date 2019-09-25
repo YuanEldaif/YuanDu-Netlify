@@ -7,8 +7,8 @@ summary: This is an Advanced Statistical course followed by the Statistical Basi
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: "2019-11-05T13:00:00Z"
-date_end: "2019-11-05T15:00:00Z"
+date: "2019-11-07T09:30:00Z"
+date_end: "2019-11-07T10:30:00Z"
 all_day: false
 
 # Schedule page publish date (NOT talk date).
