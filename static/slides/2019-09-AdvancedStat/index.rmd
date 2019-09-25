@@ -189,7 +189,7 @@ class: bg-main1
 <br>
 ###In probability, this would be written as follows:
 
-###P(p1^=p1.red[/H0])
+###P(type 1 error.red[/H0])
 ---
 class: split-two white
 
@@ -263,7 +263,7 @@ class: split-60 white
 library(readxl)
 library(tidyverse)
 library(dplyr)
-COPD <- read_excel("C:/Work/R/Presentation/Significance Test/Data/COPD.xlsx") 
+COPD <- read_excel("C:/Work/Project/Blogdown/Data/COPD.xlsx") 
 Data<- filter(COPD, Outcome_Cases_Cost == 1 & Outcome_Cases_LOS == 1 & Outcome_Cases_Mortality ==1)
 ```
 ```{r, eval=F }
@@ -551,7 +551,7 @@ class: bg-main1
 ###Variables include Age, Gender, Cost, LOS, Readmission, Mortality, Physician Group, Insurance type
 
 <br>
-###.green[Note]: Assume normal distribution of Age, Cost; non-normal distribution of cost.
+###.purple[Note]: Assume normal distribution of Age, Cost; non-normal distribution of cost.
 
 ---
 class: middle center bg-main1
@@ -566,5 +566,5 @@ class: middle center bg-main1
 <br/>
 
 
-####.yellow[*Slides are not to be distributed without permission of Research Institute.*]
+
 ####Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).

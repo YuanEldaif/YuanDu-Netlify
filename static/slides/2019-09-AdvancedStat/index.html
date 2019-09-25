@@ -65,8 +65,8 @@ class: bg-main1
 
 # Data Type
 
-<div id="htmlwidget-c1fd961eaa0454c74b49" style="width:504px;height:504px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c1fd961eaa0454c74b49">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = TB]\n\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled, fillcolor = Linen]\n\n# define arrow\nedge [color = grey, arrowhead = none, arrowtail = none]\n\nChar [label = \"Qualitative (Categorical) \n  Variables \", shape = folder, fillcolor = Beige]\nNum [label = \"Quantatitive (Numerical) \nVariables\", shape = folder, fillcolor = Beige]\nA [label =  \"Nominal\"]\nB [label =  \"Binary\"]\n\nC [label= \"Interval\"]\nD [label= \"Ratio\"]\nE [label= \"Ordinal\"]\n\n# edge definitions with the node IDs\n{Char}  -> A -> B\n{Num}  -> C -> D -> E\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b98a3a8128a57242afd5" style="width:504px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b98a3a8128a57242afd5">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = TB]\n\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled, fillcolor = Linen]\n\n# define arrow\nedge [color = grey, arrowhead = none, arrowtail = none]\n\nChar [label = \"Qualitative (Categorical) \n  Variables \", shape = folder, fillcolor = Beige]\nNum [label = \"Quantatitive (Numerical) \nVariables\", shape = folder, fillcolor = Beige]\nA [label =  \"Nominal\"]\nB [label =  \"Binary\"]\n\nC [label= \"Interval\"]\nD [label= \"Ratio\"]\nE [label= \"Ordinal\"]\n\n# edge definitions with the node IDs\n{Char}  -> A -> B\n{Num}  -> C -> D -> E\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 ---
 class: middle center bg-main1
@@ -161,7 +161,7 @@ class: bg-main1
 &lt;br&gt;
 ###In probability, this would be written as follows:
 
-###P(p1^=p1.red[/H0])
+###P(type 1 error.red[/H0])
 ---
 class: split-two white
 
@@ -431,24 +431,28 @@ class: bg-main1
 ###We Assume the two physician groups had an intervention on reducing medical cost by reducing number of consults. We have a post cost that could compare with previous cost.
 
 ```
+## Warning: Unknown or uninitialised column: 'Post_Cost'.
+```
+
+```
 ## 
 ## 	Paired t-test
 ## 
 ## data:  Cost by group
-## t = -1126.2, df = 2254, p-value &lt; 2.2e-16
+## t = NaN, df = 2254, p-value = NA
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -999.9643 -996.4881
+##  NaN NaN
 ## sample estimates:
 ## mean of the differences 
-##               -998.2262
+##                       0
 ```
 
 ```
 ## # A tibble: 2 x 5
 ##   group  count   mean     sd     max
 ##   &lt;fct&gt;  &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-## 1 After   2255 16276. 22438. 242710.
+## 1 After   2255 17274. 22439. 243710.
 ## 2 Before  2255 17274. 22439. 243710.
 ```
 
@@ -460,11 +464,20 @@ class: bg-main1
 ###We Assume the two physician groups had an intervention on reducing LOS by reducing number of consults. We have a post LOS that could compare with previous LOS.
 
 ```
+## Warning: Unknown or uninitialised column: 'Post_LOS'.
+```
+
+```
+## Warning in wilcox.test.default(x = c(2, 3, 1, 9, 17, 66, 3, 8, 1, 5, 2, :
+## cannot compute exact p-value with zeroes
+```
+
+```
 ## 
 ## 	Wilcoxon signed rank test with continuity correction
 ## 
 ## data:  LOS by group
-## V = 0, p-value &lt; 2.2e-16
+## V = 0, p-value = NA
 ## alternative hypothesis: true location shift is not equal to 0
 ```
 
@@ -472,7 +485,7 @@ class: bg-main1
 ## # A tibble: 2 x 5
 ##   group  count  mean    sd median
 ##   &lt;fct&gt;  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
-## 1 After   2255  6.38  7.86      4
+## 1 After   2255  7.16  8.01      5
 ## 2 Before  2255  7.16  8.01      5
 ```
 
@@ -639,7 +652,7 @@ class: bg-main1
 ###Variables include Age, Gender, Cost, LOS, Readmission, Mortality, Physician Group, Insurance type
 
 &lt;br&gt;
-###.green[Note]: Assume normal distribution of Age, Cost; non-normal distribution of cost.
+###.purple[Note]: Assume normal distribution of Age, Cost; non-normal distribution of cost.
 
 ---
 class: middle center bg-main1
@@ -654,7 +667,7 @@ class: middle center bg-main1
 &lt;br/&gt;
 
 
-####.yellow[*Slides are not to be distributed without permission of Research Institute.*]
+
 ####Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
@@ -703,7 +716,24 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 (function() {
