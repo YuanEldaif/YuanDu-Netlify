@@ -1,5 +1,5 @@
 ---
-title: Important asymtotic theorems
+title: Important asypmtotic theorems
 author: Yuan Du
 date: '2019-09-28'
 categories: 
@@ -19,8 +19,8 @@ image:
   focal_point: ''
   preview_only: no
 ---
-Machine learning models are very populuar. However, it's not stable on the performance because lots of them are not using statistical inference. Thus, statistical asymptotic theory which has established hundreds of years ago becomes a more and more interesting research direction. 
-In this blog, I will introduce a few important asymptotic theorems that are fundamental to prove some machine learning models, such as Markov Chains and SVM.
+Machine learning algorithms are very populuar. However, it's not stable on the performance because lots of them are not using statistical inference. Thus, statistical asymptotic theory which has established hundreds of years ago becomes a more and more interesting research direction. 
+In this blog, I will introduce a few important asymptotic theorems that are fundamental to prove some machine learning algorithms, such as SVM and Markov Chain.
 
 **Fatou-Lebesgue Lemma**:
 if the random variable $X_n \xrightarrow{a.s} X$ and if for all n $X_n \geq Y$ with $E|Y| < \infty$, then
@@ -33,7 +33,7 @@ By using `Fatou-Lebesgue Lemma`, we can prove the `(a) Monotone convergence Theo
 
    - **(b) Lebesgue Dominated Convergence Theorem**：If the random variables $X_n \to X$, then we have $|X_n| \leq Y$, almost surely for all n. Then $X_n \in L^1$, $X \in L^1$, and $\lim_{0\to\infty}E(X_n) = E(X)$.
      
-     **SVM** is an application of `Lebesgue Dominated Convergence Theorem`. We can use the theorem to prove the hinge loss function, when the data is not linearly separable. In a sufficiently rich hypothesis space—or equivalently, for an appropriately chosen kernel—the SVM classifier will converge to the simplest function (in terms of $R$) that correctly classifies the data. This extends the geometric interpretation of SVM—for linear classification, the empirical risk is minimized by any function whose margins lie between the support vectors, and the simplest of these is the max-margin classifier.
+     **SVM** could be an application of `Lebesgue Dominated Convergence Theorem`. We can use the theorem to prove the hinge loss function, when the data is not linearly separable. In a sufficiently rich hypothesis space—or equivalently, for an appropriately chosen kernel—the SVM classifier will converge to the simplest function (in terms of $R$) that correctly classifies the data. This extends the geometric interpretation of SVM—for linear classification, the empirical risk is minimized by any function whose margins lie between the support vectors, and the simplest of these is the max-margin classifier.
   
 **Bore-Cantelli Lemma**: for \{$A_n: n \geq 1$\} a sequence of events in a probability space if $\sum_{n=1}^{\infty}P(A_n) < \infty$ then $P(A_n i.o.)=0$; only a finite number of the events occur, with probability 1. Conversely, if the $A_n$ are independent and $\sum_{n=1}^{\infty}P(A_n) = \infty$, then $P(A_n i.o.)=1$; an infinite number of the events occur, with probability 1.
 
