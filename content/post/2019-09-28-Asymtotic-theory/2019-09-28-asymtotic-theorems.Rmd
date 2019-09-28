@@ -19,7 +19,10 @@ image:
   focal_point: ''
   preview_only: no
 ---
-Machine learning algorithms are very populuar. However, it's not stable on the performance because lots of them are not using statistical inference. Thus, statistical asymptotic theory which has established hundreds of years ago becomes a more and more interesting research direction. 
+Machine learning algorithms are very populuar. Even in database design, all of those indexes remain general purpose data structures; they assume nothing about the data distribution and do not take advantage of more common patterns prevalent in real world data. Knowing the exact data distribution enables highly optimizing almost any index structure. A [learned indexe structures](https://arxiv.org/pdf/1712.01208.pdf) was proposed in 2018 to take advantages of learning a model that reflects the patterns in the data and thus to enable the automatic synthesis of specialized index structures.
+
+However, machine learing algorithms not stable/consistant on the performance because lots of them are not using statistical inference. Thus, statistical theory for estimating function which has established hundreds of years ago becomes a more and more interesting research direction. 
+
 In this blog, I will introduce a few important asymptotic theorems that are fundamental to prove some machine learning algorithms, such as SVM and Markov Chain.
 
 **Fatou-Lebesgue Lemma**:

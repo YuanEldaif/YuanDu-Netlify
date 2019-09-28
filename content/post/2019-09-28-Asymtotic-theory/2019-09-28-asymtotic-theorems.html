@@ -22,8 +22,9 @@ image:
 
 
 
-<p>Machine learning algorithms are very populuar. However, it’s not stable on the performance because lots of them are not using statistical inference. Thus, statistical asymptotic theory which has established hundreds of years ago becomes a more and more interesting research direction.
-In this blog, I will introduce a few important asymptotic theorems that are fundamental to prove some machine learning algorithms, such as SVM and Markov Chain.</p>
+<p>Machine learning algorithms are very populuar. Even in database design, all of those indexes remain general purpose data structures; they assume nothing about the data distribution and do not take advantage of more common patterns prevalent in real world data. Knowing the exact data distribution enables highly optimizing almost any index structure. A <a href="https://arxiv.org/pdf/1712.01208.pdf">learned indexe structures</a> was proposed in 2018 to take advantages of learning a model that reflects the patterns in the data and thus to enable the automatic synthesis of specialized index structures.</p>
+<p>However, machine learing algorithms not stable/consistant on the performance because lots of them are not using statistical inference. Thus, statistical theory for estimating function which has established hundreds of years ago becomes a more and more interesting research direction.</p>
+<p>In this blog, I will introduce a few important asymptotic theorems that are fundamental to prove some machine learning algorithms, such as SVM and Markov Chain.</p>
 <p><strong>Fatou-Lebesgue Lemma</strong>:
 if the random variable <span class="math inline">\(X_n \xrightarrow{a.s} X\)</span> and if for all n <span class="math inline">\(X_n \geq Y\)</span> with <span class="math inline">\(E|Y| &lt; \infty\)</span>, then
 <span class="math display">\[E(\liminf_{n \to \infty} X_n) \leq \liminf_{n \to \infty} E(X_n)\]</span>
