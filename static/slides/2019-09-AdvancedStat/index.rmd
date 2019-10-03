@@ -146,13 +146,13 @@ class: bg-main1
 ## `r anicon::faa("heart", animate="horizontal", rtext="&nbsp;Let's get started!")`
 
 --
-###- Construct hypothesis 
+###-Construct hypothesis 
 
 --
-##.green[Outcome is numerical] (- Parametric test & - Non-parametric test)
+##-.green[Outcome is numerical] (- Parametric test & - Non-parametric test)
 
 --
-##.yellow[Outcome is categorical]
+##-.yellow[Outcome is categorical]
 
 
 ---
