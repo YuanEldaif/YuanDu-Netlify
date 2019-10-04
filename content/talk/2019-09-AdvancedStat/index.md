@@ -38,8 +38,9 @@ links:
   name: demo code
   url: https://github.com/YuanEldaif/Significance-Test
 ---
+This is an Advanced Statistical course followed by the Statistical Basics. The most commonly used tests are introduced in this class for general research. I highly recommend that you attend the Statistical Basics before attending this course. 
 
 {{% alert note %}}
-Click on the **Slides** button above to view the built-in slides feature.
+Click on the **demo slides** button above to view the built-in slides feature.
 {{% /alert %}}
 
