@@ -57,7 +57,7 @@ First -> Second -> Third
   + Create a netlify account by linking with Github
   + Name your website in `config.toml` file under `baseurl =`. followed by the netlify subdomain `.netlify.com/`. Remember to have **backslash "/"** at the end. 
   + Add the build settings. Push the "hugo" as the Build command and "public" as the Publish directory.
-  ![](/post/2019-09-18-netlifypub/NetlifySet.png) 
+  ![](/post/2019-07-12-netlifypub/NetlifySet.png) 
   #{idth=800px height=600px}
   + check Hugo version `blogdown::hugo_version()`
 

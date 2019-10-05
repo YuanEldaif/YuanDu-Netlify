@@ -10,7 +10,7 @@ tags:
   - Logo
 ---
 
-I have no background of editing html and css. It took me a while to figure out how to modify the [Hugo Lithium theme](https://github.com/yihui/hugo-lithium) for my own blog. so I would like to share it with you, by no means that this is the only way to do it.
+I have no background of editing html and css. It took me a while to figure out how to modify the [Hugo Lithium theme](https://github.com/yihui/hugo-lithium) for my own blog. I started with this simple theme because the fancier theme, the more knowledge of configuration will be needed. This make it easier for me to transision to the [Academic Thmeme](https://github.com/gcushen/hugo-academic) that I'm currently using. so I would like to share it with you, by no means that this is the only way to do it.
 
 **Step 1:**
 Generate your own favicon ico by using free [favicon generator](https://favicon.io/). I generated it by using my inital of my first name. 

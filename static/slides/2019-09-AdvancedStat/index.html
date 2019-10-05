@@ -65,8 +65,8 @@ class: bg-main1
 
 # Data Type
 
-<div id="htmlwidget-27b876c58bfdadd0bacd" style="width:504px;height:504px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-27b876c58bfdadd0bacd">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = TB]\n\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled, fillcolor = Linen]\n\n# define arrow\nedge [color = grey, arrowhead = none, arrowtail = none]\n\nChar [label = \"Qualitative (Categorical) \n  Variables \", shape = folder, fillcolor = Beige]\nNum [label = \"Quantatitive (Numerical) \nVariables\", shape = folder, fillcolor = Beige]\nA [label =  \"Nominal\"]\nB [label =  \"Binary\"]\n\nC [label= \"Interval\"]\nD [label= \"Ratio\"]\nE [label= \"Ordinal\"]\n\n# edge definitions with the node IDs\n{Char}  -> A -> B\n{Num}  -> C -> D -> E\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7f2bd07b305fefdae228" style="width:504px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7f2bd07b305fefdae228">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = TB]\n\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled, fillcolor = Linen]\n\n# define arrow\nedge [color = grey, arrowhead = none, arrowtail = none]\n\nChar [label = \"Qualitative (Categorical) \n  Variables \", shape = folder, fillcolor = Beige]\nNum [label = \"Quantatitive (Numerical) \nVariables\", shape = folder, fillcolor = Beige]\nA [label =  \"Nominal\"]\nB [label =  \"Binary\"]\n\nC [label= \"Interval\"]\nD [label= \"Ratio\"]\nE [label= \"Ordinal\"]\n\n# edge definitions with the node IDs\n{Char}  -> A -> B\n{Num}  -> C -> D -> E\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 ---
 class: middle center bg-main1
@@ -89,7 +89,7 @@ class: bg-main1
 
 --
 &lt;br&gt;
-###.yellow[**Note**] There is an ongoing debate on miss-using p-value. and New England Jounal of Medicine in July,2019 published the [new Statistical Reporting Guidelines](https://www.nejm.org/author-center/new-manuscripts). 
+###.yellow[**Note**] There is an ongoing debate on misusing p-value. and New England Jounal of Medicine in July,2019 published the [new Statistical Reporting Guidelines](https://www.nejm.org/author-center/new-manuscripts). 
 
 ---
 class: split-two white
@@ -121,7 +121,7 @@ class: bg-main1
 ###-Construct hypothesis 
 
 --
-##-.green[Outcome is numerical] (- Parametric test &amp; - Non-parametric test)
+##-.green[Outcome is numerical] (Parametric test &amp; Non-parametric test)
 
 --
 ##-.yellow[Outcome is categorical]
@@ -197,7 +197,7 @@ class: split-two white
 `(Repeated Measures are not included-more than two matched groups)`
 #.green[Most widely used parametric tests are:]
 &lt;br&gt;
-###- paired t-test (dependent/matached two groups) 
+###- paired t-test (dependent/matched two groups) 
 ###- (unpaired) t-test (independent two groups)
 ###- ANOVA (more than two groups)
 ###- Pearson correlation
@@ -226,7 +226,7 @@ class: middle center bg-main1
 class: split-60 white
 
 .column.bg-main1[.content[
-#.green[Example 1] (T test):
+#.green[Example 1] (Independent T test):
 
 &lt;br&gt;
 ###Patients cared under Teaching physician group has lower cost. There is a significant lower cost in the teaching physician group than in the non teaching group ($10060 Vs $18631.37 , p-value&lt;0.001) by t test. 
@@ -425,7 +425,7 @@ class: bg-main1
 
 ---
 class: bg-main1
-#.green[Example 5] (paired t test)：
+#.green[Example 5] (Paired sample t test)：
 
 --
 ###We Assume the two physician groups had an intervention on reducing medical cost by reducing number of consults. We have a post cost that could compare with previous cost.

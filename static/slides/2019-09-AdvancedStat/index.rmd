@@ -117,7 +117,7 @@ class: bg-main1
 
 --
 <br>
-###.yellow[**Note**] There is an ongoing debate on miss-using p-value. and New England Jounal of Medicine in July,2019 published the [new Statistical Reporting Guidelines](https://www.nejm.org/author-center/new-manuscripts). 
+###.yellow[**Note**] There is an ongoing debate on misusing p-value. and New England Jounal of Medicine in July,2019 published the [new Statistical Reporting Guidelines](https://www.nejm.org/author-center/new-manuscripts). 
 
 ---
 class: split-two white
@@ -149,7 +149,7 @@ class: bg-main1
 ###-Construct hypothesis 
 
 --
-##-.green[Outcome is numerical] (- Parametric test & - Non-parametric test)
+##-.green[Outcome is numerical] (Parametric test & Non-parametric test)
 
 --
 ##-.yellow[Outcome is categorical]
@@ -225,7 +225,7 @@ class: split-two white
 `(Repeated Measures are not included-more than two matched groups)`
 #.green[Most widely used parametric tests are:]
 <br>
-###- paired t-test (dependent/matached two groups) 
+###- paired t-test (dependent/matched two groups) 
 ###- (unpaired) t-test (independent two groups)
 ###- ANOVA (more than two groups)
 ###- Pearson correlation
@@ -254,7 +254,7 @@ class: middle center bg-main1
 class: split-60 white
 
 .column.bg-main1[.content[
-#.green[Example 1] (T test):
+#.green[Example 1] (Independent T test):
 
 <br>
 ###Patients cared under Teaching physician group has lower cost. There is a significant lower cost in the teaching physician group than in the non teaching group ($10060 Vs $18631.37 , p-value<0.001) by t test. 
@@ -402,7 +402,7 @@ group_by(Data, Insurance_Type) %>%
 
 ---
 class: bg-main1
-#.green[Example 5] (paired t test)：
+#.green[Example 5] (Paired sample t test)：
 
 --
 ###We Assume the two physician groups had an intervention on reducing medical cost by reducing number of consults. We have a post cost that could compare with previous cost.
