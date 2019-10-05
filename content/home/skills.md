@@ -31,7 +31,7 @@ subtitle = ""
   icon = "r-project"
   icon_pack = "fab"
   name = "R Programming"
-  description = "Tidyverse, R Markdown"
+  description = "Tidyverse, R Markdown, ggplot"
   
 [[feature]]
   icon = "database"
