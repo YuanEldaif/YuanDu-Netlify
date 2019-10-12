@@ -19,9 +19,7 @@ image:
   focal_point: ''
   preview_only: no
 ---
-Machine learning algorithms are very populuar. Even in database design, all of those indexes remain general purpose data structures; they assume nothing about the data distribution and do not take advantage of more common patterns prevalent in real world data. Knowing the exact data distribution enables highly optimizing almost any index structure. A [learned index structures](https://arxiv.org/pdf/1712.01208.pdf) was proposed in 2018 to take advantages of learning a model that reflects the patterns in the data and thus to enable the automatic synthesis of specialized index structures.
-
-However, machine learing algorithms not stable/consistant on the performance because lots of them are not using statistical inference. Thus, statistical theory for estimating function which has established hundreds of years ago becomes a more and more interesting research direction. 
+Machine learning algorithms are very populuar. However, machine learing algorithms are not stable/consistant on the performance because lots of them are not using statistical inference. Thus, statistical theory for estimating function which has established hundreds of years ago becomes a more and more interesting research direction. 
 
 In this blog, I will introduce a few important asymptotic theorems that are fundamental to prove some machine learning algorithms, such as SVM and Markov Chain.
 
@@ -42,7 +40,11 @@ By using `Fatou-Lebesgue Lemma`, we can prove the `(a) Monotone convergence Theo
 
 `Borel-Cantelli Lemma` is useful in problems related to the a.s. convergence. It could be written as $P(|X_n - X|>\epsilon i.o.) = 0, \forall \epsilon > 0$. 
 
-**SVM**^[**SVM** is supervised learning model with associated learning algorithm that analyzes data used for classification and regression analysis.]could be an application of `Lebesgue Dominated Convergence Theorem`. We can use the theorem and `Partical converge relation` to prove the hinge loss function, when the data is not linearly separable. By limiting on Hilbert space, a weakly convergent subsequence. We can apply asymptotic normality property on the regularization parameter $\lambda_i \to 0$ and thus to solve the miminization problem on the hyperplane $\omega_n$, where the solution $\tilde{\omega}= \omega_*$ because $\omega_*(\lambda_i) \xrightarrow{a.s.} \omega_*$.
+**Laws of Large Numbers**: When the convergence is in probability or law, this is known as weak law of large numbers (WLLN). if $E|X| < \infty$, then $\bar{X_n} \xrightarrow{P} \mu = EX$. When the convergence is almost surely, it is the strong lasw of large nubmers (SLLN). $\bar{X_n} \xrightarrow{a.s.} \mu \Leftrightarrow EX < \infty$ and $\mu = EX$
+
+**Central Limit Theorems**: Let $X_1,X_2,\dots$ be i.i.d. random vectors with mean $\mu$ and finite covariance matrix, $\Sigma$. Then $\sqrt{n}(\bar{X_n} - \mu) \xrightarrow{L} N(0,\Sigma)$.
+
+**SVM**^[**SVM** is supervised learning model with associated learning algorithm that analyzes data used for classification and regression analysis.]could be an application of `Lebesgue Dominated Convergence Theorem` and `Central Limit Theorem`. We can use the theorem and `Partical converge relation` to prove the hinge loss function, when the data is not linearly separable. By limiting on Hilbert space, a weakly convergent subsequence. We can apply asymptotic normality property on the regularization parameter $\lambda_i \to 0$ and thus to solve the miminization problem on the hyperplane $\omega_n$, where the solution $\tilde{\omega}= \omega_*$ because $\omega_*(\lambda_i) \xrightarrow{a.s.} \omega_*$.
 
 The **Markov chain**^[A **Markov chain** is a stochastic model describing a sequence of possible events in which the probability of each event depends only on the state attained in the previous event. In probability theory and related fields, a Markov process, named after the Russian mathematician [Andrey Markov](https://en.wikipedia.org/wiki/Andrey_Markov), is a [stochastic process](https://en.wikipedia.org/wiki/Stochastic_process) that satisfies the [Markov property](https://en.wikipedia.org/wiki/Markov_property).  The defining characteristic of a Markov chain is that no matter how the process arrived at its present state, the possible future states are fixed. In other words, the probability of transitioning to any particular state is dependent solely on the current state and time elapsed. The **state space**, or set of all possible states, can be anything: letters, numbers, weather conditions, sales volume，etc.] can be proved by using `Borel-Cantelli Lemma`. The probability of having state from $i$ and eventually return to $i$ is 1. If this probability is strictly less than 1, $i$ is called transient.
 
