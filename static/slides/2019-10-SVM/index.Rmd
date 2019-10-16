@@ -60,11 +60,10 @@ class: split-two white
 <br>
 ###⚪Attribute Information:
 ###Number of instances: 569
-###Number of attribute: 32
+###Number of attributes: 32
 <br>
 ###1) ID number 
 ###2) Diagnosis (M = malignant, B = benign) 
-<br>
 ###3-32)Ten real-valued features are computed for each cell nucleus:
 a) radius (mean of distances from center to points on the perimeter) 
 b) texture (standard deviation of gray-scale values) 
@@ -81,11 +80,8 @@ j) fractal dimension ("coastline approximation" - 1)
 ]]
 .column.bg-main2[.content[
 ###The mean, standard error and "worst" or largest (mean of the three largest values) of these features were computed for each image, resulting in 30 features. For instance, field 3 is Mean Radius, field 13 is Radius SE, field 23 is Worst Radius.
-<br>
-###All feature values are recoded with four significant digits.
-<br>
-###⚪Missing attribute values: none
-<br>
+![](Cell.jpg)
+
 ###⚪Class distribution: 357 benign, 212 malignant
 
 ]]
