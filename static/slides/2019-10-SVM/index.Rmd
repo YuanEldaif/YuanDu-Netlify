@@ -58,12 +58,17 @@ class: split-two white
 ## Breast Cancer Wisconsin (Diagnostic) Data Set 
 ###University of Wisconsin, Clinical Sciences Center
 <br>
+###Data was from samples of solid breast mass by using fine needle aspiration. Then features were extracted by the computer program from each one of the cells in the sample.
 ###⚪Attribute Information:
 ###Number of instances: 569
 ###Number of attributes: 32
-<br>
+###⚪Class distribution: 357 benign, 212 malignant
 ###1) ID number 
 ###2) Diagnosis (M = malignant, B = benign) 
+
+
+]]
+.column.bg-main2[.content[
 ###3-32)Ten real-valued features are computed for each cell nucleus:
 a) radius (mean of distances from center to points on the perimeter) 
 b) texture (standard deviation of gray-scale values) 
@@ -75,14 +80,9 @@ g) concavity (severity of concave portions of the contour)
 h) concave points (number of concave portions of the contour) 
 i) symmetry 
 j) fractal dimension ("coastline approximation" - 1)
-
-
-]]
-.column.bg-main2[.content[
 ###The mean, standard error and "worst" or largest (mean of the three largest values) of these features were computed for each image, resulting in 30 features. For instance, field 3 is Mean Radius, field 13 is Radius SE, field 23 is Worst Radius.
 ![](Cell.jpg)
 
-###⚪Class distribution: 357 benign, 212 malignant
 
 ]]
 
@@ -90,7 +90,7 @@ j) fractal dimension ("coastline approximation" - 1)
 ---
 class: bg-main1
 #Data Problems:
-##.yellow[High dimensions]
+##.yellow[Data skewness & High dimensions]
 ###Attribute Information: Number of instances: 569, Number of attribute: 32
 ```{r, echo = FALSE, fig.align='center'}
 Data <- read_csv("C:/Work/Project/STA7734/SVM-Asymptotic-Normality/Data/data.csv",
