@@ -246,11 +246,12 @@ class: bg-main1
 ###.yellow[Step]1️⃣ Show that $\sqrt{n}(\mathbb{P}_{D_n} - P)$ converges weakly to a Gaussian process
 
 --
-###.yellow[Step]2️⃣The map $S: P \mapsto f_{L,P,\lambda}$ is suitably Hadamard-differentiable.
+###.yellow[Step]2️⃣The map $S: P \mapsto f_{L,P,\lambda}$ is suitably [Hadamard-differentiable](https://en.wikipedia.org/wiki/Hadamard_derivative):
 
 --
-###🅰️ first order differentiable
-###🅱️ second order differentiable
+###🅰️ S is Gateaux-differentiable(first and second order differentiable).
+###🅱️ The Gateaux-derivative fulfills a continuity property.
+###🆎 Above imply Hadamard-differentiability.
 
 --
 ###.yellow[Step]3️⃣: Applying a functional delta-method, show asymptotic normality of $\lambda$,  $$\sqrt{n}(\lambda_{D_n} - \lambda_0) \xrightarrow{P} 0,$$ then the risk:    $$\sqrt{n}(\mathcal{R}_{L,P}(f_{L,D_n,\lambda_{D_n}}) - \mathcal{R}_{L,P}(f_{L,P,\lambda_0})) \to \sigma \mathcal{N}(0,1)$$
