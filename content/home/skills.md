@@ -37,7 +37,7 @@ subtitle = ""
   icon = "database"
   icon_pack = "fas"
   name = "Database"
-  description = "DBMS, SQL, Parallel processing"
+  description = "DBMS, SQL"
   
 [[feature]]
   icon = "python"
