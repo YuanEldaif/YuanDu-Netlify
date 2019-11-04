@@ -65,8 +65,8 @@ class: bg-main1
 
 # Data Type
 
-<div id="htmlwidget-7f2bd07b305fefdae228" style="width:504px;height:504px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7f2bd07b305fefdae228">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = TB]\n\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled, fillcolor = Linen]\n\n# define arrow\nedge [color = grey, arrowhead = none, arrowtail = none]\n\nChar [label = \"Qualitative (Categorical) \n  Variables \", shape = folder, fillcolor = Beige]\nNum [label = \"Quantatitive (Numerical) \nVariables\", shape = folder, fillcolor = Beige]\nA [label =  \"Nominal\"]\nB [label =  \"Binary\"]\n\nC [label= \"Interval\"]\nD [label= \"Ratio\"]\nE [label= \"Ordinal\"]\n\n# edge definitions with the node IDs\n{Char}  -> A -> B\n{Num}  -> C -> D -> E\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b1717b0fe1e12a84b304" style="width:504px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b1717b0fe1e12a84b304">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = TB]\n\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled, fillcolor = Linen]\n\n# define arrow\nedge [color = grey, arrowhead = none, arrowtail = none]\n\nChar [label = \"Qualitative (Categorical) \n  Variables \", shape = folder, fillcolor = Beige]\nNum [label = \"Quantatitive (Numerical) \nVariables\", shape = folder, fillcolor = Beige]\nA [label =  \"Nominal\"]\nB [label =  \"Binary\"]\n\nC [label= \"Interval\"]\nD [label= \"Ratio\"]\nE [label= \"Ordinal\"]\n\n# edge definitions with the node IDs\n{Char}  -> A -> B\n{Num}  -> C -> D -> E\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 ---
 class: middle center bg-main1
@@ -347,7 +347,7 @@ class: bg-main1
 #.green[Example 2] (Wilcoxon Mann Whitney test)：
 
 --
-###Patients cared under Teaching physician group has lower cost. There is a significant lower LOS in the teaching physician group than in the non teaching group ( 3 days Vs 5 days, p-value&lt;0.001) by Wilcoxon Mann whitney test. 
+###Patients cared under Teaching physician group has lower LOS. There is a significant lower LOS in the teaching physician group than in the non teaching group ( 3 days Vs 5 days, p-value&lt;0.001) by Wilcoxon Mann whitney test. 
 
 
 ```
@@ -431,29 +431,25 @@ class: bg-main1
 ###We Assume the two physician groups had an intervention on reducing medical cost by reducing number of consults. We have a post cost that could compare with previous cost.
 
 ```
-## Warning: Unknown or uninitialised column: 'Post_Cost'.
-```
-
-```
 ## 
 ## 	Paired t-test
 ## 
 ## data:  Cost by group
-## t = NaN, df = 2254, p-value = NA
+## t = 0.00073398, df = 2254, p-value = 0.9994
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  NaN NaN
+##  -1235.300  1236.225
 ## sample estimates:
 ## mean of the differences 
-##                       0
+##               0.4625277
 ```
 
 ```
 ## # A tibble: 2 x 5
 ##   group  count   mean     sd     max
 ##   &lt;fct&gt;  &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-## 1 After   2255 17274. 22439. 243710.
-## 2 Before  2255 17274. 22439. 243710.
+## 1 After   2255 16973. 22447. 243710.
+## 2 Before  2255 16973. 22432. 243299.
 ```
 
 ---
@@ -464,20 +460,11 @@ class: bg-main1
 ###We Assume the two physician groups had an intervention on reducing LOS by reducing number of consults. We have a post LOS that could compare with previous LOS.
 
 ```
-## Warning: Unknown or uninitialised column: 'Post_LOS'.
-```
-
-```
-## Warning in wilcox.test.default(x = c(2, 3, 1, 9, 17, 66, 3, 8, 1, 5, 2, :
-## cannot compute exact p-value with zeroes
-```
-
-```
 ## 
 ## 	Wilcoxon signed rank test with continuity correction
 ## 
 ## data:  LOS by group
-## V = 0, p-value = NA
+## V = 0, p-value &lt; 2.2e-16
 ## alternative hypothesis: true location shift is not equal to 0
 ```
 
@@ -485,7 +472,7 @@ class: bg-main1
 ## # A tibble: 2 x 5
 ##   group  count  mean    sd median
 ##   &lt;fct&gt;  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
-## 1 After   2255  7.16  8.01      5
+## 1 After   2255  3.57  4.96      2
 ## 2 Before  2255  7.16  8.01      5
 ```
 
@@ -493,7 +480,7 @@ class: bg-main1
 class: split-two white
 
 .column.bg-main1[.content[
-`We want to see if there is correlation between Age and Cost.`
+##We want to see if there is correlation between Age and Cost, a linear relationship between two continuous variables
 #.green[Pearson correlation test:]
 &lt;br&gt;
 
@@ -517,7 +504,7 @@ cor.test(Data$Age, Data$Cost_Observed)
 
 ]]
 .column.bg-main2[.content[
- `We want to see if there is correlation between Number of consults and LOS.`
+##We want to see if there is correlation between Number of consults and LOS, a monotonic relationship between two continuous or ordinal variables
 #.green[Spearman correlation test:]
 &lt;br&gt;
 
@@ -541,13 +528,13 @@ cor.test(Data$Number_of_consults, Data$Cost_Observed, method = "spearman")
 
 ---
 class: bg-main1
-#Class Activity 1 (.green[Outcome is numerical]): 
-###In groups of 2-4: Please match the statement (white paper) with the appropriate statistical test (.green[green paper])
+#Class Activity (Outcome is .yellow[categorical] or .green[Numerical] ): 
+###In groups of 2-4: Please match the statement (.green[green font]) with the appropriate statistical test (.black[black font])
 &lt;br&gt;
 ###Variables include Age, Gender, Cost, LOS, Readmission, Mortality, Physician Group, Insurance type
 
 &lt;br&gt;
-###.green[Note]: Assume normal distribution of Age, Cost; non-normal distribution of cost.
+###.purple[Note]: Assume normal distribution of Age, Cost; non-normal distribution of LOS, number of consults.
 
 ---
 class: bg-main1
@@ -646,13 +633,18 @@ class: bg-main1
 
 ---
 class: bg-main1
-#Class Activity 2 （Outcome is .yellow[categorical] or .green[Numerical] ): 
-###In groups of 2-4: Please match the statement (white paper) with the appropriate statistical test (.purple[purple paper])
-&lt;br&gt;
-###Variables include Age, Gender, Cost, LOS, Readmission, Mortality, Physician Group, Insurance type
+##Summary:
 
-&lt;br&gt;
-###.purple[Note]: Assume normal distribution of Age, Cost; non-normal distribution of cost.
+--
+###-Construct hypothesis ✔️
+
+--
+###-.green[Outcome is numerical] (Parametric test &amp; Non-parametric test) ✔️
+
+--
+###-.yellow[Outcome is categorical] ✔️
+
+
 
 ---
 class: middle center bg-main1
