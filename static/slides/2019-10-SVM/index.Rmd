@@ -1,6 +1,6 @@
 ---
 title: "Breast Cancer Classification"
-subtitle: "⚔<br/>  by using SVM - A rewview of Asymptotic Properties"
+subtitle: "⚔<br/>  by using SVM - A review of Asymptotic Properties"
 author: "<br><br>Yuan Du&nbsp;&nbsp;&nbsp;`r anicon::faa('linkedin', animate='float', rtext='&nbsp;https://www.linkedin.com/in/yuaneldaif/')`"
 date: "<br>11-05-2019<br><br>`r anicon::faa('link', animate='vertical', rtext='&nbsp;https://yuandueldaif.netlify.com', color='white')`"
 output:
