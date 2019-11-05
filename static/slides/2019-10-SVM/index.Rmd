@@ -159,7 +159,8 @@ class: bg-main1
 <br>
 
 --
-###These results are not only of theoretical interest but also be a starting point for statistical inferences such as confidence intervals and hypothesis testing.`r emo::ji("heavy_check_mark")`
+###These results are not only of theoretical interest but also be a starting point for statistical inferences such as confidence intervals and hypothesis testing. `r emo::ji("heavy_check_mark")`
+###"Inference for Support Vector Regression under $\mathcal{l_1}$ Regularization"
 <br>
 
 --
