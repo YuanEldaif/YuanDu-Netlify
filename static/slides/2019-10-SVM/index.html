@@ -15,92 +15,22 @@
 class: center, middle, inverse, title-slide
 
 # Breast Cancer Classification
-## ⚔<br/> by using SVM
+## ⚔<br/> by using SVM - A rewview of Asymptotic Properties
 ### <br><br>Yuan Du   <span>&lt;i class="fab  fa-linkedin faa-float animated "&gt;&lt;/i&gt;&amp;nbsp;https://www.linkedin.com/in/yuaneldaif/</span>
-### <br>10-15-2019<br><br><span>&lt;i class="fas  fa-link faa-vertical animated " style=" color:white;"&gt;&lt;/i&gt;&amp;nbsp;https://yuandueldaif.netlify.com</span>
+### <br>11-05-2019<br><br><span>&lt;i class="fas  fa-link faa-vertical animated " style=" color:white;"&gt;&lt;/i&gt;&amp;nbsp;https://yuandueldaif.netlify.com</span>
 
 ---
 
-class: bg-main1
+class: bg-main1 inverse black
 
 background-image: url("BreastCancer.jpg")
 background-size: contain
----
-class: bg-main1
-##⚠️Breast cancer is the second leading cause of cancer death in women after lung cancer. 
-
---
-##⚠️There is a 1 in 8 chance she will develop breast cancer in the United States.
-
---
-##⚠️The average 5-year survival rate for women with invasive breast cancer is 90%.
-
---
-###🔴If the cancer is located only in the breast, the 5-year survival rate of women with breast cancer is 99%. 62% of people with breast cancer are diagnosed with this stage.
-
---
-###🔴If the cancer has spread to the regional lymph nodes, the 5-year survival rate is 85%.
-
---
-###🔴If the cancer has spread to a distant part of the body, the 5-year survival rate is 27%.
-
----
-class: split-two white
-
-.column.bg-main1[.content[
-## Breast Cancer Wisconsin (Diagnostic) Data Set 
-###University of Wisconsin, Clinical Sciences Center
-&lt;br&gt;
-###Data was from samples of solid breast mass by using fine needle aspiration. Then features were extracted by the computer program from each one of the cells in the sample.
-###⚪Attribute Information:
-###Number of instances: 569
-###Number of attributes: 32
-###⚪Class distribution: 357 benign, 212 malignant
-###1) ID number 
-###2) Diagnosis (M = malignant, B = benign) 
-
-
-]]
-.column.bg-main2[.content[
-###3-32)Ten real-valued features are computed for each cell nucleus:
-a) radius (mean of distances from center to points on the perimeter) 
-b) texture (standard deviation of gray-scale values) 
-c) perimeter 
-d) area 
-e) smoothness (local variation in radius lengths) 
-f) compactness (perimeter^2 / area - 1.0) 
-g) concavity (severity of concave portions of the contour) 
-h) concave points (number of concave portions of the contour) 
-i) symmetry 
-j) fractal dimension ("coastline approximation" - 1)
-###The mean, standard error and "worst" or largest (mean of the three largest values) of these features were computed for each image, resulting in 30 features. For instance, field 3 is Mean Radius, field 13 is Radius SE, field 23 is Worst Radius.
-![](Cell.jpg)
-
-
-]]
-
-
----
-class: bg-main1
-#Data Problems:
-##.yellow[Data skewness &amp; High dimensions]
-###Attribute Information: Number of instances: 569, Number of attribute: 32
-&lt;img src="index_files/figure-html/unnamed-chunk-1-1.png" style="display: block; margin: auto;" /&gt;
-
----
-class: bg-main1
-##.yellow[Multicolinearity]: Same feature for each image was computed in three ways - mean, standard error and "worst" or largest (mean of the three largest values), results in 30 variables.
-### Correlaion analysis by spearman since most variables are non normal distributed
-&lt;img src="index_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
-
----
-class: bg-main1
 
 #Model: SVM
-##.green[Article :] ["Asymptotic normality of support vector machine variants and other regularized kernel methods"](https://www.sciencedirect.com/science/article/pii/S0047259X11002090) --Robert Hable
+##.green[Article : "Asymptotic normality of support vector machine variants and other regularized kernel methods" ] --Robert Hable
 
 --
-##.yellow[SVM Estimator] `$$S_n: (\mathcal{X} \, X \, \mathcal{Y})^n \to H, \quad D_n \mapsto f_{L,D_n,\lambda_{D_n}}$$`
+##.blue[SVM Estimator] `$$S_n: (\mathcal{X} \, X \, \mathcal{Y})^n \to H, \quad D_n \mapsto f_{L,D_n,\lambda_{D_n}}$$`
 
 ##where `\(f_{L,D_n,\lambda_{D_n}}\)` is that function `\(f \in H\)` which minimizes `$$\frac{1}{n} \sum L(x_i,y_i,f(x_i)) + \lambda_{D_n}||f||_H^2$$`.
 

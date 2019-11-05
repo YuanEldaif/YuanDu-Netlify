@@ -366,7 +366,7 @@ class: bg-main1
 #.green[Example 2] (Wilcoxon Mann Whitney test)：
 
 --
-###Patients cared under Teaching physician group has lower cost. There is a significant lower LOS in the teaching physician group than in the non teaching group ( 3 days Vs 5 days, p-value<0.001) by Wilcoxon Mann whitney test. 
+###Patients cared under Teaching physician group has lower LOS. There is a significant lower LOS in the teaching physician group than in the non teaching group ( 3 days Vs 5 days, p-value<0.001) by Wilcoxon Mann whitney test. 
 
 ```{r, echo = FALSE }
 wilcox.test(LOS_Observed ~ Physician_Group, data = Data)
@@ -414,7 +414,7 @@ Cost_Pre<-Data$Cost_Observed
 Cost_post<-Data$Post_Cost
 
 PairCost <- data.frame( 
-                group = rep(c("Before", "After"), each =2255),
+                group = rep(c("Before", "After")), #, each =2277
                 Cost = c(Cost_Pre,  Cost_post)
                 )
 t.test(Cost ~ group, data = PairCost， paired = TRUE )
@@ -468,7 +468,7 @@ group_by(PairLOS, group) %>%
 class: split-two white
 
 .column.bg-main1[.content[
-`We want to see if there is correlation between Age and Cost.`
+##We want to see if there is correlation between Age and Cost, a linear relationship between two continuous variables
 #.green[Pearson correlation test:]
 <br>
 ```{r}
@@ -477,7 +477,7 @@ cor.test(Data$Age, Data$Cost_Observed)
 
 ]]
 .column.bg-main2[.content[
- `We want to see if there is correlation between Number of consults and LOS.`
+##We want to see if there is correlation between Number of consults and LOS, a monotonic relationship between two continuous or ordinal variables
 #.green[Spearman correlation test:]
 <br>
 ```{r, warning=FALSE}
@@ -488,13 +488,13 @@ cor.test(Data$Number_of_consults, Data$Cost_Observed, method = "spearman")
 
 ---
 class: bg-main1
-#Class Activity 1 (.green[Outcome is numerical]): 
-###In groups of 2-4: Please match the statement (white paper) with the appropriate statistical test (.green[green paper])
+#Class Activity (Outcome is .yellow[categorical] or .green[Numerical] ): 
+###In groups of 2-4: Please match the statement (.green[green font]) with the appropriate statistical test (.black[black font])
 <br>
 ###Variables include Age, Gender, Cost, LOS, Readmission, Mortality, Physician Group, Insurance type
 
 <br>
-###.green[Note]: Assume normal distribution of Age, Cost; non-normal distribution of cost.
+###.purple[Note]: Assume normal distribution of Age, Cost; non-normal distribution of LOS, number of consults.
 
 ---
 class: bg-main1
@@ -545,13 +545,18 @@ fisher.test(table(Prace$Insurance_Type, Prace$Race))
 
 ---
 class: bg-main1
-#Class Activity 2 （Outcome is .yellow[categorical] or .green[Numerical] ): 
-###In groups of 2-4: Please match the statement (white paper) with the appropriate statistical test (.purple[purple paper])
-<br>
-###Variables include Age, Gender, Cost, LOS, Readmission, Mortality, Physician Group, Insurance type
+##Summary:
 
-<br>
-###.purple[Note]: Assume normal distribution of Age, Cost; non-normal distribution of cost.
+--
+###-Construct hypothesis `r emo::ji("heavy_check_mark")`
+
+--
+###-.green[Outcome is numerical] (Parametric test & Non-parametric test) `r emo::ji("heavy_check_mark")`
+
+--
+###-.yellow[Outcome is categorical] `r emo::ji("heavy_check_mark")`
+
+
 
 ---
 class: middle center bg-main1
