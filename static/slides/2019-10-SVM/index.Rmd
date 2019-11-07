@@ -174,6 +174,7 @@ class: bg-main1
 --
 ###-"Distributed Inference for Linear Support Vector Machine"
 ###Asymptotic result of parameter $\tilde{\beta}$ avoids the condition on the number of machines or data batches. The estimator takes forms of weighted least square.
+$$\tilde{\beta} = [\frac{1}{n} \sum_{i=1}^{n}u_i(y_i,X_i,\tilde{\beta_0})X_iX_i^T]^{-1} \{\frac{1}{n} \sum_{i=1}^{n}v_i(y_i,X_i,\tilde{\beta_0})y_iX_i - \omega(\tilde{\beta_0})\}$$
 
 --
 <br>
