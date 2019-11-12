@@ -40,9 +40,11 @@ By using `Fatou-Lebesgue Lemma`, we can prove the `(a) Monotone convergence Theo
 
 `Borel-Cantelli Lemma` is useful in problems related to the a.s. convergence. It could be written as $P(|X_n - X|>\epsilon i.o.) = 0, \forall \epsilon > 0$. 
 
-**Laws of Large Numbers**: When the convergence is in probability or law, this is known as weak law of large numbers (WLLN). if $E|X| < \infty$, then $\bar{X_n} \xrightarrow{P} \mu = EX$. When the convergence is almost surely, it is the strong lasw of large nubmers (SLLN). $\bar{X_n} \xrightarrow{a.s.} \mu \Leftrightarrow EX < \infty$ and $\mu = EX$
+**Laws of Large Numbers**: When the convergence is in probability or law, this is known as weak law of large numbers (WLLN). if $E|X| < \infty$, then $\bar{X_n} \xrightarrow{P} \mu = EX$. When the convergence is almost surely, it is the strong laws of large nubmers (SLLN). $\bar{X_n} \xrightarrow{a.s.} \mu \Leftrightarrow EX < \infty$ and $\mu = EX$
 
 **Central Limit Theorems**: Let $X_1,X_2,\dots$ be i.i.d. random vectors with mean $\mu$ and finite covariance matrix, $\Sigma$. Then $\sqrt{n}(\bar{X_n} - \mu) \xrightarrow{L} N(0,\Sigma)$.
+
+**Slutsky's Theorem**: Let $\{X_n\}, \{Y_n\}$ be sequences of scalar/vector/matrix random elements. If $X_n$ converges in distribution to a random element X; and $Y_n$ converges in probability to a constant c, then $X_n + Y_n \xrightarrow{d} X + c$, $X_nY_n \xrightarrow{d} cX$, $\frac{X_n}{Y_n} \xrightarrow{d} \frac{X_n}{c}$.
 
 **SVM**^[**SVM** is supervised learning model with associated learning algorithm that analyzes data used for classification and regression analysis.]could be an application of `Lebesgue Dominated Convergence Theorem` and `Central Limit Theorem`. We can use the theorem and `Partical converge relation` to prove the hinge loss function, when the data is not linearly separable. By limiting on Hilbert space, a weakly convergent subsequence. We can apply asymptotic normality property on the regularization parameter $\lambda_i \to 0$ and thus to solve the miminization problem on the hyperplane $\omega_n$, where the solution $\tilde{\omega}= \omega_*$ because $\omega_*(\lambda_i) \xrightarrow{a.s.} \omega_*$.
 
