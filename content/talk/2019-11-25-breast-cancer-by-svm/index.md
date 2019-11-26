@@ -41,6 +41,6 @@ links:
 Breast Cancer Image Classification Analysis Mainly by SVM 
 
 {{% alert note %}}
-Click on the **slides** button above to view the built-in slides feature.
+Click on the **report** button above to view the built-in slides feature.
 {{% /alert %}}
 
