@@ -21,7 +21,7 @@ tags: []
 featured: no
 
 image:
-  caption: 'Image credit: [**Creative Commons Attribution 4.0 International**](https://images.app.goo.gl/HUs9xwHM8ifW4nFz9)'
+  caption: 'Image credit: [**Creative Commons Attribution 4.0 International**](https://images.app.goo.gl/SgjmUGRXJzjZ2R5n6)'
   focal_point: Center
 
 
