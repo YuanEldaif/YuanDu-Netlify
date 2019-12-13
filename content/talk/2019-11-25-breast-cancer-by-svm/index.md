@@ -8,11 +8,11 @@ summary: Breast Cancer Image Classification Analysis Mainly by SVM
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
 date: "2019-11-26T16:30:00Z"
-date_end: "2019-11-25T16:30:00Z"
+date_end: "2019-12-5T16:30:00Z"
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: "2019-11-25T00:00:00Z"
+publishDate: "2019-12-5T00:00:00Z"
 
 authors: []
 tags: []
