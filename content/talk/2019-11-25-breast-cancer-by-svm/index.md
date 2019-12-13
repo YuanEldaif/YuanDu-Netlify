@@ -3,16 +3,16 @@ title: Breast Cancer Image Classification Analysis by SVM
 event: Analysis Report
 
 location: UCF
-summary: Breast Cancer Image Classification Analysis Mainly by SVM
+summary: Breast Cancer Image Classification Analysis Mainly by SVM.
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: "2019-11-26T16:30:00Z"
-date_end: "2019-12-5T16:30:00Z"
+date: "2019-12-25T16:30:00Z"
+date_end: "2019-12-25T17:30:00Z"
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: "2019-12-5T00:00:00Z"
+publishDate: "2019-10-14T00:00:00Z"
 
 authors: []
 tags: []
@@ -32,7 +32,7 @@ links:
 - icon: flask
   icon_pack: fas
   name: report
-  url: ../../slides/2019-11-25-breast-svm/STA7734-Project-Analysis-Nov2019.html 
+  url: ../../slides/2019-11-25-breast-svm/STA7734-Project-Analysis.html 
 - icon: github
   icon_pack: fab
   name: code
@@ -43,4 +43,3 @@ Breast Cancer Image Classification Analysis Mainly by SVM
 {{% alert note %}}
 Click on the **report** button above to view the built-in slides feature.
 {{% /alert %}}
-
