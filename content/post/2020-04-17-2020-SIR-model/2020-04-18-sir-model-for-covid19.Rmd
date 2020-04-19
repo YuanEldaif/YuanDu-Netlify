@@ -35,7 +35,7 @@ If $R_0$ > 1, epidemic is in the epidemic state;
 
 If $R_0$ < 1, epidemic dies out.
 
-**The purpose of the post is to estiamte the $R_0$ value based on US data and then make predictions for the future.**
+**The purpose of the post is to estiamte the basic reproduction number R-nought / [$R_0$](https://en.wikipedia.org/wiki/Basic_reproduction_number) value based on US data and then make predictions for the future.**
 
 **1 Load packages**:
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
