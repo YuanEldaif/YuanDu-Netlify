@@ -1,0 +1,147 @@
+---
+title: SIR Model for Covid19
+author: Yuan Du
+date: '2020-04-18'
+slug: sir-model-for-covid19
+categories:
+  - Statistics
+tags:
+  - Research
+  - Statistical Modeling
+  - Network Science
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-04-18T22:35:54-04:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>It’s been a hectic time few months since my last post. I was focus on learning new topics: Bayesian Analysis and Network Science. Working and schooling at home during this pandemic chaos is challenging, but it doesn’t stop the hope of renew and transformation. One of the most popular statistcal modeling method for epidemiology and network science-Spreading Phenomena is SIR (susceptible-infected-recovered) model from <a href="https://timchurches.github.io/blog/posts/2020-02-18-analysing-covid-19-2019-ncov-outbreak-data-with-r-part-1/">Tim Churches</a>.</p>
+<p><strong>Susceptible (S)</strong>: Healthy individuals who have not yet contacted the pathogen.</p>
+<p><strong>Infectious (I)</strong>: Contagious individuals who have contacted the pathogen and hence can infect others.</p>
+<p><strong>Recovered/Removed (R)</strong>: Infected individuals become immune or die, i.e., will not be infected again and cannot infect anyone else.
+<img src="SIR-SIRS.png" /></p>
+<p>As shown in the picture above, there are two important rates <span class="math inline">\(\beta\)</span>(transmission rate of the pathogen), <span class="math inline">\(\gamma\)</span>(recovery rate). You probablily heard the <span class="math inline">\(R_0\)</span> value.</p>
+<p>If <span class="math inline">\(R_0\)</span> &gt; 1, epidemic is in the epidemic state;</p>
+<p>If <span class="math inline">\(R_0\)</span> &lt; 1, epidemic dies out.</p>
+<p><strong>The purpose of the post is to estiamte the <span class="math inline">\(R_0\)</span> value based on US data and then make predictions for the future.</strong></p>
+<p><strong>1 Load packages</strong>:</p>
+<pre class="r"><code>#install.packages(c(&quot;httr&quot;, &quot;jsonlite&quot;))
+library(httr)
+library(jsonlite)
+#install.packages(&quot;optimr&quot;)
+library(optimr)
+library(deSolve)
+library(tidyverse)
+library(lubridate)</code></pre>
+<p><strong>2 Retrieve data from John’s Hopkins and use date March 1st till March 15 to fit SIR Model and check if the fit is reasonable</strong>:</p>
+<pre class="r"><code>#by Johns Hopkins CSSE
+res = GET(&quot;https://pomber.github.io/covid19/timeseries.json&quot;)
+
+data = fromJSON(rawToChar(res$content))
+#names(data) all contries 
+US = data$US
+US$date=as.Date(US$date) 
+
+new&lt;-US %&gt;% filter(date&gt;= &quot;2020-03-01&quot;&amp; date&lt;&quot;2020-03-15&quot;) #for US data only
+head(new) #first six rows</code></pre>
+<pre><code>##         date confirmed deaths recovered
+## 1 2020-03-01        74      1         7
+## 2 2020-03-02        98      6         7
+## 3 2020-03-03       118      7         7
+## 4 2020-03-04       149     11         7
+## 5 2020-03-05       217     12         7
+## 6 2020-03-06       262     14         7</code></pre>
+<pre class="r"><code>tail(new) #last six rows</code></pre>
+<pre><code>##          date confirmed deaths recovered
+## 9  2020-03-09       583     22         7
+## 10 2020-03-10       959     28         8
+## 11 2020-03-11      1281     36         8
+## 12 2020-03-12      1663     40        12
+## 13 2020-03-13      2179     47        12
+## 14 2020-03-14      2727     54        12</code></pre>
+<p><strong>3 build SIR Model and find <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span> by optimization method <a href="https://en.wikipedia.org/wiki/Residual_sum_of_squares">RSS</a></strong>:</p>
+<pre class="r"><code>#Initial values:
+Infected &lt;- new$confirmed
+Day &lt;- 1:(length(new$date))
+N&lt;-327200000 #US population
+init &lt;- c(S = N - Infected[1], I = Infected[1], R = 0) #Inital value
+
+## SIR Model
+SIR &lt;- function(time, state, parameters) {
+  par &lt;- as.list(c(state, parameters))
+  with(par, {
+    dS &lt;- -beta * I * S/N
+    dI &lt;- beta * I * S/N - gamma * I
+    dR &lt;- gamma * I
+    list(c(dS, dI, dR))
+  })
+}
+
+#Optimization by RSS to get beta and gamma
+RSS &lt;- function(parameters) {
+  names(parameters) &lt;- c(&quot;beta&quot;, &quot;gamma&quot;)
+  out &lt;- ode(y = init, times = Day, func = SIR, parms = parameters)
+  fit &lt;- out[, 3]
+  sum((Infected - fit)^2)
+}
+
+Opt &lt;- optim(c(0.5, 0.5), RSS, method = &quot;L-BFGS-B&quot;, lower = c(0,0), upper = c(1, 1))
+
+Opt_par &lt;- setNames(Opt$par, c(&quot;beta&quot;, &quot;gamma&quot;))
+Opt_par</code></pre>
+<pre><code>##      beta     gamma 
+## 0.6398438 0.3601562</code></pre>
+<pre class="r"><code>#R0
+Opt$par[1]/Opt$par[2]</code></pre>
+<pre><code>## [1] 1.776573</code></pre>
+<p><strong>4 Plot the predicted value vs raw data</strong></p>
+<pre class="r"><code>sir_start_date &lt;- &quot;2020-03-01&quot;
+t &lt;- 1:as.integer(ymd(&quot;2020-03-15&quot;) - ymd(sir_start_date))
+
+# get the fitted values from our SIR model
+fitted_cumulative_incidence &lt;- data.frame(ode(y = init, times = t, 
+                                              func = SIR, parms = Opt_par))
+# add a Date column and join the observed incidence data
+fitted_cumulative_incidence &lt;- fitted_cumulative_incidence %&gt;% 
+  mutate(date = ymd(sir_start_date) + days(t - 1)) %&gt;% 
+  left_join(new %&gt;% ungroup() %&gt;% select(date, confirmed))</code></pre>
+<pre><code>## Joining, by = &quot;date&quot;</code></pre>
+<pre class="r"><code># plot the data
+fitted_cumulative_incidence %&gt;% 
+  ggplot(aes(x = date)) + geom_line(aes(y = I), colour = &quot;red&quot;) + 
+  geom_point(aes(y = confirmed), colour = &quot;orange&quot;) + 
+  labs(y = &quot;Cumulative incidence&quot;, title = &quot;COVID-19 fitted vs observed cumulative incidence, US 03/15-04/15&quot;, 
+       subtitle = &quot;(red=fitted incidence from SIR model, orange=observed incidence)&quot;)</code></pre>
+<p><img src="/post/2020-04-17-2020-SIR-model/2020-04-18-sir-model-for-covid19_files/figure-html/plot-1.png" width="672" /></p>
+<p><strong>5 The fit looks reasonable with R0=1.78, now we use the model to predict the curve for 3 months starting from March</strong></p>
+<pre class="r"><code>#Prediction
+# time in days for predictions
+t &lt;- 1:90
+# get the fitted values from our SIR model
+fitted_cumulative_incidence &lt;- data.frame(ode(y = init, times = t, 
+                                              func = SIR, parms = Opt_par))
+# add a Date column and join the observed incidence data
+fitted_cumulative_incidence &lt;- fitted_cumulative_incidence %&gt;% 
+  mutate(date = ymd(sir_start_date) + days(t - 1)) %&gt;% 
+  left_join(new %&gt;% ungroup() %&gt;% select(date, confirmed))</code></pre>
+<pre><code>## Joining, by = &quot;date&quot;</code></pre>
+<pre class="r"><code># plot the data
+fitted_cumulative_incidence %&gt;% ggplot(aes(x = date)) + geom_line(aes(y = I), 
+                                                                  colour = &quot;red&quot;) + geom_line(aes(y = S), colour = &quot;black&quot;) + 
+  geom_line(aes(y = R), colour = &quot;green&quot;) + geom_point(aes(y = confirmed), 
+                                                       colour = &quot;orange&quot;) + scale_y_continuous(labels = scales::comma) + 
+  labs(y = &quot;Persons&quot;, title = &quot;COVID-19 fitted vs observed cumulative incidence&quot;) + 
+  scale_colour_manual(name = &quot;&quot;, values = c(red = &quot;red&quot;, black = &quot;black&quot;, 
+                                            green = &quot;green&quot;, orange = &quot;orange&quot;), labels = c(&quot;Susceptible&quot;, 
+                                                                                            &quot;Recovered&quot;, &quot;Observed incidence&quot;, &quot;Infectious&quot;))</code></pre>
+<pre><code>## Warning: Removed 76 rows containing missing values (geom_point).</code></pre>
+<p><img src="/post/2020-04-17-2020-SIR-model/2020-04-18-sir-model-for-covid19_files/figure-html/Prediction-1.png" width="672" /></p>
+<p><strong>Conclusion: It looks like the peak will be in the end of April and it will die down at the end of May.</strong></p>
