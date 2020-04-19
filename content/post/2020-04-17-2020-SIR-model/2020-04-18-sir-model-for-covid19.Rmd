@@ -9,6 +9,7 @@ tags:
   - Research
   - Statistical Modeling
   - Network Science
+  - COVID19
 subtitle: ''
 summary: ''
 authors: []
@@ -27,7 +28,10 @@ It's been a hectic time few months since my last post. I was focus on learning n
 **Infectious (I)**: Contagious individuals who have contacted the pathogen and hence can infect others.
 
 **Recovered/Removed (R)**: Infected individuals become immune or die, i.e., will not be infected again and cannot infect anyone else.
-![](C:/Work/Project/Blogdown/YuanDu-Netlify/content/post/2020-04-17-2020-SIR-model/SIR-SIRS.png)
+
+```{r, echo = FALSE, fig.align='center', out.height="100%" , out.width="100%"}
+knitr::include_graphics("C:/Work/Project/Blogdown/YuanDu-Netlify/content/post/2020-04-17-2020-SIR-model/SIR-SIRS.png")
+```
 
 As shown in the picture above, there are two important rates $\beta$(transmission rate of the pathogen), $\gamma$(recovery rate). You probablily heard the $R_0$ value.
 
@@ -37,7 +41,7 @@ If $R_0$ < 1, epidemic dies out.
 
 **The purpose of the post is to estiamte the basic reproduction number R-nought / [$R_0$](https://en.wikipedia.org/wiki/Basic_reproduction_number) value based on US data and then make predictions for the future.**
 
-**1 Load packages**:
+- **1 Load packages**:
 ```{r, eval=TRUE, echo=TRUE, message=FALSE}
 #install.packages(c("httr", "jsonlite"))
 library(httr)
@@ -50,7 +54,7 @@ library(lubridate)
 ```
 
 
-**2 Retrieve data from John's Hopkins and use date March 1st till March 15 to fit SIR Model and check if the fit is reasonable**:
+- **2 Retrieve data from John's Hopkins and use date March 1st till March 15 to fit SIR Model and check if the fit is reasonable**:
 
 ```{r read, eval = TRUE, echo=TRUE, message=FALSE}
 #by Johns Hopkins CSSE
@@ -67,7 +71,7 @@ tail(new) #last six rows
 
 ```
 
-**3 build SIR Model and find $\beta$ and $\gamma$ by optimization method [RSS](https://en.wikipedia.org/wiki/Residual_sum_of_squares)**:
+- **3 build SIR Model and find $\beta$ and $\gamma$ by optimization method [RSS](https://en.wikipedia.org/wiki/Residual_sum_of_squares)**:
 ```{r SIR Model, echo=TRUE, message=FALSE}
 #Initial values:
 Infected <- new$confirmed
@@ -103,7 +107,7 @@ Opt_par
 Opt$par[1]/Opt$par[2]
 
 ```
-**4 Plot the predicted value vs raw data**
+- **4 Plot the predicted value vs raw data**
 ```{r plot}
 sir_start_date <- "2020-03-01"
 t <- 1:as.integer(ymd("2020-03-15") - ymd(sir_start_date))
@@ -124,7 +128,7 @@ fitted_cumulative_incidence %>%
        subtitle = "(red=fitted incidence from SIR model, orange=observed incidence)")
 ```
 
-**5 The fit looks reasonable with R0=1.78, now we use the model to predict the curve for 3 months starting from March**
+- **5 The fit looks reasonable with R0=1.78, now we use the model to predict the curve for 3 months starting from March**
 ```{r Prediction}
 #Prediction
 # time in days for predictions
