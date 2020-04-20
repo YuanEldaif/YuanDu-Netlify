@@ -122,7 +122,7 @@ fitted_cumulative_incidence <- fitted_cumulative_incidence %>%
 fitted_cumulative_incidence %>% 
   ggplot(aes(x = date)) + geom_line(aes(y = I), colour = "red") + 
   geom_point(aes(y = confirmed), colour = "orange") + 
-  labs(y = "Cumulative incidence", title = "COVID-19 fitted vs observed cumulative incidence, US 03/15-04/15", 
+  labs(y = "Cumulative incidence", title = "COVID-19 fitted vs observed cumulative incidence, US 03/01-03/15", 
        subtitle = "(red=fitted incidence from SIR model, orange=observed incidence)")
 ```
 
@@ -144,7 +144,7 @@ fitted_cumulative_incidence %>% ggplot(aes(x = date)) + geom_line(aes(y = I),
                                                                   colour = "red") + geom_line(aes(y = S), colour = "black") + 
   geom_line(aes(y = R), colour = "green") + geom_point(aes(y = confirmed), 
                                                        colour = "orange") + scale_y_continuous(labels = scales::comma) + 
-  labs(y = "Persons", title = "COVID-19 fitted vs observed cumulative incidence") + 
+  labs(y = "Persons", title = "COVID-19 3 months prediction") + 
   scale_colour_manual(name = "", values = c(red = "red", black = "black", 
                                             green = "green", orange = "orange"), labels = c("Susceptible", 
                                                                                             "Recovered", "Observed incidence", "Infectious"))
