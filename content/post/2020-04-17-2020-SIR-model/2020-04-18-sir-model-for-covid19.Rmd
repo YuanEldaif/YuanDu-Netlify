@@ -21,7 +21,7 @@ image:
   preview_only: no
 projects: []
 ---
-It's been a hectic time few months since my last post. I was focus on learning new topics: Bayesian Analysis and Network Science. Working and schooling at home during this pandemic chaos is challenging, but it doesn't stop the hope of renew and transformation. One of the most popular statistcal modeling method for epidemiology and network science-Spreading Phenomena is SIR (susceptible-infected-recovered) model from [Tim Churches](https://timchurches.github.io/blog/posts/2020-02-18-analysing-covid-19-2019-ncov-outbreak-data-with-r-part-1/).
+It's been a hectic few months since my last post. Working and schooling at home during this pandemic chaos is challenging, but it doesn't stop the hope of renew and transformation. One of the most popular statistcal modeling method for epidemiology and network science-Spreading Phenomena is SIR (susceptible-infected-recovered) model from [Tim Churches](https://timchurches.github.io/blog/posts/2020-02-18-analysing-covid-19-2019-ncov-outbreak-data-with-r-part-1/).
 
 **Susceptible (S)**: Healthy individuals who have not yet contacted the pathogen.
 
@@ -31,7 +31,7 @@ It's been a hectic time few months since my last post. I was focus on learning n
 ![](/img/SIR-SIRS.png)
 
 
-As shown in the picture above, there are two important rates $\beta$(transmission rate of the pathogen), $\gamma$(recovery rate). You probablily heard of the $R_0$ value (R nought).
+As shown in the picture above, there are two important rates $\beta$(transmission rate of the pathogen), $\gamma$(recovery rate). You probablily heard of the basic reproduction number $R_0$ value (R-nought), which can be calculated by $\frac{\beta}{\gamma}$.
 
 If $R_0$ > 1, epidemic is in the epidemic state;
 

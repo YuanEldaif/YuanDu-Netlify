@@ -24,12 +24,12 @@ projects: []
 
 
 
-<p>It’s been a hectic time few months since my last post. I was focus on learning new topics: Bayesian Analysis and Network Science. Working and schooling at home during this pandemic chaos is challenging, but it doesn’t stop the hope of renew and transformation. One of the most popular statistcal modeling method for epidemiology and network science-Spreading Phenomena is SIR (susceptible-infected-recovered) model from <a href="https://timchurches.github.io/blog/posts/2020-02-18-analysing-covid-19-2019-ncov-outbreak-data-with-r-part-1/">Tim Churches</a>.</p>
+<p>It’s been a hectic few months since my last post. Working and schooling at home during this pandemic chaos is challenging, but it doesn’t stop the hope of renew and transformation. One of the most popular statistcal modeling method for epidemiology and network science-Spreading Phenomena is SIR (susceptible-infected-recovered) model from <a href="https://timchurches.github.io/blog/posts/2020-02-18-analysing-covid-19-2019-ncov-outbreak-data-with-r-part-1/">Tim Churches</a>.</p>
 <p><strong>Susceptible (S)</strong>: Healthy individuals who have not yet contacted the pathogen.</p>
 <p><strong>Infectious (I)</strong>: Contagious individuals who have contacted the pathogen and hence can infect others.</p>
 <p><strong>Recovered/Removed (R)</strong>: Infected individuals become immune or die, i.e., will not be infected again and cannot infect anyone else.
 <img src="/img/SIR-SIRS.png" /></p>
-<p>As shown in the picture above, there are two important rates <span class="math inline">\(\beta\)</span>(transmission rate of the pathogen), <span class="math inline">\(\gamma\)</span>(recovery rate). You probablily heard of the <span class="math inline">\(R_0\)</span> value (R nought).</p>
+<p>As shown in the picture above, there are two important rates <span class="math inline">\(\beta\)</span>(transmission rate of the pathogen), <span class="math inline">\(\gamma\)</span>(recovery rate). You probablily heard of the basic reproduction number <span class="math inline">\(R_0\)</span> value (R-nought), which can be calculated by <span class="math inline">\(\frac{\beta}{\gamma}\)</span>.</p>
 <p>If <span class="math inline">\(R_0\)</span> &gt; 1, epidemic is in the epidemic state;</p>
 <p>If <span class="math inline">\(R_0\)</span> &lt; 1, epidemic dies out.</p>
 <p><strong>The purpose of the post is to estiamte the basic reproduction number R-nought / <a href="https://en.wikipedia.org/wiki/Basic_reproduction_number"><span class="math inline">\(R_0\)</span></a> value based on US data and then make predictions for the future.</strong></p>
