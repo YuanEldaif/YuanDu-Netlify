@@ -119,7 +119,7 @@ fitted_cumulative_incidence &lt;- fitted_cumulative_incidence %&gt;%
 fitted_cumulative_incidence %&gt;% 
   ggplot(aes(x = date)) + geom_line(aes(y = I), colour = &quot;red&quot;) + 
   geom_point(aes(y = confirmed), colour = &quot;orange&quot;) + 
-  labs(y = &quot;Cumulative incidence&quot;, title = &quot;COVID-19 fitted vs observed cumulative incidence, US 03/15-04/15&quot;, 
+  labs(y = &quot;Cumulative incidence&quot;, title = &quot;COVID-19 fitted vs observed cumulative incidence, US 03/01-03/15&quot;, 
        subtitle = &quot;(red=fitted incidence from SIR model, orange=observed incidence)&quot;)</code></pre>
 <p><img src="/post/2020-04-17-2020-SIR-model/2020-04-18-sir-model-for-covid19_files/figure-html/plot-1.png" width="672" /></p>
 <p><strong>5. The fit looks reasonable with R0=1.78, now we use the model to predict the curve for 3 months starting from March</strong></p>
@@ -139,7 +139,7 @@ fitted_cumulative_incidence %&gt;% ggplot(aes(x = date)) + geom_line(aes(y = I),
                                                                   colour = &quot;red&quot;) + geom_line(aes(y = S), colour = &quot;black&quot;) + 
   geom_line(aes(y = R), colour = &quot;green&quot;) + geom_point(aes(y = confirmed), 
                                                        colour = &quot;orange&quot;) + scale_y_continuous(labels = scales::comma) + 
-  labs(y = &quot;Persons&quot;, title = &quot;COVID-19 fitted vs observed cumulative incidence&quot;) + 
+  labs(y = &quot;Persons&quot;, title = &quot;COVID-19 3 months prediction&quot;) + 
   scale_colour_manual(name = &quot;&quot;, values = c(red = &quot;red&quot;, black = &quot;black&quot;, 
                                             green = &quot;green&quot;, orange = &quot;orange&quot;), labels = c(&quot;Susceptible&quot;, 
                                                                                             &quot;Recovered&quot;, &quot;Observed incidence&quot;, &quot;Infectious&quot;))</code></pre>
