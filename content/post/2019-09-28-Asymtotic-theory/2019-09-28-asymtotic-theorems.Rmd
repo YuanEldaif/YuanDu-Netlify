@@ -12,6 +12,8 @@ summary: ''
 tags: 
   - Asymptotic Theory
   - Theorem
+  - MCMC
+  - SVM
 authors: []
 featured: no
 image:
