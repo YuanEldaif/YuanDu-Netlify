@@ -15,7 +15,9 @@ all_day: false
 publishDate: "2019-09-14T00:00:00Z"
 
 authors: []
-tags: []
+tags: 
+  - Hypothesis testing
+  - Statistics
 
 # Is this a featured talk? (true/false)
 featured: yes

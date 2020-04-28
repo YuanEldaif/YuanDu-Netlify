@@ -15,7 +15,13 @@ all_day: false
 publishDate: "2019-10-14T00:00:00Z"
 
 authors: []
-tags: []
+tags: 
+  - Asymptotic Theory
+  - Theorem
+  - SVM
+  - Statistical Modeling
+  - Machine Learning
+  - Statistics
 
 # Is this a featured talk? (true/false)
 featured: no
