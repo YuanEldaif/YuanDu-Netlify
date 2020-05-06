@@ -2,7 +2,7 @@
 title: "Significance Test"
 subtitle: "⚔<br/>  general guidelines"
 author: "<br><br>Yuan Du&nbsp;&nbsp;&nbsp;`r anicon::faa('linkedin', animate='float', rtext='&nbsp;https://www.linkedin.com/in/yuaneldaif/')`"
-date: "<br>11-07-2019<br><br>`r anicon::faa('link', animate='vertical', rtext='&nbsp;https://yuandueldaif.netlify.com', color='white')`"
+date: "<br>11-07-2019<br><br>`r anicon::faa('link', animate='vertical', rtext='&nbsp;https://yuan-du.com', color='white')`"
 output:
   xaringan::moon_reader:
     lib_dir: libs

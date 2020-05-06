@@ -29,4 +29,14 @@ Bayesian approach becomes more and more popular because of the improvement of mo
 The concept is simple. According to Bayes Theorem $p(\theta|y) = \frac{p(y|\theta)p(\theta)}{p(y)}$ or without normalization $p(\theta|y) \sim p(y|\theta)p(\theta)$, we want to gain the posterior distribution by using prior information and likelihood of the data information. Most of the time, we use log likelihood instead for easier calculation since $log( a*b )= loga +logb$. Bayesian approach involves much more math than frequentist approach and more complicated. Frequentist focus on one point (hypothesis), and bayesian focuses on a looking forward range.
 ![Credit: https://365datascience.com/bayesian-vs-frequentist-approach/](/img/FreBay.png)
 
+**If friquentist and bayesian approach are just two different ways to look into things, Why and when is recommended to use Bayesian approach instead of frequentist approach?**
+
+Here are a few examples to use Bayesian approach over frequentist approach:
+
+- Clear prior information: the example in the book [BD3](http://www.stat.columbia.edu/~gelman/book/BDA3.pdf) of Andrew Gelman's in Chapter 1, problem 6. The prior information is that approximately 1/125 of all births are fraternal twins and 1/300 of births are identical twins. 
+
+- Seperation problems. For example logistic regression couldn't converge due to high dimension and small sample size.
+
+- Estimate multiple outcomes with credible interval. For example, family doctors try to diagnosis diseases (such as cold, flu) based on multiple symptoms (such as headache, sore throat, high temprature) and the probabilities of all symptoms sum up to limited possible diseases.
+
 (To be continued...)
