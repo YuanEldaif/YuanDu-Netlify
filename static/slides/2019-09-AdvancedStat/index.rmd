@@ -480,7 +480,7 @@ cor.test(Data$Age, Data$Cost_Observed)
 ##We want to see if there is correlation between Number of consults and LOS, a monotonic relationship between two continuous or ordinal variables
 #.green[Spearman correlation test:]
 <br>
-```{r, warning=FALSE}
+```{r, warning=FALSE,message=FALSE, eval=FALSE}
 cor.test(Data$Number_of_consults, Data$Cost_Observed, method = "spearman")
 ```
 
