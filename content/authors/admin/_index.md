@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: Statistician
+role: Statistician / Data Scientist
 
 # Organizations/Affiliations
 organizations:
