@@ -39,4 +39,6 @@ Here are a few examples to use Bayesian approach over frequentist approach:
 
 - Estimate multiple outcomes with credible interval. For example, family doctors try to diagnosis diseases (such as cold, flu) based on multiple symptoms (such as headache, sore throat, high temprature) and the probabilities of all symptoms sum up to limited possible diseases.
 
+- Small sample size with multiple experiments and limited budget.It's a preferred meta analysis than tranditional meta analysis that has high heterogeneity with different recources since it provides a credible interval instead of confident interval.
+
 (To be continued...)
