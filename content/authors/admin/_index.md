@@ -73,6 +73,6 @@ email: ""
 #- Visitors
 ---
 
-Yuan Du is a Biostatistician at AdventHealth in Orlando, FL. She is also working on her PhD in Big Data Analytics. She received the AFCU(Addition Financial Credit Union) Churn Analytics Competition Reward as the 1st Place Winner in 2020 by providing the best solution for the issue of the increasing members churn rate in the organization. Her research experience includes Healthcare policy, Clinical trials and Medical research. This is her blog that contains topics in Statitics and Data Science. 
+Yuan Du is a Biostatistician at AdventHealth in Orlando, FL. She is also working on her PhD in Big Data Analytics. She received the AFCU(Addition Financial Credit Union) Churn Analytics Competition Reward as the 1st Place Winner in 2020 by providing the best solution for the issue of the increasing members churn rate in the organization. Her research experience includes Healthcare policy, Clinical trials and Medical research, etc. This is her blog that contains topics in Statitics and Data Science. 
 
-You may find Yuan's name as Alice, Yoanna. and last name as Eldaif since she married Bassem Eldaif, MD in 2019. If you want to find out more about Urologic Robotic Surgery, please check out his practice website [**Center for Advanced Urology & Robotics**](https://www.eldaifurology.com/).
+You may find Yuan's name as Alice or Yoanna, her last name as Du or Eldaif since she married Bassem Eldaif, MD in 2019. If you want to find out more about Urologic Robotic Surgery, please check out his practice website [**Center for Advanced Urology & Robotics**](https://www.eldaifurology.com/).
