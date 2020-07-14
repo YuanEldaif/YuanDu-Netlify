@@ -32,7 +32,7 @@ tags:
 - readmissions Risk-adjusted rate
 - Generalized estimating equation 
 
-featured: false
+featured: true
 
 # links:
 # - name: ""
