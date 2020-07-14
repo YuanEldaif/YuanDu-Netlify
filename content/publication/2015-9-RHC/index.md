@@ -28,8 +28,10 @@ summary: A generalized estimating equation of sixteen predictors was analyzed fo
 tags:
 - Rural health clinics
 - Affordable Care Act 
+- ACO
 - readmissions Risk-adjusted rate
 - Generalized estimating equation 
+
 featured: false
 
 # links:

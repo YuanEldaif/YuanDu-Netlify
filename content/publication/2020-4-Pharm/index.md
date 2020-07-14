@@ -21,8 +21,8 @@ publishDate: "2020-04-24T00:00:00Z"
 publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*JOURNAL OF BMJ Open Respiratory Research*"
-publication_short: ""
+publication: "*Journal OF BMJ Open Respiratory Research*"
+publication_short: "BMJ"
 
 abstract: A low-cost, quantitative method to evaluate sleep in the intensive care unit (ICU) that is both feasible for routine clinical practice and reliable does not yet exist. We characterised nocturnal ICU sleep using a commercially available activity tracker and evaluated agreement between tracker-derived sleep data and patient-perceived sleep quality.
 
@@ -34,6 +34,8 @@ tags:
 - sleep quality
 - ICU
 - correlation
+- Bootstrap
+- Pharmacy
 
 featured: false
 

@@ -17,8 +17,8 @@ publishDate: "2019-02-14T00:00:00Z"
 publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*JOURNAL OF COMMUNITY HOSPITAL INTERNAL MEDICINE PERSPECTIVES*"
-publication_short: ""
+publication: "*Journal of Community Hospital Internal Medicine Perspective*"
+publication_short: "JCHIMP"
 
 abstract: This observational study was conducted in the Internal Medicine residency of a large, metropolitan, community hospital, and included all 91 Internal Medicine residents who had entered the program from 1 July 2009 thru 30 June 2017. Of 3,445 Peer Evaluation Forms (PEF)s offered, 2,922 (84%) were completed and studied. Multivariate statistical analysis was completed. The primary dependent variable was the Peer Evaluation Score (PES). Independent variables included age, gender, race, birth country and country of medical school training. Confounding variables included United States Medical Licensing Examination (USMLE) and In-Training Examination (ITE) scores, and the American Board of Internal Medicine (ABIM) yearly assessment.
 

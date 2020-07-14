@@ -27,9 +27,10 @@ abstract: As of April 2015, less than 10% of Medicare Shared Savings Program Acc
 summary: This study had a cross-sectional design using survey research. The unit of analysis was the RHC; the total sample size was 178.
 
 tags:
-- PCMH 
+- ACO
 - Affordable Care Act 
 - Survey
+- Population Health
 
 featured: false
 

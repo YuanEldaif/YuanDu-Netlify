@@ -30,10 +30,12 @@ summary: A retrospective cohort study of patients admitted for a primary diagnos
 
 tags:
 - chronic obstructive pulmonary disease
-- consultation, hospital Cos
-- hospital medicine
-- length of stay
+- Cost
+- Clinical outcomes
+- LOS
 - resource use
+- Risk adjustment
+
 featured: true
 
 # links:
