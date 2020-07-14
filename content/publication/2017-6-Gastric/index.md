@@ -37,6 +37,7 @@ tags:
 - Gastric perforation
 - Duodenal perforation
 - Graham patch 
+- Surgery
 
 featured: false
 
