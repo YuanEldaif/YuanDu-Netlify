@@ -26,11 +26,9 @@ publication_types: ["2"]
 publication: "*Journal of Clinical Oncology*"
 publication_short: ""
 
-<<<<<<< HEAD
+
 abstract: KRAS gene mutations are found in 20-30% of non-small cell lung cancer (NSCLC), especially in adenocarcinoma. Compared to EGFR and ALK mutations, KRAS mutation in NSCLC may be associated with poorer prognosis. However, prognostic value of different KRAS mutation subtypes in NSCLC remains unknown. The goal of this study is to evaluate the association of KRAS mutation subtypes, PD-L1 expression and clinical outcome in patients diagnosed with primary lung adenocarcinoma.
-=======
-abstract:  especially in adenocarcinoma. Compared to EGFR and ALK mutations, KRAS mutation in NSCLC may be associated with poorer prognosis. However, prognostic value of different KRAS mutation subtypes in NSCLC remains unknown. The goal of this study is to evaluate the association of KRAS mutation subtypes, PD-L1 expression and clinical outcome in patients diagnosed with primary lung adenocarcinoma..
->>>>>>> bb7988804d30ed58b12fb1267f4d35f1408d9163
+
 
 # Summary. An optional shortened abstract.
 summary: The clinical courses, including tumor stage at diagnosis, presence of brain metastasis, OS and RFS, are similar among lung adenocarcinoma patients with different KRAS mutation subtypes. Additionally, PD-L1 expression status appears to be independent of KRAS mutation subtypes. Of note, concurrent PD-L1 expression and G12C mutation is associated with particularly poorer prognosis. Further study is needed to see if PD1/PD-L1 block may improve outcome of this group of patients.

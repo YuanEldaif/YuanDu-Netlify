@@ -30,7 +30,7 @@ height = "200px"
 
 [[item]]
 #  title = ""
-  content = "The fear of the LORD is the beginning of knowledge: but fools despise wisdom and instruction."
+  content = "You will know the truth, and the truth will set you free."
   align = "center"  # Choose `center`, `left`, or `right`.
 
 # Overlay a color or image (optional).
@@ -48,11 +48,13 @@ height = "200px"
 #cta_icon = "graduation-cap"
 
 
-# [[item]]
+ [[item]]
 #   title = "Right"
-#   content = "I am right aligned :smile:"
-#   align = "right"
-
+   content = "Parrésia : freedom of speech, confidence (the state of feeling certain about the truth)."
+   align = "center"
+   
+  overlay_img = "headers/Lovetruth.jpg"  # Image path relative to your `static/img/` folder.
+  overlay_filter = 0.5
 #   overlay_color = "#333"  # An HTML color value.
 #   overlay_img = ""  # Image path relative to your `static/img/` folder.
 #   overlay_filter = 0.5  # Darken the image. Value in range 0-1.
