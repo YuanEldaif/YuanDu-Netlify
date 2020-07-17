@@ -16,6 +16,16 @@ height = "200px"
 # Slides.
 # Duplicate an `[[item]]` block to add more slides.
 
+[[item]]
+#   title = "Right"
+   content = "Parrésia : freedom of speech, confidence (the state of feeling certain about the truth)."
+   align = "center"
+   
+  overlay_img = "headers/Lovetruth.jpg"  # Image path relative to your `static/img/` folder.
+  overlay_filter = 0.5
+#   overlay_color = "#333"  # An HTML color value.
+#   overlay_img = ""  # Image path relative to your `static/img/` folder.
+#   overlay_filter = 0.5  # Darken the image. Value in range 0-1.
 
 [[item]]
 #  title = ""
@@ -48,14 +58,5 @@ height = "200px"
 #cta_icon = "graduation-cap"
 
 
- [[item]]
-#   title = "Right"
-   content = "Parrésia : freedom of speech, confidence (the state of feeling certain about the truth)."
-   align = "center"
-   
-  overlay_img = "headers/Lovetruth.jpg"  # Image path relative to your `static/img/` folder.
-  overlay_filter = 0.5
-#   overlay_color = "#333"  # An HTML color value.
-#   overlay_img = ""  # Image path relative to your `static/img/` folder.
-#   overlay_filter = 0.5  # Darken the image. Value in range 0-1.
+
 +++
