@@ -1,5 +1,5 @@
 ---
-title: My journey of being research statistician
+title: My journey of being a research statistician
 author: 
 - Yuan Du
 date: '2019-07-30'
