@@ -16,7 +16,7 @@ tags:
 
 ![](https://media.giphy.com/media/Maz1hoeGskARW/giphy.gif)
 
-I've always been a person with a curious mind that constantly searches and looks for the truth. The wonder of history and the future, pursuing on the insights drives me to the field of Statistics. I didn't choose this field but accidentally inspired to be in the field. It was difficult for me to understand all the mathmatics and it's still difficult till this day. But the more I know, the better I understand that how much I don't know. 
+I've always been a person with a curious mind that constantly searches and looks for the truth. The wonder of history and the future, and pursuing on the insights drives me to the field of Statistics. I didn't choose this field but I was accidentally inspired to be in the field. It was difficult for me to understand all the mathmatics and it's still difficult till this day. But the more I know, the better I understand that how much I don't know. 
 
 **Powerlessness**
 
@@ -28,6 +28,6 @@ The wilingness to make a better decision and to make a better world through love
 
 **Faith**
 
-Faith is being sure of what we hope for and certain of what we do not see. Especially during this pandemic, you see the fears, the chaos, the riots, the unjustice, the hypocrisy, the love and the hate. I'm very grateful to survive and thrived during the difficult time. This chaotic event makes people realize that how weak we are as human beings. Scientific research becomes more and more important to help with medical advancement and knowledge improvement. I belive that the ultimate solution is "`Faith`, `Hope` and `Love`.and the greatest of these is `Love`" .
+Faith is being sure of what we hope for and certain of what we do not see. Especially during this pandemic, you see the fears, the chaos, the riots, the unjustice, the hypocrisy, the love and the hate. I'm very grateful to survive and thrive during the difficult time. This chaotic event makes people realize how weak we are as human beings. Scientific research becomes more and more important to help with medical advancement and knowledge improvement. I believe the ultimate solution of this unclear state of world is "`Faith`, `Hope` and `Love`.and the greatest of these is `Love`" .
 
 
