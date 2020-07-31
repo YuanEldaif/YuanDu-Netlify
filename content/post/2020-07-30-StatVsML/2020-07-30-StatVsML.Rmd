@@ -44,6 +44,6 @@ In the realm of health care research studies, I would like to share my own exper
     
 **Closing Note**
 
-In healthcare research, asking the right questions and have clinical knowledge is very essential to determine the patient population and appropriate methods. Understanding the problems and using the efficient methods provides a strong solution. Maching learning method is more flexible and is better for prediction and big data problems.
+In healthcare research, asking the right questions and have clinical knowledge is very essential to determine the patient population and appropriate methods. Understanding the problems and using the efficient methods provides a strong solution. Statical infirence is heavy in Health care research. Maching learning method is more flexible and is better for prediction and big data problems.
 
 
