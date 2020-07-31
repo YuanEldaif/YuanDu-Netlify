@@ -42,7 +42,7 @@ In the realm of health care research studies, I would like to share my own exper
     
 If number of variables are very large compared to observations (p>n), for example Genetic data, a person has hundreds of genes. Or when the ratio of p/n is larger than normal and linear/nonlinear relationship and assumptions are vague, Machine learning methods are preferred. 
 
-One example is the [breast cancer tumor classification](https://yuan-du.com/talk/2019-11-25-breast-cancer-by-svm/). Another example is a Leukemia project that i'm currently working on to identify unknown gene mutation effects to the mortality of the patients. There are only 125 patients, and each patient has over 38 gene mutations. The gene mutations are sparse. Methods with penalty and constraints will be suitable for this type of data. I'll discuss more about this project later seperately later.
+One example is the [breast cancer tumor classification](https://yuan-du.com/talk/2019-11-25-breast-cancer-by-svm/). Another example is a Leukemia project that i'm currently working on to identify unknown gene mutation effects to the mortality of the patients. There are only 125 patients, and each patient has over 38 gene mutations. The gene mutations are sparse. Methods with penalty and constraints will be suitable for this type of data. I'll discuss more about this project seperately later.
 
 - **Prediction**: Predict outcomes. It preferrs big sample size for better prediction accuracy. 
 
