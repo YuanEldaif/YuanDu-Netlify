@@ -1,0 +1,49 @@
+---
+title: Research Experience - Comparing Statistics vs Machine Learning
+author: Yuan Du
+date: '2020-07-30'
+slug: Statistics, Machine Learning
+categories:
+  - Statistics
+  - Machine Learning
+  - Data Science
+tags:
+  - Statistical Learning
+  - Statistical Modeling
+  - Machine Learning
+  - Data Science
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-07-30T22:27:29-04:00'
+featured: no
+image:
+  caption: yes
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+There are so many terms regarding the filed of Statistics and Data Science. You often heard Statistics, Data Mining, Machine Learning, Big Data, etc. It especially confuses people that's in a different field. I remember that over five years ago, a radiologist asked me if I can mine data from the radiology system because she saw that I have Data Mining skills. I was blown away by the understanding of Data Mining to a doctor. Generally speaking, due to the storage and advancement of computers, our data analysis ability which builds on Statistical knowledge expanded by using more complicated statistical theory and algorithms that are applied to multidisciplinary science such as Biostatistics, Public Health, Computer Science, Engineering, Physicis, etc. 
+![](/img/History-DM.jpg)
+
+Nature has a paper ["Statistics Versus machine learning"](https://www.nature.com/articles/nmeth.4642#:~:text=Statistics%20draws%20population%20inferences%20from,learning%20finds%20generalizable%20predictive%20patterns.&text=Two%20major%20goals%20in%20the,systems%20are%20inference%20and%20prediction.) that explains the relationships.
+
+In the realm of health care research studies, I would like to share my own experience of what types of statistical learning were used. Based on the objectives of a study, we generally has two types of goals:
+
+- **Inference**: Identify risk factors that associate with response outcome(s). It normally has smaller sample size. This is the most common goal in medical research. It requires clinical knowledge to start with research questions that involves hypothesis. Univariate analysis (Hypothesis testing) and Multivariable analysis are used. Both types of analysis needs assumptions on data distribution, variance and linear/nonlinear relationship with response variable(s) to perform correct statistical method and models. For univariate analysis, please check out my slides for the most commonly used [hypothesis testing](https://yuan-du.com/slides/2019-09-advancedstat). The problems commonly found are `significance (p-value) fishing`. There are difference p-value adjustment methods to consider when there are multiple testing. Physicians/researchers often wants to publish significant testing result only which is not healthy for medical research. Non significant factors are important to the literature. It's useful for meta analysis. For multivariable analysis, here are some examples that difference statiscal models were used:
+
+    + **Clinical Outcome Study**: [Comparison of hospital outcomes and resource utilization in acute COPD exacerbation patients managed by teaching versus non-teaching services in a community hospital](https://yuan-du.com/publication/2017-1-copd/): The data was from both national database [Premier](https://www.premierinc.com/about) and hospital internal data. `Multiple logistic regression` was used for the multivariable analysis to identify the factors that contribute to resource utilization in acute COPD patients.
+    
+    + **Medical Device Study**: [Characterisation of ICU sleep by a commercially available activity tracker and its agreement with patient-perceived sleep quality](https://yuan-du.com/publication/2020-4-pharm/): This data was collected from ICU patients that used fitbit as an alternative sleep tracking device. Since each patients were measured several times, a `mixed model repeated measure` was used to detect the correlations between each sleep quality measure and the gold standard - Richards-Campbell Sleep Questionnaire (RCSQ). Instead of a single pearson correlation coefficient, the `bootstrap method` with 1000 times was implemented to generate Confidence Interval for statistical inference. 
+    
+    + **Population Health Study**: [Contextual, Organizational and Ecological Effects on the Variations in Hospital Readmissions of Rural Medicare Beneficiaries in Eight Southeastern States](https://yuan-du.com/publication/2015-9-rhc/): This a longitudinal study funded by NIH. First, `risk-adjusted readmission` was calculated by Logistic regression model on patient level. Then Generalized estimating equation (`GEE`) method was performed on the rurual clinics level for 6 years of data. This is a type of `hierarchical regression`.
+
+- **Prediction**: Predict outcomes. It preferrs big sample size for better prediction accuracy.
+
+    + **Covid 19 Study** [This paper](https://pubmed.ncbi.nlm.nih.gov/27544541/) was reference for prediciton: Due to the extensive research studies on Covid 19. Our hospital identified various data and interesting risk factors to predict Covid 19 case positive. On one hand, the study aims to identify additional risk factors. and on the other hand, with over 10K patients' data, the study aims to predict Covid 19 cases based on the massive data. `Multiple logistic regression`, `Random Forest`, `XGboost` were used to predict the outcome. Since the risk factors and response variable have more linear relationship, and with a better interpretability, `Multiple logistic regression` with traning and validation test was picked and each patients have a risk score for decision makers to utilize the hospital resources. 
+    
+**Closing Note**
+
+In healthcare research, asking the right questions and have clinical knowledge is very essential to determine what statistical method should be used. Understanding the problems and using the efficient methods provides a better solutions. Maching learning method is more flexible and is better for predication and big data problems.
+
+
