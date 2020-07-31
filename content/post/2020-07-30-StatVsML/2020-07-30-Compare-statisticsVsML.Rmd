@@ -23,7 +23,7 @@ image:
   preview_only: no
 projects: []
 ---
-There are so many terms regarding the filed of Statistics and Data Science. We often heard Statistics, Data Mining, Machine Learning, Big Data, etc. It especially confuses people that's in a different field. I remember that over five years ago, a radiologist asked me if I can mine data from the radiology system because she saw that I have Data Mining skills. I was blown away by the understanding of Data Mining to a doctor. Data Mining and data extraction is totally different. After data extraction and data preparation, data mining is used to identify patterns and relationships based on the research/business questions. 
+There are so many terms regarding the field of Statistics and Data Science. We often heard Statistics, Data Mining, Machine Learning, Big Data, etc. It especially confuses people that's in a different field. I remember that over five years ago, a radiologist asked me if I can mine data from the radiology system because she saw that I have Data Mining skills. I was blown away by the understanding of Data Mining to a doctor. Data Mining and data extraction is totally different. After data extraction and data preparation, data mining is used to identify patterns and relationships based on the research/business questions. 
 
 Generally speaking, due to the storage and advancement of computers, our data analysis power which builds on Statistical knowledge expanded by using more complicated statistical theory and algorithms that are applied to multidisciplinary science such as Biostatistics, Medicine, Public Health, Computer Science, Engineering, Physicis, etc. 
 ![](/img/History-DM.jpg)
