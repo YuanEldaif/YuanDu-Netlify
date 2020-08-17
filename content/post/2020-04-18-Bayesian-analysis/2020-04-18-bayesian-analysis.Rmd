@@ -41,6 +41,8 @@ Here are a few examples to use Bayesian approach over frequentist approach:
 
 - Small sample size with multiple experiments and limited budget.It's a preferred meta analysis than tranditional meta analysis that has high heterogeneity with different recources since it provides a credible interval instead of confident interval.
 
-`reference:`
-(Dicing with the unknown)[http://www.stat.columbia.edu/~gelman/stuff_for_blog/ohagan.pdf]
-(FDA Guidance for the Use of Bayesian Statistics in Medical Device Clinical Trials)[https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-use-bayesian-statistics-medical-device-clinical-trials#3]
+`Reference:`
+
+1. [Dicing with the unknown](http://www.stat.columbia.edu/~gelman/stuff_for_blog/ohagan.pdf)
+
+2. [FDA Guidance for the Use of Bayesian Statistics in Medical Device Clinical Trials](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-use-bayesian-statistics-medical-device-clinical-trials#3)
