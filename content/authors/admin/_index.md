@@ -23,7 +23,7 @@ bio: My interests include applied Statitics, Data Science and Healthcare.
 interests:
 - Applied Statistics
 - Statistical Consulting
-- Data Science
+- Data Science/Data Mining/Machine Learning
 - Healthcare
 
 education:

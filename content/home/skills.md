@@ -25,7 +25,7 @@ subtitle = ""
   icon = "stripe-s"
   icon_pack = "fab"
   name = "SAS Programming"
-  description = "Advanced programming"
+  description = "Advanced programming: STAT/MACRO/IML"
   
 [[feature]]
   icon = "r-project"
@@ -43,7 +43,7 @@ subtitle = ""
   icon = "python"
   icon_pack = "fab"
   name = "Python"
-  description = "Rusty"
+  description = "Rusty: Numpy, Pandas, Matplotlib, Scikit-learn"
 
 [[feature]]
   icon = "running"
