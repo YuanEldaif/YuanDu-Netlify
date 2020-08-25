@@ -1,6 +1,6 @@
 ---
 title: Customer Churn Project
-summary: Data Analytics Competition using customers information data and historical transaction activities to predict if a customer is about to churn.
+summary: Data Analytics Competition using customers information and historical transaction activities to predict if a customer is about to churn.
 tags:
 - Machine Learning
 date: "2020-02-26T00:00:00Z"
