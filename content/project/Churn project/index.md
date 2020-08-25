@@ -13,4 +13,4 @@ image:
   focal_point: Smart
 ---
 
-{{% staticref "files/ChurnReport.pdf" %}} Read Report {{% /staticref %}}
+{{% staticref "files/ChurnReportppt.pdf" %}} Read Report {{% /staticref %}}
