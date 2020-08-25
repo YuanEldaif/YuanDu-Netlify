@@ -1,5 +1,5 @@
 ---
-title: Customer Churn Project
+title: Customer Churn Project - 1st Place winner
 summary: Data Analytics Competition using customers information and historical transaction activities to predict if a customer is about to churn.
 tags:
 - Machine Learning
