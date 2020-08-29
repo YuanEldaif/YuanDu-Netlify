@@ -28,7 +28,7 @@ There are so many terms regarding the field of Statistics and Data Science. We o
 Generally speaking, due to the storage and advancement of computers, our data analysis power which builds on Statistical knowledge expanded by using more complicated statistical theory and algorithms that are applied to multidisciplinary science such as Biostatistics, Medicine, Public Health, Computer Science, Engineering, Physicis, etc. 
 ![](/img/History-DM.jpg)
 
-Nature has a paper ["Statistics versus machine learning"](https://www.nature.com/articles/nmeth.4642#:~:text=Statistics%20draws%20population%20inferences%20from,learning%20finds%20generalizable%20predictive%20patterns.&text=Two%20major%20goals%20in%20the,systems%20are%20inference%20and%20prediction.) that explains the relationships.
+Nature has a paper ["Statistics versus machine learning"](https://www.nature.com/articles/nmeth.4642#:~:text=Statistics%20draws%20population%20inferences%20from,learning%20finds%20generalizable%20predictive%20patterns.&text=Two%20major%20goals%20in%20the,systems%20are%20inference%20and%20prediction.) that explains the relationships.[From Data Mining to Knowledge Discovery in Databases](https://www.aaai.org/ojs/index.php/aimagazine/article/view/1230/1131) discussed and summrized the history of Knowledge discovery of database (KDD).
 
 In the realm of healthcare research studies, I would like to share my own experience of what types of statistical learning were used. Based on the objectives of a study, we generally have two types of goals:
 
