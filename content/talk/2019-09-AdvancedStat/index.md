@@ -1,6 +1,6 @@
 ---
-title: Hypothesis Test
-event: Advanced Statistics on Hypothesis Test
+title: Hypothesis Testing
+event: Advanced Statistics on Hypothesis Testing
 
 location: TRI, Research Institute, AdventHealth Orlando Campus, FL
 summary: This is an Advanced Statistical course followed by the Statistical Basics. The most commonly used tests are introduced in this class for general research. I highly recommend that you attend the Statistical Basics before attending this course. 
