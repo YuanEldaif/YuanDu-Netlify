@@ -1,0 +1,45 @@
+---
+title: Decision Theory and Game Theory
+author: Yuan Du
+date: '2020-09-23'
+slug: Decision Theory
+categories:
+  - Statistics
+  - Machine Learning
+  - Data Science
+tags:
+  - Statistics
+  - Data Science
+  - Decision Theory
+  - Game Theory
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-09-23T22:27:29-04:00'
+featured: no
+image:
+  caption: yes
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>Statistics starts with probability theory, particularly in the analysis of games of chance. To be refferred to as a game, it involves three elements mathmatically:</p>
+<ol style="list-style-type: decimal">
+<li><p>Parameter space <span class="math inline">\(\Theta\)</span>, a population characteristics, a physical quantity for example, mean.</p></li>
+<li><p>Actions/Decisions space <span class="math inline">\(\mathscr{D}\)</span> available to statistician.</p></li>
+<li><p>A loss function, <span class="math inline">\(L(\theta,d)\)</span>, a real-valued function defined on <span class="math inline">\(\Theta \times \mathscr{D}\)</span>.</p></li>
+</ol>
+<p>Thus, any such triplet <span class="math inline">\((\Theta, \mathscr{D}, L )\)</span> defines a game. For example, Black jack, poker, chess, tic-tac-toe and so on are games that are played by strategy. <a href="https://en.wikipedia.org/wiki/Game_theory">“Game Theory”</a> was proposed by two economists: John Von Neuman and John Nash in 1950s. Two or more players competing against one another. Neither player generally knows the others’ strategy. The goal of the game is to pick a strategy that guarentees he/she can’t be “too bad”.
+<img src="/img/Game-Theory.jpg" /></p>
+<p>Decision theory is similar to the game theory. The main differences are :</p>
+<ol style="list-style-type: decimal">
+<li><p>In the statistical context, the players are the statistician and “Nature”, who knows the true value of the parameter. In two-player game, both are trying simultaneously to maximize their winnings, whereas in decision theory nature chooses a state without this view in mind.</p></li>
+<li><p>All statistical games allow statistician to gian information by sampling. However, it is the exploitation of the structure which such gathering of information gives to a game that distinguishes decision theory from game theory proper.</p></li>
+</ol>
+<p><img src="/img/Decision-Theory.jpg" /></p>
+<p><strong>Loss and Risk</strong></p>
+<p>Risk is the average loss <span class="math inline">\(L(\theta,d)\)</span> between the estimand <span class="math inline">\(\theta\)</span> and the estimator <span class="math inline">\(d\)</span> –&gt; an expected loss <span class="math inline">\(E_\theta{L[\theta,\delta(X)]}\)</span>. Mean squared error (MSE) is the most famous measure.</p>
+<p>(To be continued…)</p>

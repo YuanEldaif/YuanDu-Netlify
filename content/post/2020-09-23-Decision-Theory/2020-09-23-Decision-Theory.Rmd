@@ -1,0 +1,49 @@
+---
+title: Decision Theory and Game Theory
+author: Yuan Du
+date: '2020-09-23'
+slug: Decision Theory
+categories:
+  - Statistics
+  - Machine Learning
+  - Data Science
+tags:
+  - Statistics
+  - Data Science
+  - Decision Theory
+  - Game Theory
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-09-23T22:27:29-04:00'
+featured: no
+image:
+  caption: yes
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+Statistics starts with probability theory, particularly in the analysis of games of chance. To be refferred to as a game, it involves three elements mathmatically: 
+
+1. Parameter space $\Theta$, a population characteristics, a physical quantity for example, mean.
+
+2. Actions/Decisions space $\mathscr{D}$ available to statistician.
+
+3. A loss function, $L(\theta,d)$, a real-valued function defined on $\Theta \times \mathscr{D}$. 
+
+Thus, any such triplet $(\Theta, \mathscr{D}, L )$ defines a game. For example, Black jack, poker, chess, tic-tac-toe and so on are games that are played by strategy. ["Game Theory"](https://en.wikipedia.org/wiki/Game_theory) was proposed by two economists: John Von Neuman and John Nash in 1950s. Two or more players competing against one another. Neither player generally knows the others' strategy. The goal of the game is to pick a strategy that guarentees he/she can't be "too bad". 
+![](/img/Game-Theory.jpg)
+
+Decision theory is similar to the game theory. The main differences are :
+
+1. In the statistical context, the players are the statistician and "Nature", who knows the true value of the parameter. In two-player game, both are trying simultaneously to maximize their winnings, whereas in decision theory nature chooses a state without this view in mind.
+
+2. All statistical games allow statistician to gian information by sampling. However, it is the exploitation of the structure which such gathering of information gives to a game that distinguishes decision theory from game theory proper.
+
+![](/img/Decision-Theory.jpg)
+    
+**Loss and Risk**
+ 
+Risk is the average loss $L(\theta,d)$ between the estimand $\theta$ and the estimator $d$ --> an expected loss $E_\theta{L[\theta,\delta(X)]}$. Mean squared error (MSE) is the most famous measure. 
+
+(To be continued...)
