@@ -53,7 +53,7 @@ Decision theory is similar to the game theory. The main differences are :
 
 **A real life example:**
 
-`Medical diagnosis:` A surgeon needs to decide if a surgery (an action/ a decision) is necessary based on if the patient has cancer or not. There are 4 combinations between the 2 decisions and 2 conditions, thus 4 outcomes scored by %.
+`Medical diagnosis:` Sometimes you never know until you open up the patient to see if the cancer is absent because of the limitations on imaging diagnosis. A surgeon needs to decide if a surgery (an action/ a decision) is necessary based on if the patient has cancer or not. There are 4 combinations between the 2 decisions and 2 conditions, thus 4 outcomes scored by %.
 
 <span style="color:green">Combination 1</span>: The presence of cancer is confirmed and the surgeon decides to perform a surgery. The score is 100% because that's the best decision.
 
