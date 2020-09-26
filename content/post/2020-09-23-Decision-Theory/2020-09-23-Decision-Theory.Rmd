@@ -37,7 +37,7 @@ Thus, any such triplet $(\Theta, \mathscr{D}, L )$ defines a game. For example, 
 
 **Product pricing decisions: ** Seasonal promotions allow retailers to sell more stock of products and consumers to get best deals. The focus of retailers is on using the best pricing strategy while the preference of consumers is to choose the best deal in terms of discount and variety.
 
-**Investment decisions: ** The different distributions of the investment on bond, stocks, short-term reserves will results in different returns. A historical risk/return (1926-2018) can be found at [Vanguard portfolio allocation models](https://personal.vanguard.com/us/insights/saving-investing/model-portfolio-allocations).
+**Investment decisions: ** The different distributions of the investment on bond, stocks, short-term reserves will result in different returns. A historical risk/return (1926-2018) can be found at [Vanguard portfolio allocation models](https://personal.vanguard.com/us/insights/saving-investing/model-portfolio-allocations).
 
 **Prisoners' dilemma: **The moral of the story in terms of decisions in a legal setting: `You have the right to stay silent and please shut the f* up and let your attoney to do the talk`.
 
@@ -65,6 +65,7 @@ Decision theory is similar to the game theory. The main differences are :
 
 ![](/img/Decision-Theory.jpg)
     
+\
 **Models, Decision rules and Risk**
 
 **Statistical model (class or family of distributions):**  The parameter $\theta$ and data $X$ are related through a model in which the distribution of $X$ is determined by $\theta$ The distribution when the parameter $\theta$ is denoted $P_\theta$ and we write $X \sim P_\theta$. Formally, a model is written as the set of distributions for $X$, $\mathscr{P} = {P_\theta: \theta \in \Theta}$.
