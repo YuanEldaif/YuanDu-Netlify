@@ -2,23 +2,24 @@
 title: "SIR Model for Covid19"
 author: "Yuan Du"
 date: '2020-04-18'
-categories: Statistics
-featured: no
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: no
-lastmod: '2020-04-18T22:35:54-04:00'
-projects: []
-slug: sir-model-for-covid19
+categories: 
+  - Statistics
+tags:
+  - Statistics
+  - Statistical Modeling
+  - Epidemiology
+  - Network Science
+  - Covid19
 subtitle: ''
 summary: ''
-tags:
-- Research
-- Statistical Modeling
-- Network Science
-- COVID19
 authors: []
+featured: no
+lastmod: '2020-04-18T22:35:54-04:00'
+image:
+  caption: yes
+  focal_point: ''
+  preview_only: no
+projects: []
 ---
 
 
@@ -40,8 +41,7 @@ library(jsonlite)
 library(optimr)
 library(deSolve)
 library(tidyverse)
-library(lubridate)
-library(ggplot2)</code></pre>
+library(lubridate)</code></pre>
 <p><strong>2. Retrieve data from John’s Hopkins and use date March 1st till March 15 to fit SIR Model and check if the fit is reasonable</strong>:</p>
 <pre class="r"><code>#by Johns Hopkins CSSE
 res = GET(&quot;https://pomber.github.io/covid19/timeseries.json&quot;)
@@ -51,7 +51,7 @@ data = fromJSON(rawToChar(res$content))
 US = data$US
 US$date=as.Date(US$date) 
 
-new&lt;-US %&gt;% filter(date&gt;= &quot;2020-03-01&quot;&amp; date&lt;&quot;2020-03-15&quot;) #for US data only
+new&lt;-US %&gt;% dplyr::filter(date&gt;= &quot;2020-03-01&quot;&amp; date&lt;&quot;2020-03-15&quot;) #for US data only
 head(new) #first six rows</code></pre>
 <pre><code>##         date confirmed deaths recovered
 ## 1 2020-03-01        32      1         7

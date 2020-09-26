@@ -2,23 +2,24 @@
 title: "SIR Model for Covid19"
 author: "Yuan Du"
 date: '2020-04-18'
-categories: Statistics
-featured: no
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: no
-lastmod: '2020-04-18T22:35:54-04:00'
-projects: []
-slug: sir-model-for-covid19
+categories: 
+  - Statistics
+tags:
+  - Statistics
+  - Statistical Modeling
+  - Epidemiology
+  - Network Science
+  - Covid19
 subtitle: ''
 summary: ''
-tags:
-- Research
-- Statistical Modeling
-- Network Science
-- COVID19
 authors: []
+featured: no
+lastmod: '2020-04-18T22:35:54-04:00'
+image:
+  caption: yes
+  focal_point: ''
+  preview_only: no
+projects: []
 ---
 It's been a hectic few months since my last post. Working and schooling at home during this pandemic chaos is challenging, but it doesn't stop the hope of renew and transformation. One of the most popular statistcal modeling method for epidemiology and network science-Spreading Phenomena is SIR (susceptible-infected-recovered) model from [Tim Churches](https://timchurches.github.io/blog/posts/2020-02-18-analysing-covid-19-2019-ncov-outbreak-data-with-r-part-1/).
 
@@ -48,7 +49,6 @@ library(optimr)
 library(deSolve)
 library(tidyverse)
 library(lubridate)
-library(ggplot2)
 ```
 
 
@@ -63,7 +63,7 @@ data = fromJSON(rawToChar(res$content))
 US = data$US
 US$date=as.Date(US$date) 
 
-new<-US %>% filter(date>= "2020-03-01"& date<"2020-03-15") #for US data only
+new<-US %>% dplyr::filter(date>= "2020-03-01"& date<"2020-03-15") #for US data only
 head(new) #first six rows
 tail(new) #last six rows
 
