@@ -48,7 +48,7 @@ First -> Second -> Third
   
 2. Build your blogdown in R Studio. I believe this step is easy to find either by watching the great [RStudio Blogdown Webnair Video 2018](https://resources.rstudio.com/wistia-rstudio-conf-2018-2/create-and-maintain-websites-with-r-markdown-and-blogdown-yihui-xie-2) to get started or read some parts in the book by Yihui. You can refer to my previous blog about [change to your own logo](https://yuandu.netlify.com/2019/07/07/create-your-own-logo/). You should decide if you will use R markdown or Markdown for each blog.
   + A tip to select multiple items to commit is by `git add .`^[There is a space between "add" and "."] and `git commit -m "your message"` and `git push origin master` in the terminal.
-  + Add a file for the post that contains pictures. To reference the picture from the post, a folder should be created under path `static/post`.
+  + Add a file for the post that contains pictures. To reference the picture from the post, a folder `img` should be created under the folder - `static` and you can reference it as for example, `![](/img/imgname.png)`.
   + Sometimes the `Viewer` doesn't display the content. What worked for me is that I restart the R session and render my post with **`blogdown::serve_site()`** manually in the Console.Also, try to update packages by using `update.packages(ask = FALSE, checkBuilt = TRUE)`
   + My post that's written by R markdown doesn't generate html file and then the blog coudln't be deployed. so by manually **Knit** to html to generate the file solved the problem.
   + Add emojis. In `config.toml`, put `enableEmoji = true` to enable the function. You can find emoji cheatsheet [here](https://www.webfx.com/tools/emoji-cheat-sheet/).
@@ -57,7 +57,7 @@ First -> Second -> Third
   + Create a netlify account by linking with Github
   + Name your website in `config.toml` file under `baseurl =`. followed by the netlify subdomain `.netlify.com/`. Remember to have **backslash "/"** at the end. 
   + Add the build settings. Push the "hugo" as the Build command and "public" as the Publish directory.
-  ![](/post/2019-07-12-netlifypub/NetlifySet.png) 
+  ![](/img/NetlifySet.png) 
   #{idth=800px height=600px}
   + check Hugo version `blogdown::hugo_version()`
 
