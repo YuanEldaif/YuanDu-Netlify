@@ -73,10 +73,12 @@ Decision theory is similar to the game theory. The main differences are :
 
 - The set of decision rules: $\mathscr{D} => d \in \mathscr{D}, \theta \in \mathscr{D}$ and $\delta(x) \in \mathscr{D}$ $d=\delta(x)$
 
-- $\delta$ prescribes a course of action fro every observable datast $x\in \mathscr{X}$
+- $\delta$ prescribes a course of action for every observable dataset $x\in \mathscr{X}$
 
 **Risk:** to evaluate a decision rule, we use **risk $R(\theta, \delta)$**. It is the average **loss $L(\theta,d)$** between the estimand $\theta$ and the estimator $d$ --> an expected loss $E_\theta\{ L[\theta,\delta(X)] \}$. One wants the estmator $\delta(x)$ to be accurate, but just what measure of accuracy should be used is fairly arbitrary. Mean squared error (MSE) is the most famous measure. In 1820s, Gauss proposed the square of the error as a measure of loss. He defends his choice by an appeal to mathmematical simplicity and convenience. 
 
+\
+\
 *Reference:*
 
 *1. Mathematical Statistics: A Decision Theoretic Approach by Thomas S. Ferguson, Academic Press; 1st edition*
