@@ -1,5 +1,5 @@
 ---
-title: Decision Theory and Game Theory
+title: Game Theory and Decision Theory
 author: Yuan Du
 date: '2020-09-23'
 slug: Decision Theory
