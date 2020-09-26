@@ -39,7 +39,7 @@ Thus, any such triplet $(\Theta, \mathscr{D}, L )$ defines a game. For example, 
 
 **Investment decisions: ** The different distributions of the investment on bond, stocks, short-term reserves will results in different returns. A historical risk/return (1926-2018) can be found at [Vanguard portfolio allocation models](https://personal.vanguard.com/us/insights/saving-investing/model-portfolio-allocations).
 
-**prisoners' dilemma: **The motto of the story in terms of confession in a legal setting: `You have the right to stay silent and please shut the f* up and stay silent and let your attoney to do the talk`.
+**Prisoners' dilemma: **The moral of the story in terms of decisions in a legal setting: `You have the right to stay silent and please shut the f* up and let your attoney to do the talk`.
 
 ![](/img/Game-Theory.png)
 
