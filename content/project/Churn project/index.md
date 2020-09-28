@@ -13,4 +13,6 @@ image:
   focal_point: Smart
 ---
 
-{{% staticref "files/ChurnReportppt.pdf" %}} Read Report {{% /staticref %}}
+{{% staticref "files/ChurnReportppt.pdf" %}} Review the Short Version of the Presentation {{% /staticref %}}
+
+Summary: This result provided the best solution for the issue of the increasing members' churn rate for [AFCU](https://www.additionfi.com/) (Addition Financial Credit Union) Churn Analytics Competition, and was reward as the 1st Place Winner in 2020.
