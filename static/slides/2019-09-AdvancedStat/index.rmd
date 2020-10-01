@@ -1,8 +1,8 @@
 ---
-title: "Significance Test"
-subtitle: "⚔<br/>  general guidelines"
-author: "<br><br>Yuan Du&nbsp;&nbsp;&nbsp;`r anicon::faa('linkedin', animate='float', rtext='&nbsp;https://www.linkedin.com/in/yuaneldaif/')`"
-date: "<br>11-07-2019<br><br>`r anicon::faa('link', animate='vertical', rtext='&nbsp;https://yuan-du.com', color='white')`"
+title: "Hypothesis Test"
+subtitle: "⚔ A general guideline"
+author: "<br><br>Yuan Du "
+date: "<br>11-07-2019<br><br>Updated: `r Sys.Date()`"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -63,7 +63,7 @@ class: bg-main1
 <br>
 ###For more statistical classes please contact:
 
-###FH Research Advancement and Support <fh.ras@AdventHealth.com> or Shelly <Shelley.Watson@AdventHealth.com>.
+###Office of Research Integrity <ah.ori@AdventHealth.com> or Meghan <Meghan.Brodie@AdventHealth.com>.
 ---
 class: bg-main1
 
@@ -189,7 +189,7 @@ class: bg-main1
 <br>
 ###In probability, this would be written as follows:
 
-###P(type 1 error.red[/H0])
+###P($\theta$.red[/H0])
 ---
 class: split-two white
 
@@ -246,7 +246,7 @@ class: split-two white
 ---
 class: middle center bg-main1
 
-#Significance test summary table (Simple version)
+#Hypothesis test summary table (Simple version)
 ![](https://ars.els-cdn.com/content/image/3-s2.0-B9780123736956000156-f15-27-9780123736956.gif?_)
 
 

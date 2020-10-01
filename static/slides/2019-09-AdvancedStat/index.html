@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
-    <title>Significance Test</title>
+    <title>Hypothesis Test</title>
     <meta charset="utf-8" />
-    <meta name="author" content="  Yuan Du   <span>&lt;i class="fab  fa-linkedin faa-float animated "&gt;&lt;/i&gt;&amp;nbsp;https://www.linkedin.com/in/yuaneldaif/</span>" />
+    <meta name="author" content="  Yuan Du" />
     <link href="libs/remark-css/kunoichi.css" rel="stylesheet" />
     <link href="libs/remark-css/ninjutsu.css" rel="stylesheet" />
-    <link href="libs/font-awesome-animation/font-awesome-animation-emi.css" rel="stylesheet" />
-    <script src="libs/fontawesome/js/fontawesome-all.min.js"></script>
     <script src="libs/htmlwidgets/htmlwidgets.js"></script>
     <script src="libs/viz/viz.js"></script>
     <link href="libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
     <script src="libs/grViz-binding/grViz.js"></script>
+    <link href="libs/font-awesome-animation/font-awesome-animation-emi.css" rel="stylesheet" />
+    <script src="libs/fontawesome/js/fontawesome-all.min.js"></script>
     <link rel="stylesheet" href="assets\ninjutsu.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Significance Test
-## ⚔<br/> general guidelines
-### <br><br>Yuan Du   <span>&lt;i class="fab  fa-linkedin faa-float animated "&gt;&lt;/i&gt;&amp;nbsp;https://www.linkedin.com/in/yuaneldaif/</span>
-### <br>11-07-2019<br><br><span>&lt;i class="fas  fa-link faa-vertical animated " style=" color:white;"&gt;&lt;/i&gt;&amp;nbsp;https://yuan-du.com</span>
+# Hypothesis Test
+## ⚔ A general guideline
+### <br><br>Yuan Du
+### <br>11-07-2019<br><br>Updated: 2020-10-01
 
 ---
 
@@ -59,14 +59,14 @@ class: bg-main1
 &lt;br&gt;
 ###For more statistical classes please contact:
 
-###FH Research Advancement and Support &lt;fh.ras@AdventHealth.com&gt; or Shelly &lt;Shelley.Watson@AdventHealth.com&gt;.
+###Office of Research Integrity &lt;ah.ori@AdventHealth.com&gt; or Meghan &lt;Meghan.Brodie@AdventHealth.com&gt;.
 ---
 class: bg-main1
 
 # Data Type
 
-<div id="htmlwidget-b1717b0fe1e12a84b304" style="width:504px;height:504px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b1717b0fe1e12a84b304">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = TB]\n\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled, fillcolor = Linen]\n\n# define arrow\nedge [color = grey, arrowhead = none, arrowtail = none]\n\nChar [label = \"Qualitative (Categorical) \n  Variables \", shape = folder, fillcolor = Beige]\nNum [label = \"Quantatitive (Numerical) \nVariables\", shape = folder, fillcolor = Beige]\nA [label =  \"Nominal\"]\nB [label =  \"Binary\"]\n\nC [label= \"Interval\"]\nD [label= \"Ratio\"]\nE [label= \"Ordinal\"]\n\n# edge definitions with the node IDs\n{Char}  -> A -> B\n{Num}  -> C -> D -> E\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c327a1556e9cf3c5f7ac" style="width:504px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c327a1556e9cf3c5f7ac">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = TB]\n\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled, fillcolor = Linen]\n\n# define arrow\nedge [color = grey, arrowhead = none, arrowtail = none]\n\nChar [label = \"Qualitative (Categorical) \n  Variables \", shape = folder, fillcolor = Beige]\nNum [label = \"Quantatitive (Numerical) \nVariables\", shape = folder, fillcolor = Beige]\nA [label =  \"Nominal\"]\nB [label =  \"Binary\"]\n\nC [label= \"Interval\"]\nD [label= \"Ratio\"]\nE [label= \"Ordinal\"]\n\n# edge definitions with the node IDs\n{Char}  -> A -> B\n{Num}  -> C -> D -> E\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 ---
 class: middle center bg-main1
@@ -79,7 +79,7 @@ class: middle center bg-main1
 class: bg-main1
 #P-value
 
-###- P-value or significance is a probability, thus bounded by 0 and 1.
+###- P-value or significance is a probability, thus bounded by 0 and 1. 
 
 --
 ###- A test p-value provides the probability indicating statistical significance.
@@ -89,7 +89,7 @@ class: bg-main1
 
 --
 &lt;br&gt;
-###.yellow[**Note**] There is an ongoing debate on misusing p-value. and New England Jounal of Medicine in July,2019 published the [new Statistical Reporting Guidelines](https://www.nejm.org/author-center/new-manuscripts).
+###.yellow[**Note**] There is an ongoing debate on misusing p-value. and New England Jounal of Medicine in July,2019 published the [new Statistical Reporting Guidelines](https://www.nejm.org/author-center/new-manuscripts). 
 
 ---
 class: split-two white
@@ -118,7 +118,7 @@ class: bg-main1
 ## <span>&lt;i class="fas  fa-heart faa-horizontal animated "&gt;&lt;/i&gt;&amp;nbsp;Let's get started!</span>
 
 --
-###-Construct hypothesis
+###-Construct hypothesis 
 
 --
 ##-.green[Outcome is numerical] (Parametric test &amp; Non-parametric test)
@@ -143,12 +143,12 @@ class: split-two white
 
 ]]
 .column.bg-main2[.content.vmiddle.center[
-###**Example**: suppose someone claims that 20 (80%) of 25 patients who received drug A were cured, compared to 12 (48%) of 25 patients who received drug B.
+###**Example**: suppose someone claims that 20 (80%) of 25 patients who received drug A were cured, compared to 12 (48%) of 25 patients who received drug B. 
 
 --
 ###- H0: the two treatments are equally effective and the observed difference arose by chance
 &lt;br&gt;
-###- H1: one treatment is better than the other.
+###- H1: one treatment is better than the other. 
 
 
 ]]
@@ -156,12 +156,12 @@ class: split-two white
 ---
 class: bg-main1
 
-###.white[Side note:] However, it is essential to note that the P value does not provide a direct answer. Let us assume in this case the statistician does a significance test and gets a P value = .04, meaning that the difference is statistically significant (P &lt; .05). But as explained earlier, this does not mean that there is a 4% probability that the null hypothesis is true and 96% chance that the alternative hypothesis is true. The P value is a frequential probability and it provides the information that there is a 4% probability of obtaining such a difference between the cure rates, if the null hypothesis is true.
+###.white[Side note:] However, it is essential to note that the P value does not provide a direct answer. Let us assume in this case the statistician does a significance test and gets a P value = .04, meaning that the difference is statistically significant (P &lt; .05). But as explained earlier, this does not mean that there is a 4% probability that the null hypothesis is true and 96% chance that the alternative hypothesis is true. The P value is a frequential probability and it provides the information that there is a 4% probability of obtaining such a difference between the cure rates, if the null hypothesis is true. 
 
 &lt;br&gt;
 ###In probability, this would be written as follows:
 
-###P(type 1 error.red[/H0])
+###P($\theta$.red[/H0])
 ---
 class: split-two white
 
@@ -169,8 +169,8 @@ class: split-two white
 
 ##**Assumptions for parametric test:**
 &lt;br&gt;
-###- Sample is derived from a population with a normal distribution.- a “bell-shaped curve.”
-####(The sample size is large enough for the central limit theorem to lead to normality of averages)
+###- Sample is derived from a population with a normal distribution.- a “bell-shaped curve.” 
+####(The sample size is large enough for the central limit theorem to lead to normality of averages) 
 
 ###- Variance is homogeneous.
 
@@ -178,14 +178,14 @@ class: split-two white
 
 ]]
 .column.bg-main2[.content[
-
+ 
 ##**Assumptions for nonparametric test is not free:**
 &lt;br&gt;
 ###- Distinctly non-normal and cannot be transformed
-
+  
 ###- Sample size is too small for the central limit theorem to lead to normality of averages
 
-###- Nominal or ordinal
+###- Nominal or ordinal 
 
 ]]
 
@@ -197,14 +197,14 @@ class: split-two white
 `(Repeated Measures are not included-more than two matched groups)`
 #.green[Most widely used parametric tests are:]
 &lt;br&gt;
-###- paired t-test (dependent/matched two groups)
+###- paired t-test (dependent/matched two groups) 
 ###- (unpaired) t-test (independent two groups)
 ###- ANOVA (more than two groups)
 ###- Pearson correlation
 
 ]]
 .column.bg-main2[.content[
-
+ 
 `(Repeated Measures are not included-more than two matched groups)`
 #.green[Most widely used non parametric tests are:]
 &lt;br&gt;
@@ -218,7 +218,7 @@ class: split-two white
 ---
 class: middle center bg-main1
 
-#Significance test summary table (Simple version)
+#Hypothesis test summary table (Simple version)
 ![](https://ars.els-cdn.com/content/image/3-s2.0-B9780123736956000156-f15-27-9780123736956.gif?_)
 
 
@@ -229,7 +229,7 @@ class: split-60 white
 #.green[Example 1] (Independent T test):
 
 &lt;br&gt;
-###Patients cared under Teaching physician group has lower cost. There is a significant lower cost in the teaching physician group than in the non teaching group ($10060 Vs $18631.37 , p-value&lt;0.001) by t test.
+###Patients cared under Teaching physician group has lower cost. There is a significant lower cost in the teaching physician group than in the non teaching group ($10060 Vs $18631.37 , p-value&lt;0.001) by t test. 
 
 
 
@@ -256,8 +256,12 @@ alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
  -10203.21  -6938.82
 sample estimates:
-mean in group 1 mean in group 2
-       10060.36        18631.37
+mean in group 1 mean in group 2 
+       10060.36        18631.37 
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
 ```
 
 ```
@@ -285,13 +289,17 @@ class: split-60 white
         Welch Two Sample t-test
 
 data:  Cost_Observed by Physician_Group
-t = -10.305, df = 980.71, p-value &lt; 2.2e-16
+t = -10.305, df = 980.71, p-value &lt; 2.2e-16 
 *alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
  -10203.21  -6938.82
 sample estimates:
-mean in group 1 mean in group 2
-       10060.36        18631.37
+mean in group 1 mean in group 2 
+       10060.36        18631.37 
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
 ```
 
 ```
@@ -319,13 +327,17 @@ class: split-60 white
         Welch Two Sample t-test
 
 data:  Cost_Observed by Physician_Group
-t = -10.305, df = 980.71, p-value &lt; 2.2e-16
-alternative hypothesis: true difference in means is not equal to 0
+t = -10.305, df = 980.71, p-value &lt; 2.2e-16 
+alternative hypothesis: true difference in means is not equal to 0 
 95 percent confidence interval:
  -10203.21  -6938.82
 sample estimates:
 *mean in group 1 mean in group 2
 *      10060.36        18631.37
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
 ```
 
 ```
@@ -347,16 +359,20 @@ class: bg-main1
 #.green[Example 2] (Wilcoxon Mann Whitney test)：
 
 --
-###Patients cared under Teaching physician group has lower LOS. There is a significant lower LOS in the teaching physician group than in the non teaching group ( 3 days Vs 5 days, p-value&lt;0.001) by Wilcoxon Mann whitney test.
+###Patients cared under Teaching physician group has lower LOS. There is a significant lower LOS in the teaching physician group than in the non teaching group ( 3 days Vs 5 days, p-value&lt;0.001) by Wilcoxon Mann whitney test. 
 
 
 ```
-##
+## 
 ## 	Wilcoxon rank sum test with continuity correction
-##
+## 
 ## data:  LOS_Observed by Physician_Group
 ## W = 245515, p-value &lt; 2.2e-16
 ## alternative hypothesis: true location shift is not equal to 0
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
 ```
 
 ```
@@ -375,11 +391,15 @@ class: bg-main1
 
 
 ```
-##                  Df    Sum Sq   Mean Sq F value  Pr(&gt;F)
+##                  Df    Sum Sq   Mean Sq F value  Pr(&gt;F)   
 ## Insurance_Type    6 1.099e+10 1.832e+09   3.664 0.00127 **
-## Residuals      2248 1.124e+12 5.000e+08
+## Residuals      2248 1.124e+12 5.000e+08                   
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
 ```
 
 ```
@@ -403,11 +423,15 @@ class: bg-main1
 ###Patients with different insurance has different LOS (p-value=0.001) by Kruskal Wallis test.
 
 ```
-##
+## 
 ## 	Kruskal-Wallis rank sum test
-##
+## 
 ## data:  LOS_Observed by Insurance_Type
 ## Kruskal-Wallis chi-squared = 18.39, df = 6, p-value = 0.005329
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
 ```
 
 ```
@@ -431,17 +455,21 @@ class: bg-main1
 ###We Assume the two physician groups had an intervention on reducing medical cost by reducing number of consults. We have a post cost that could compare with previous cost.
 
 ```
-##
+## 
 ## 	Paired t-test
-##
+## 
 ## data:  Cost by group
 ## t = 0.00073398, df = 2254, p-value = 0.9994
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
 ##  -1235.300  1236.225
 ## sample estimates:
-## mean of the differences
+## mean of the differences 
 ##               0.4625277
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
 ```
 
 ```
@@ -460,12 +488,16 @@ class: bg-main1
 ###We Assume the two physician groups had an intervention on reducing LOS by reducing number of consults. We have a post LOS that could compare with previous LOS.
 
 ```
-##
+## 
 ## 	Wilcoxon signed rank test with continuity correction
-##
+## 
 ## data:  LOS by group
 ## V = 0, p-value &lt; 2.2e-16
 ## alternative hypothesis: true location shift is not equal to 0
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
 ```
 
 ```
@@ -489,16 +521,16 @@ cor.test(Data$Age, Data$Cost_Observed)
 ```
 
 ```
-##
+## 
 ## 	Pearson's product-moment correlation
-##
+## 
 ## data:  Data$Age and Data$Cost_Observed
 ## t = -0.67119, df = 2253, p-value = 0.5022
 ## alternative hypothesis: true correlation is not equal to 0
 ## 95 percent confidence interval:
 ##  -0.05538456  0.02715466
 ## sample estimates:
-##         cor
+##         cor 
 ## -0.01413904
 ```
 
@@ -512,23 +544,11 @@ cor.test(Data$Age, Data$Cost_Observed)
 cor.test(Data$Number_of_consults, Data$Cost_Observed, method = "spearman")
 ```
 
-```
-##
-## 	Spearman's rank correlation rho
-##
-## data:  Data$Number_of_consults and Data$Cost_Observed
-## S = 718489186, p-value &lt; 2.2e-16
-## alternative hypothesis: true rho is not equal to 0
-## sample estimates:
-##       rho
-## 0.6240484
-```
-
 ]]
 
 ---
 class: bg-main1
-#Class Activity (Outcome is .yellow[categorical] or .green[Numerical] ):
+#Class Activity (Outcome is .yellow[categorical] or .green[Numerical] ): 
 ###In groups of 2-4: Please match the statement (.green[green font]) with the appropriate statistical test (.black[black font])
 &lt;br&gt;
 ###Variables include Age, Gender, Cost, LOS, Readmission, Mortality, Physician Group, Insurance type
@@ -550,9 +570,9 @@ class: bg-main1
 ```
 
 ```
-##
+## 
 ## 	Pearson's Chi-squared test
-##
+## 
 ## data:  table(Data$Insurance_Type, Data$Gender)
 ## X-squared = 107.83, df = 6, p-value &lt; 2.2e-16
 ```
@@ -560,7 +580,7 @@ class: bg-main1
 --
 
 ```
-##
+##                          
 ##                           Female Male
 ##   COMMERCIAL - INDEMNITY      36   36
 ##   MANAGED CARE               113  141
@@ -587,9 +607,9 @@ class: bg-main1
 --
 
 ```
-##
+## 
 ## 	Pearson's Chi-squared test
-##
+## 
 ## data:  rtbl
 ## X-squared = 70.963, df = 4, p-value = 1.421e-14
 ```
@@ -600,7 +620,7 @@ class: bg-main1
 ###Example: Test the hypothesis Insurance is independent of Race (Only American Indian and Asian).
 
 ```
-##
+##                          
 ##                           AMERICAN INDIAN ASIAN BLACK OTHER WHITE
 ##   COMMERCIAL - INDEMNITY                0     1    15     6    50
 ##   MANAGED CARE                          1     1    21    10   221
@@ -614,7 +634,7 @@ class: bg-main1
 --
 
 ```
-##
+##                         
 ##                          AMERICAN INDIAN ASIAN
 ##   COMMERCIAL - INDEMNITY               0     1
 ##   MANAGED CARE                         1     1
@@ -623,9 +643,9 @@ class: bg-main1
 ```
 
 ```
-##
+## 
 ## 	Fisher's Exact Test for Count Data
-##
+## 
 ## data:  table(Prace$Insurance_Type, Prace$Race)
 ## p-value = 0.8089
 ## alternative hypothesis: two.sided
@@ -709,6 +729,32 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {
@@ -726,17 +772,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   }
   preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);</script>
-
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-</script>
 
 <script>
 slideshow._releaseMath = function(el) {
