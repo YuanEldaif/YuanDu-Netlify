@@ -189,7 +189,7 @@ class: bg-main1
 <br>
 ###In probability, this would be written as follows:
 
-###P($\theta$.red[/H0])
+###P(\theta.red[/H0])
 ---
 class: split-two white
 
