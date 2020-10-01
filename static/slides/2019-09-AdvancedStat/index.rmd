@@ -19,19 +19,6 @@ editor_options:
   chunk_output_type: console
 
 ---
-layout: false
-class: bg-main3 split-30 hide-slide-number
-
-.column[
-
-]
-.column.slide-in-right[.content.vmiddle[
-.sliderbox.bg-main2.vmiddle[
-.font5[Welcome!]
-]
-]]
-
-
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 library(ggplot2)
@@ -39,12 +26,24 @@ library(plotly)
 library(readxl)
 library(tidyverse)
 library(dplyr)
-# livedemosign <- function(top, left, deg) {
-#   htmltools::div("Live Demo!", class="faa-flash animated",
-#                  style=glue::glue("border:solid; border-color:black; position:absolute; top:{top}%; left:{left}%; font-size:36px; padding:4px; background-color:white; color:black;transform:rotate({deg}deg);")
-#                  )
-#}
+livedemosign <- function(top, left, deg) {
+   htmltools::div("Live Demo!", class="faa-flash animated",
+                  style=glue::glue("border:solid; border-color:black; position:absolute; top:{top}%; left:{left}%; font-size:36px; padding:4px; background-color:white; color:black;transform:rotate({deg}deg);")
+                  )
+}
 ```
+layout: false
+class: bg-main3 split-30 hide-slide-number
+
+.column[
+
+]
+.column.slide-in-right[.content.vmiddle[
+.sliderbox.shade_main.pad1[
+.font5[Welcome !]
+]
+]]
+
 
 ---
 class: bg-main1
