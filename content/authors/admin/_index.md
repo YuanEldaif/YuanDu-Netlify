@@ -25,6 +25,7 @@ interests:
 - Statistical Consulting
 - Data Science/Data Mining/Machine Learning
 - Healthcare
+- Precision Medicine & Personalized Medicine
 
 education:
   courses:
