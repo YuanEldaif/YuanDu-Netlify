@@ -74,6 +74,6 @@ email: ""
 #- Visitors
 ---
 
-Yuan Du is an experienced Biostatistician at AdventHealth in Orlando, FL with years of professional experience in the academic and Healthcare research setting. She is also working on her PhD in Big Data Analytics. Her research experience includes Healthcare policy, Clinical trials and Medical research, etc. This is her blog that contains topics in Statistics and Data Science. 
+Yuan Du is an experienced Biostatistician at AdventHealth in Orlando, FL with years of professional experience in the academic and Healthcare research setting. She is also working on her PhD in Big Data Analytics. Her research experience includes Medical research, Healthcare policy, Clinical trials, etc. This is her blog that contains topics in Statistics and Data Science. 
 
 You may find Yuan's name as Alice, her last name as Du or Eldaif since she married Bassem Eldaif, MD in 2019. If you want to find out more about Urologic Robotic Surgery, please check out his practice website [**Center for Advanced Urology & Robotics**](https://www.eldaifurology.com/).
