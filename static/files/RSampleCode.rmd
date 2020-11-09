@@ -1,0 +1,207 @@
+---
+title: "R Sample Code"
+subtitle: "- A Kaggle project"
+author: "<br><br>Yuan Du"
+email: "yuan.du.eldaif@gmail.com"
+date: "<br>11-10-2020<br>"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["kunoichi", "ninjutsu", "assets/ninjutsu.css"]
+    seal: true 
+    self_contained: false
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## .purple[Set up the stage of the code]
+A Detailed report of the project can be found [here](https://yuan-du.com/files/ExamReport.pdf).
+
+### Original codes are consistant of four parts: **Loading  package, Preparing data, Predictive Modeling and Apply Predictive Modeling in test data**
+<br>
+### This slide shows the **Predictive Modeling part** - 512 models prediction:
+
+--
+### 1. Setup subset models indicator `r emo::ji("heavy_check_mark")`
+
+--
+### 2. Matrix to store the performance of the different machine learning methods for each subset `r emo::ji("heavy_check_mark")`
+
+--
+### 3. Build 512 seperate models (Feature selction, Data partition, Model fitting & Prediction)`r emo::ji("heavy_check_mark")`
+
+--
+### 4. Model performance comparison `r emo::ji("heavy_check_mark")`
+
+---
+class: split-two 
+
+.column.bg-main1[.content[
+
+## Technical aspects of the code
+
+### The key of the success is to use QDA as the final predictive model, which coorperates the normal data distribution of each subset.
+
+```{r, eval=F}
+#1. setup subset models indicator
+traindata$target = factor(traindata$target, levels = c(0, 1)) 
+subsets = unique(traindata$wheezy_copper_turtle_magic[])
+set.seed(2020)
+subsets = sample(0:(length(subsets)-1), 512)
+
+#2.Matrix to store the performace of the different learning methods for each subset
+model.perf = matrix(rep(0, 4*length(subsets)), ncol = 4) #subset, 3 models
+colnames(model.perf) = c("subset", "Log", "Lasso","QDA")
+model.perf[, "subset"] = subsets #define column subset 0:511
+```
+```{r, eval=F}
+#3. Build 512 seperate models; In order to save running time, you can sample a few models to see the performance. Here I only choose the last model.
+system.time(for (i in subsets) {
+  
+  train2 = traindata[traindata$wheezy_copper_turtle_magic==i,] %>% as.data.frame(.)
+ 
+  
+  # Feature selection (Use about 34 of 255 features, based on variance>1.5)
+  stattrain2 <- data.frame(summarytools::descr(train2[,!(names(train2) %in% c("EXID","target"))], transpose = TRUE)) 
+  stattrain2 <-  cbind(stattrain2,Vars = rownames(stattrain2))
+  train2names<-stattrain2 %>% filter(Std.Dev>1.5) %>% dplyr::select(Vars)
+  train2names<- levels(droplevels(train2names$Vars))
+  
+  # Data Partition
+  intrain<- createDataPartition(train2$target,p=0.7,list=FALSE)
+  set.seed(2020)
+  training<- train2[intrain,]
+  validating<- train2[-intrain,]
+  
+  tr=training[names(train2) %in% c(train2names,"target")]
+  vd=validating[names(train2) %in% c(train2names,"target")]
+  
+  #for variable importance plot
+  dtrain<- tr  %>%
+    mutate(target = factor(target,
+                           labels = make.names(levels(target))))
+  
+  ## Logistic Regression ##
+  logModel = glm(target ~ .,family=binomial(link="logit"),data=tr)  
+  prob.log = predict(logModel,newdata=vd[,-(length(train2names)+1)],type='response')
+  pred.log = prediction(as.numeric(prob.log), as.numeric(vd$target))
+  perf.log = performance(pred.log, "auc")
+  perf.log = perf.log@y.values %>% unlist() %>% round(., 4)
+  
+  ## LASSO ##
+  x<-model.matrix(target~.,tr)[,-1] 
+  y<-tr$target
+  xvd<- model.matrix(target~.,vd)[,-1] 
+  set.seed(2020)
+  LaSSOcv = cv.glmnet(x, y,alpha=0, family = "binomial", nfolds = 5)
+  best.lambda = LaSSOcv$lambda.min
+  LaSSOModel = glmnet(x, y, family = "binomial", lambda = best.lambda)
+  prob.lasso<- predict(LaSSOModel,newx = xvd, type = "response")
+  pred.lasso = prediction(as.numeric(prob.lasso), as.numeric(vd$target))
+  perf.lasso = performance(pred.lasso, "auc")
+  perf.lasso = perf.lasso@y.values %>% unlist() %>% round(., 4)
+
+  ## QDA ##
+  qdaModel = qda(target ~ .,data=tr)
+  prob.qda = predict(qdaModel,vd)$posterior[,2]
+  pred.qda = prediction(as.numeric(prob.qda), as.numeric(vd$target))
+  perf.qda = performance(pred.qda, "auc")
+  perf.qda = perf.qda@y.values %>% unlist() %>% round(., 4)
+
+  model.perf[model.perf[, "subset"] == i, "Log"] = perf.log
+  model.perf[model.perf[, "subset"] == i, "Lasso"] = perf.lasso
+  model.perf[model.perf[, "subset"] == i, "QDA"] = perf.qda
+}
+)
+```
+
+]]
+.column.bg-main2[.content[
+```{r, eval=F}
+
+#4. Model performance: QDA outformed all models in all subsets
+model.perf = cbind(model.perf, best.model = apply(model.perf[, 2:4], 1, function(x){which.max(x) %>% names()}))
+model.perf[, "best.model"]
+
+## Model accuracy example from the random last Model ##
+#log training 
+logTrPred=predict(logModel,newdata=tr[,-(length(train2names)+1)],type='response')
+pred.logtr=prediction(as.numeric(logTrPred), as.numeric(tr$target))
+acc.logperf = performance(pred.logtr, measure = "acc")
+ind.log = which.max( slot(acc.logperf, "y.values")[[1]] )
+cutoff.log = slot(acc.logperf, "x.values")[[1]][ind.log]
+prob.logtr <- ifelse(logTrPred >cutoff.log,1,0)
+caret::confusionMatrix(factor(prob.logtr,levels = c(0, 1)), tr$target,positive="1")
+
+#log validation
+
+acc.logperf = performance(pred.log, measure = "acc")
+ind.log = which.max( slot(acc.logperf, "y.values")[[1]] )
+cutoff.log = slot(acc.logperf, "x.values")[[1]][ind.log]
+prob.logvd <- ifelse(prob.log >cutoff.log,1,0)
+caret::confusionMatrix(factor(prob.logvd,levels = c(0, 1)), vd$target,positive="1")
+
+#lasso training
+lassoTrPred=predict(LaSSOModel,newx = x, type = "response")
+pred.lassotr=prediction(as.numeric(lassoTrPred), as.numeric(tr$target))
+acc.lassoperf = performance(pred.lassotr, measure = "acc")
+ind.lasso = which.max( slot(acc.lassoperf, "y.values")[[1]] )
+cutoff.lasso = slot(acc.lassoperf, "x.values")[[1]][ind.lasso]
+prob.lassotr <- ifelse(lassoTrPred >cutoff.lasso,1,0)
+caret::confusionMatrix(factor(prob.lassotr,levels = c(0, 1)), tr$target,positive="1")
+
+#lasso validation
+
+acc.lassoperf = performance(pred.lasso, measure = "acc")
+ind.lasso = which.max( slot(acc.lassoperf, "y.values")[[1]] )
+cutoff.lasso = slot(acc.lassoperf, "x.values")[[1]][ind.lasso]
+prob.lassovd <- ifelse(prob.lasso >cutoff.lasso,1,0)
+caret::confusionMatrix(factor(prob.lassovd,levels = c(0, 1)), vd$target,positive="1")
+
+
+#QDA training
+qdaTrPred = predict(qdaModel,tr)$posterior[,2]
+pred.qdatr=prediction(as.numeric(qdaTrPred), as.numeric(tr$target))
+acc.qdaperf = performance(pred.qdatr, measure = "acc")
+ind.qda = which.max( slot(acc.qdaperf, "y.values")[[1]] )
+cutoff.qda = slot(acc.qdaperf, "x.values")[[1]][ind.qda]
+prob.qdatr <- ifelse(qdaTrPred >cutoff.qda,1,0)
+caret::confusionMatrix(factor(prob.qdatr,levels = c(0, 1)), tr$target,positive="1")
+
+#QDA validation
+
+acc.qdaperf = performance(pred.qda, measure = "acc")
+ind.qda = which.max( slot(acc.qdaperf, "y.values")[[1]] )
+cutoff.qda = slot(acc.qdaperf, "x.values")[[1]][ind.qda]
+prob.qdavd <- ifelse(prob.qda >cutoff.qda,1,0)
+caret::confusionMatrix(factor(prob.qdavd,levels = c(0, 1)), vd$target,positive="1")
+
+#ROC train for the last random model
+roc.plot(x = tr$target == "1", pred = cbind(logTrPred,lassoTrPred,qdaTrPred),
+         show.thres = FALSE, legend = TRUE, main="ROC curves of training Data",
+         xlab = "False Positive Rate", ylab="True Positive Rate",
+         leg.text = c("Logistic Regression AUC","LASSO AUC","QDA AUC"))$roc.vol
+
+#ROC validation for the last random model
+roc.plot(x = vd$target == "1", pred = cbind(prob.log,prob.lasso,prob.qda),
+         show.thres = FALSE, legend = TRUE, main="ROC curves of validation Data",
+         xlab = "False Positive Rate", ylab="True Positive Rate",
+         leg.text = c("Logistic Regression AUC","LASSO AUC","QDA AUC"))$roc.vol
+```
+
+]]
+
+
+
+
+
+
