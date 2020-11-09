@@ -43,7 +43,7 @@ subtitle = ""
   icon = "python"
   icon_pack = "fab"
   name = "Python"
-  description = "Rusty: Numpy, Pandas, Matplotlib, Scikit-learn"
+  description = "Numpy, Pandas, Matplotlib, Seaborn, Scikit-learn"
 
 [[feature]]
   icon = "running"
