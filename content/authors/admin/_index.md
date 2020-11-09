@@ -29,7 +29,7 @@ interests:
 
 education:
   courses:
-  - course: PhD part-time student in Big Data Analytics
+  - course: PhD part-time ongoing in Big Data Analytics
     institution: University of Central Florida
   - course: M.S. in Statistics and Data Science
     institution: University of Central Florida
