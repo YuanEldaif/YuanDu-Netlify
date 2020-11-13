@@ -45,11 +45,9 @@ A Detailed report of the project can be found [here](https://yuan-du.com/files/E
 ---
 class: left bg-main1
 
-.column.bg-main1[.content[
-
 ## Technical aspects of the code
 
-### The key of the success is to use QDA as the final predictive model, which coorperates the normal data distribution of each subset.
+### The key of the success is to use QDA as the final predictive model, which cooperates with the normal data distribution of each subset.
 
 ```{r, eval=F}
 #1. setup subset models indicator
