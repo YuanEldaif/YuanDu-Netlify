@@ -43,7 +43,7 @@ A Detailed report of the project can be found [here](https://yuan-du.com/files/E
 ### 4. Model performance comparison `r emo::ji("heavy_check_mark")`
 
 ---
-class: split-two 
+class: left bg-main1
 
 .column.bg-main1[.content[
 
@@ -62,16 +62,18 @@ subsets = sample(0:(length(subsets)-1), 512)
 model.perf = matrix(rep(0, 4*length(subsets)), ncol = 4) #subset, 3 models
 colnames(model.perf) = c("subset", "Log", "Lasso","QDA")
 model.perf[, "subset"] = subsets #define column subset 0:511
-```
-```{r, eval=F}
-#3. Build 512 seperate models; In order to save running time, you can sample a few models to see the performance. Here I only choose the last model.
+
+#3. Build 512 seperate models; 
+#In order to save running time, you can sample a few models to see the performance. 
 system.time(for (i in subsets) {
   
   train2 = traindata[traindata$wheezy_copper_turtle_magic==i,] %>% as.data.frame(.)
  
   
   # Feature selection (Use about 34 of 255 features, based on variance>1.5)
-  stattrain2 <- data.frame(summarytools::descr(train2[,!(names(train2) %in% c("EXID","target"))], transpose = TRUE)) 
+  stattrain2 <- data.frame(summarytools::
+                             descr(train2[,!(names(train2)
+                                             %in%c("EXID","target"))],transpose = TRUE)) 
   stattrain2 <-  cbind(stattrain2,Vars = rownames(stattrain2))
   train2names<-stattrain2 %>% filter(Std.Dev>1.5) %>% dplyr::select(Vars)
   train2names<- levels(droplevels(train2names$Vars))
@@ -122,14 +124,12 @@ system.time(for (i in subsets) {
   model.perf[model.perf[, "subset"] == i, "QDA"] = perf.qda
 }
 )
-```
 
-]]
-.column.bg-main2[.content[
-```{r, eval=F}
 
 #4. Model performance: QDA outformed all models in all subsets
-model.perf = cbind(model.perf, best.model = apply(model.perf[, 2:4], 1, function(x){which.max(x) %>% names()}))
+model.perf = cbind(model.perf, best.model = 
+                     apply(model.perf[, 2:4], 1, 
+                           function(x){which.max(x) %>% names()}))
 model.perf[, "best.model"]
 
 ## Model accuracy example from the random last Model ##
@@ -198,7 +198,7 @@ roc.plot(x = vd$target == "1", pred = cbind(prob.log,prob.lasso,prob.qda),
          leg.text = c("Logistic Regression AUC","LASSO AUC","QDA AUC"))$roc.vol
 ```
 
-]]
+
 
 
 
