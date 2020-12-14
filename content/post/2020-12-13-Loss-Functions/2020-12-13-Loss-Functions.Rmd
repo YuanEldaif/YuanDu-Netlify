@@ -27,8 +27,7 @@ projects: []
 ---
 Previously, [decision theory](https://yuan-du.com/post/2020-09-23-decision-theory/decision-theory/) was disscussed and an important part of is to evaluate a decision rule for decision making. Since the risk is the average **loss $L(\theta,d)$**, different loss functions were used in Machine Learning models. Mean squared error (MSE) was mentioned as the most famous meausre by using squared error loss proposed by Gauss. Regression, Linear discriminant analysis ([LDA](https://en.wikipedia.org/wiki/Linear_discriminant_analysis)) use squared error loss. The squared loss function tends to penalize outliers excessively, leading to slower convergence rates. There are other popular loss functions and they are applied in various Machine Learning and Deep Learning models. The plot shows the loss function for two class classification.  
 
-![](/img/Hinge_expo_log.png)
-Loss vs y*f(x); $y= \pm 1$, the prediction is f, with class prediction sign(f)
+![Loss Functions: "Loss vs y*f(x); $y= \pm 1$, the prediction is f, with class prediction sign(f)"](/img/Hinge_expo_log.jpg)
 
 **1. <span style="color:green">Hinge loss</span>**
 
@@ -39,7 +38,7 @@ With $f(x) = h(x)^T \beta + \beta_0$, the optimization problem is loss + penalty
 $$ \min_{\beta_0,\beta} \sum_{n=1}^{\infty}[1-y_if(x_i)]_+ + \frac{\lambda}{2}||\beta||^2 $$
 
 
-**2. <span style="color:navy">Exponential loss</span>**
+**2. <span style="color:DeepSkyBlue">Exponential loss</span>**
 
 The exponential loss is convex and grows exponentially for negative values which makes it more sensitive to outliers. The exponential loss is used in the [AdaBoost algorithm](https://en.wikipedia.org/wiki/AdaBoost). The principal attraction of exponential loss in the context of additive modeling is computational. The additive expansion produced by AdaBoost is estimating onehalf of the log-odds of P(Y = 1|x). This justifies using its sign as the classification rule.
 
@@ -47,12 +46,12 @@ The population minimizer is:
 $$f^*(x) = \arg\min_{f(x)} E_{Y|x}(e^{-Yf(x)}) = \frac{1}{2} log\frac{Pr(Y = 1|x)}{Pr(Y = -1|x)}$$
 or 
 $$Pr(Y = 1|x) = \frac{1}{1+e^{-2f*(x)}}$$
-**3. <span style="color:red">Logistic loss(Binomial Deviance)</span>**
+**3. <span style="color:Gold">Logistic loss(Binomial Deviance)</span>**
 
 The logistic loss is also called as binomial log-likelihood loss or cross entropy loss. It's used for logistic regression and in the [LogitBoost algorithm](https://en.wikipedia.org/wiki/LogitBoost). The cross entropy loss is ubiquitous in [deep neural networks/Deep Learning](https://en.wikipedia.org/wiki/Deep_learning).
 
 The binomial log-likelihood loss function is:
-$$l(Y,p(x) = Y'logp(x) + (1-Y')log(1-p(x))$$
+$$l(Y,p(x)) = Y'logp(x) + (1-Y')log(1-p(x))$$
 
 or the deviance
 $$-l(Y,f(x) = log(1+e^{-2Yf(x)})$$
@@ -63,17 +62,17 @@ $$-l(Y,f(x) = log(1+e^{-2Yf(x)})$$
 tabl <- " 
 | Loss Function   | $L[y,f(x)]$                            | Minimizing Function                                 | Advantage/Disadvantage         |
 |:----------------|:--------------------------------------:|:---------------------------------------------------:|:-------------------------------|
-|  Squared loss   |  $[y-f(x)] = [1-yf(x)]^2$             | $2Pr(Y=+1|x)-1$                                 | easy cross validation of regularization parameters|slower convergence rates |
+|  Squared loss   |  $[y-f(x)] = [1-yf(x)]^2$             | $2Pr(Y=+1|x)-1$                                 | easy cross validation of regularization parameters/slower convergence rates |
 |  Hinge loss     |  $[1-yf]_+$                           | $sign[Pr(Y=+1|x)-\\frac{1}{2}]$                      | support points/not differentiable at$yf(x)=1$|
-| Exponential loss| $\\frac {1}{2} log(1+e^{-Yf(x)})$     | $log\\frac{Pr(Y = 1|x)}{Pr(Y = -1|x)}$              | grows exponentially for negative values,more sensitive to outliers |
-| Logistic loss   |  $log(1+e^{-Yf(x)})$                  | $\\frac{1}{2}log\\frac{Pr(Y = 1|x)}{Pr(Y = -1|x)}$   | grows linearly for negative values,less sensitive to outliers  |
+| Exponential loss| $\\frac {1}{2} log(1+e^{-Yf(x)})$     | $\\frac{1}{2}log\\frac{Pr(Y =+1|x)}{Pr(Y =-1|x)}$              | grows exponentially for negative values,more sensitive to outliers |
+| Logistic loss   |  $log(1+e^{-Yf(x)})$                  | $log\\frac{Pr(Y =+1|x)}{Pr(Y =-1|x)}$   | grows linearly for negative values,less sensitive to outliers  |
 "
 cat(tabl)
 ```
 
-**Similarity between loss functions: **
+**Similarities between loss functions: **
 
-- Hinge loss, Exponential loss, Logistic loss have very similar tails, giving zero penalty to points well inside their margin and linear or exponetial penalty to points on the wrong side adn far away. Squared error loss gives a quadratic penalty and points inside their own margin have a strong influence on othe model as well. 
+- Hinge loss, Exponential loss, Logistic loss have very similar tails, giving zero penalty to points well inside their margin and linear or exponential penalty to points on the wrong side adn far away. <span style="color:FireBrick">Squared error loss</span>gives a quadratic penalty and points inside their own margin have a strong influence on othe model as well. 
 
 - Exponential loss and Logistic loss have the same asymptotes as the SVM hinge loss but are rounded in the interrior.
 

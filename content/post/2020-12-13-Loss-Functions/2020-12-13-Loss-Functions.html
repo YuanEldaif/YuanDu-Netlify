@@ -31,22 +31,24 @@ projects: []
 
 
 <p>Previously, <a href="https://yuan-du.com/post/2020-09-23-decision-theory/decision-theory/">decision theory</a> was disscussed and an important part of is to evaluate a decision rule for decision making. Since the risk is the average <strong>loss <span class="math inline">\(L(\theta,d)\)</span></strong>, different loss functions were used in Machine Learning models. Mean squared error (MSE) was mentioned as the most famous meausre by using squared error loss proposed by Gauss. Regression, Linear discriminant analysis (<a href="https://en.wikipedia.org/wiki/Linear_discriminant_analysis">LDA</a>) use squared error loss. The squared loss function tends to penalize outliers excessively, leading to slower convergence rates. There are other popular loss functions and they are applied in various Machine Learning and Deep Learning models. The plot shows the loss function for two class classification.</p>
-<p><img src="/img/Hinge_expo_log.png" />
-Loss vs y*f(x); <span class="math inline">\(y= \pm 1\)</span>, the prediction is f, with class prediction sign(f)</p>
+<div class="figure">
+<img src="/img/Hinge_expo_log.jpg" alt="Loss Functions: &quot;Loss vs y*f(x); y= \pm 1, the prediction is f, with class prediction sign(f)&quot;" />
+<p class="caption">Loss Functions: "Loss vs y*f(x); <span class="math inline">\(y= \pm 1\)</span>, the prediction is f, with class prediction sign(f)"</p>
+</div>
 <p><strong>1. <span style="color:green">Hinge loss</span></strong></p>
 <p>The hinge loss is a loss function used for “maximum-margin” classification, most notably for support vector machine (SVM).It’s equivalent to minimize the loss function <span class="math inline">\(L(y,f) = [1-yf]_+\)</span>.</p>
 <p>With <span class="math inline">\(f(x) = h(x)^T \beta + \beta_0\)</span>, the optimization problem is loss + penalty:
 <span class="math display">\[ \min_{\beta_0,\beta} \sum_{n=1}^{\infty}[1-y_if(x_i)]_+ + \frac{\lambda}{2}||\beta||^2 \]</span></p>
-<p><strong>2. <span style="color:navy">Exponential loss</span></strong></p>
+<p><strong>2. <span style="color:DeepSkyBlue">Exponential loss</span></strong></p>
 <p>The exponential loss is convex and grows exponentially for negative values which makes it more sensitive to outliers. The exponential loss is used in the <a href="https://en.wikipedia.org/wiki/AdaBoost">AdaBoost algorithm</a>. The principal attraction of exponential loss in the context of additive modeling is computational. The additive expansion produced by AdaBoost is estimating onehalf of the log-odds of P(Y = 1|x). This justifies using its sign as the classification rule.</p>
 <p>The population minimizer is:
 <span class="math display">\[f^*(x) = \arg\min_{f(x)} E_{Y|x}(e^{-Yf(x)}) = \frac{1}{2} log\frac{Pr(Y = 1|x)}{Pr(Y = -1|x)}\]</span>
 or
 <span class="math display">\[Pr(Y = 1|x) = \frac{1}{1+e^{-2f*(x)}}\]</span>
-<strong>3. <span style="color:red">Logistic loss(Binomial Deviance)</span></strong></p>
+<strong>3. <span style="color:Gold">Logistic loss(Binomial Deviance)</span></strong></p>
 <p>The logistic loss is also called as binomial log-likelihood loss or cross entropy loss. It’s used for logistic regression and in the <a href="https://en.wikipedia.org/wiki/LogitBoost">LogitBoost algorithm</a>. The cross entropy loss is ubiquitous in <a href="https://en.wikipedia.org/wiki/Deep_learning">deep neural networks/Deep Learning</a>.</p>
 <p>The binomial log-likelihood loss function is:
-<span class="math display">\[l(Y,p(x) = Y&#39;logp(x) + (1-Y&#39;)log(1-p(x))\]</span></p>
+<span class="math display">\[l(Y,p(x)) = Y&#39;logp(x) + (1-Y&#39;)log(1-p(x))\]</span></p>
 <p>or the deviance
 <span class="math display">\[-l(Y,f(x) = log(1+e^{-2Yf(x)})\]</span></p>
 <p><strong>Summary Table</strong></p>
@@ -70,7 +72,7 @@ or
 <td align="left">Squared loss</td>
 <td align="center"><span class="math inline">\([y-f(x)] = [1-yf(x)]^2\)</span></td>
 <td align="center"><span class="math inline">\(2Pr(Y=+1|x)-1\)</span></td>
-<td align="left">easy cross validation of regularization parameters</td>
+<td align="left">easy cross validation of regularization parameters/slower convergence rates</td>
 </tr>
 <tr class="even">
 <td align="left">Hinge loss</td>
@@ -81,20 +83,20 @@ or
 <tr class="odd">
 <td align="left">Exponential loss</td>
 <td align="center"><span class="math inline">\(\frac {1}{2} log(1+e^{-Yf(x)})\)</span></td>
-<td align="center"><span class="math inline">\(log\frac{Pr(Y = 1|x)}{Pr(Y = -1|x)}\)</span></td>
+<td align="center"><span class="math inline">\(\frac{1}{2}log\frac{Pr(Y =+1|x)}{Pr(Y =-1|x)}\)</span></td>
 <td align="left">grows exponentially for negative values,more sensitive to outliers</td>
 </tr>
 <tr class="even">
 <td align="left">Logistic loss</td>
 <td align="center"><span class="math inline">\(log(1+e^{-Yf(x)})\)</span></td>
-<td align="center"><span class="math inline">\(\frac{1}{2}log\frac{Pr(Y = 1|x)}{Pr(Y = -1|x)}\)</span></td>
+<td align="center"><span class="math inline">\(log\frac{Pr(Y =+1|x)}{Pr(Y =-1|x)}\)</span></td>
 <td align="left">grows linearly for negative values,less sensitive to outliers</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Similarity between loss functions: </strong></p>
+<p><strong>Similarities between loss functions: </strong></p>
 <ul>
-<li><p>Hinge loss, Exponential loss, Logistic loss have very similar tails, giving zero penalty to points well inside their margin and linear or exponetial penalty to points on the wrong side adn far away. Squared error loss gives a quadratic penalty and points inside their own margin have a strong influence on othe model as well.</p></li>
+<li><p>Hinge loss, Exponential loss, Logistic loss have very similar tails, giving zero penalty to points well inside their margin and linear or exponential penalty to points on the wrong side adn far away. <span style="color:FireBrick">Squared error loss</span>gives a quadratic penalty and points inside their own margin have a strong influence on othe model as well.</p></li>
 <li><p>Exponential loss and Logistic loss have the same asymptotes as the SVM hinge loss but are rounded in the interrior.</p></li>
 </ul>
 <p><br />
