@@ -72,7 +72,7 @@ cat(tabl)
 
 **Similarities between loss functions: **
 
-- Hinge loss, Exponential loss, Logistic loss have very similar tails, giving zero penalty to points well inside their margin and linear or exponential penalty to points on the wrong side adn far away. <span style="color:FireBrick">Squared error loss</span>gives a quadratic penalty and points inside their own margin have a strong influence on othe model as well. 
+- Hinge loss, Exponential loss, Logistic loss have very similar tails, giving zero penalty to points well inside their margin and linear or exponential penalty to points on the wrong side adn far away. <span style="color:FireBrick">Squared error loss</span> gives a quadratic penalty and points inside their own margin have a strong influence on othe model as well. 
 
 - Exponential loss and Logistic loss have the same asymptotes as the SVM hinge loss but are rounded in the interrior.
 
