@@ -7,7 +7,7 @@ authors:
 - Chung-Che Chang
 
 date: "2020-11-05T00:00:00Z"
-doi: "https://doi.org/10.1182/blood-2020-140038"
+doi: "10.1182/blood-2020-140038"
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2020-11-05T00:00:00Z"
@@ -27,7 +27,7 @@ abstract: In 2017, the European LeukemiaNet (ELN) stratified AML patients into 3
 
 
 # Summary. An optional shortened abstract.
-summary: A total of 125 patients were qualified for the study and the median follow-up for the cohort was 404 days. Among ELN favorable risk patients (n = 45), the mutations of DNA-MR genes occurred in 19 (42.2%) patients: DNMT3A, 20% (9/45); IDH2, 13% (6/45); TET2, 11% (5/45); IDH1, 9% (4/25). This led to 19, 26, 38, and 42 patients classified as Groups 1, 2, 3 and 4 respectively. In contrast, DNA-MR gene mutations were less common in ELN intermediate and adverse groups, and occurred in 34.2% (13/38) and 19.0% (8/42) respectively. Figure 1 shows OS and RFS of 4 groups by Kaplan-Myer Curve. The median OS for groups 1, 2, 3 and 4 were 306, not reached, 987, and 422 days, respectively. There was significant difference in OS between ELN favorable with versus without DNA-MR gene mutations (Group 1 vs 2; p-value: 0.0002). There was no significant OS difference between ELN favor with DNA-MR gene mutations versus ELN intermediate (Group 1 vs 3; p-value: 0.0921) or versus ELN adverse group (Group 1 vs 4; p-value: 0.9455). The median RFS for groups 1, 2, 3 and 4 were 511, not reached, 240, and 305 days. There was significant difference in RFS between ELN favorable with versus without DNA-MR gene mutations (Group 1 vs 2: adjusted p-value:0.0089). There were no significant RFS differences between ELN favorable with DNA-MR gene mutations versus intermediate (Group 1 vs 3; p value: 0.2304) or versus adverse group (Groups 1 vs 4; p-value: 0.6661). CR rate of groups 1, 2, 3 and 4 were 79%, 96%, 82% and 57% respectively. The CR rate of Group 1 was not statistically significantly different from CR rate of Group 2, 3, and 4. Further subgroup analysis revealed that the co-existing DNA-MR gene mutations did not impact OS and RFS in ELN intermediate and adverse groups.
+
 
 tags:
 - AML

@@ -7,7 +7,7 @@ authors:
 - Chung-Che Chang
 
 date: "2020-11-05T00:00:00Z"
-doi: "https://doi.org/10.1182/blood-2020-139976"
+doi: "10.1182/blood-2020-139976"
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2020-11-05T00:00:00Z"
@@ -27,7 +27,7 @@ abstract: Recently, genomic mutation profiling of leukemic cells has been active
 
 
 # Summary. An optional shortened abstract.
-summary: Our cohort was male predominant (57%, 110/193) with median age of 64 YO (range 18 - 93). 29%, 25% and 46% of patients were 2017 ELN favorable, intermediate, and adverse group respectively. 27.5% and 40% were Adverse and Normal Karyotype respectively. 4%, 4% and 1% of patients were RUNX1-RUNX1T1, CBFB-MYH11 and MLLT3-KMT2A positive respectively. Figure1 describes the occurrence rate of significantly occurred mutations. Regarding 2017 ELN components, 37 patients (19.2%) were positive to NPM1, 34 patients (17.6%) had FLT-ITD low, 3 (1.6%) had CEBPA biallelic, 40 (20.7%) had TP53, 27 (14.0%) had ASXL, and 24 (12.4%) had RUNX. There was no FLT-ITD high mutation in our cohort. In total 63 patients (32.6%) had at least one DNA methylation mutation. 44 patients (22.8%) had at least one spliceosome mutation and 9 patients (4.6%) had at least one chromatin modifier mutation other than ASXL1. In activated signaling, NRAS, KRAS, FLT-TKD were significantly occurred.
+
 
 tags:
 - AML
