@@ -3,7 +3,7 @@ title: "Genomic Landscape of Acute Myeloid Leukemia (AML) on the Basis of 2017 E
 authors:
 - James Yu
 - Jingxin Sun
-- **Yuan Du**
+- Yuan Du
 - Chung-Che Chang
 
 date: "2020-11-05T00:00:00Z"
