@@ -1,5 +1,5 @@
 ---
-title: "The prognostic value of KRAS mutation subtypes and PD-L1 expression in patients with lung adenocarcinoma"
+title: "Prognostic Value of KRAS Mutation Subtypes and PD-L1 Expression in Patients With Lung Adenocarcinoma"
 authors:
 - Luwei Tao
 - Ruoyu Miao
@@ -15,11 +15,11 @@ authors:
 - Mark A Socinski
 - Chung-Che Chang
 
-date: "2019-05-26T00:00:00Z"
-doi: "10.1200/JCO.2019.37.15_suppl.e20022"
+date: "2020-07-15T00:00:00Z"
+doi: "https://doi.org/10.1016/j.cllc.2020.07.004"
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2020-07-015T00:00:00Z"
+publishDate: "2020-07-15T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -60,7 +60,7 @@ url_dataset: ''
 url_poster: ''
 url_project: ''
 url_slides: ''
-url_source: 'https://www.sciencedirect.com/science/article/abs/pii/S1525730420302266'
+url_source: 'https://www.clinical-lung-cancer.com/article/S1525-7304(20)30226-6/fulltext'
 url_video: ''
 
 # Featured image
