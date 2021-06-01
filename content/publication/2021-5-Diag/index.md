@@ -9,11 +9,11 @@ authors:
 - Shahram Mori
 - Chung-Che Chang
 
-date: "2021-06-4T00:00:00Z"
-doi: ""
+date: "2021-05-29T00:00:00Z"
+doi: "https://www.mdpi.com/2075-4418/11/6/986"
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2021-06-4T00:00:00Z"
+publishDate: "2021-05-29T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -26,7 +26,7 @@ publication: "*Diagnostics*"
 publication_short: ""
 
 
-abstract: Accepted,in the process of final editing. Soon will be published.
+abstract: The 2017 ELN risk stratification has been widely adopted, but some studies have suggested the outcomes are heterogenous within the ELN risk groups and may be affected by other co-existing genetic mutations. This study evaluated the impact of DNA methylation regulatory gene (TET2, IDH1/2, DNMT3A, SETBP1) mutations (DMRGM) evaluated by NGS in the outcome of AML patients in each ELN risk group. A total of 114 patients were analyzed with a median follow-up of 12 months. Overall, 30.7% (35/114) of patients had DMRGM. DMRGM status had no impact on CR rate in each ELN risk group. The OS, however, was significantly shorter in patients with DMRGM compared to those without DMRGM (median OS: 12 vs. 33 months, p = 0.0053). Multivariate analysis showed DMRGM status was an independent unfavorable factor for OS (HR: 2.704, 95% CI: 1.451–5.041, p = 0.0017). The adverse OS impact of DMRGM was only observed in the ELN favorable group (7 months vs. not reached, p = 0.0001), but not in the intermediate or adverse group. Among the favorable group with DMRGM (n = 16), DMRGM occurred predominantly in cases with mutated NPM1 (15/16, or 93.8%). Our results suggest that DMRGM adversely impact the outcomes of ELN favorable group patients, particularly those with mutated NPM1. Further studies are warranted to confirm our observations
 
 
 # Summary. An optional shortened abstract.
@@ -52,7 +52,7 @@ url_dataset: ''
 url_poster: ''
 url_project: ''
 url_slides: ''
-url_source: 'https://ashpublications.org/blood/article/136/Supplement%201/16/470894/Adverse-Impact-of-Mutations-in-DNA-Methylation?searchresult=1'
+url_source: 'https://www.mdpi.com/2075-4418/11/6/986/htm'
 url_video: ''
 
 # Featured image
