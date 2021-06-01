@@ -10,7 +10,7 @@ authors:
 - Chung-Che Chang
 
 date: "2021-05-29T00:00:00Z"
-doi: "https://www.mdpi.com/2075-4418/11/6/986"
+doi: "https://doi.org/10.3390/diagnostics11060986"
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2021-05-29T00:00:00Z"
