@@ -10,7 +10,7 @@ authors:
 - Shahram Mori
 
 date: "2021-04-21T00:00:00Z"
-doi: "https://doi.org/10.1016/j.jtct.2021.04.017"
+doi: "10.1016/j.jtct.2021.04.017"
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2021-04-21T00:00:00Z"
