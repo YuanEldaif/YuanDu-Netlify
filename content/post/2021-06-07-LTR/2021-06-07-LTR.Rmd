@@ -84,4 +84,4 @@ where $L_{logistic}(f,x_i^+,x_i^-) = log(1+ exp((-f(x_i^+)-f(x_i^-)))$.
 \
 *Reference:*
 
-*Computer Science & Artificial Intelligence Laboratory, MIT*
+*[Computer Science & Artificial Intelligence Laboratory, MIT](https://archive.siam.org/meetings/sdm10/tutorial1.pdf)*
