@@ -1,0 +1,87 @@
+---
+title: Learning To Rank (LTR)
+author: Yuan Du
+date: '2021-06-07'
+slug: Decision Theory
+categories:
+  - Statistics
+  - Machine Learning
+  - Data Science
+  - Deep Learning
+tags:
+  - Machine Learning
+  - Data Science
+  - Decision Theory
+  - LTR
+  - Deep Learning
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2021-06-07T22:27:29-04:00'
+featured: no
+image:
+  caption: yes
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+Previously, [Loss Functions in Machine Learning and LTR](https://yuan-du.com/post/2020-12-13-loss-functions/decision-theory/) disscussed how lose functions were used in ML and briefly mentioned LTR. Here I'll discuss about LTR. LTR uses Machine Learning (ML)/Artifical Intelligence (AI) to predict rankings/ordinal data. It's useful for google search, drug discovery, bioinformatics. Here is a list that seperates traditional ML from LTR:
+
+- Solve a ranking on a list of items
+
+- Predict the optimal ordering of the list
+
+- Doesn't care much about the score of each item/point
+
+- only care the relative score/ordering among all the items
+
+For example, if we have 2 ML models to predict student's score. and our goal is to rank student. and we have below results from the models. In this case, <span style="color:red">Model 2</span> is better at ranking compared to Model 1 even though Model 1 has better prediction accuracy.
+
+```{r table, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+tabl <- " 
+| Student    | True Score | Model 1   | Model 2         |
+|:-----------|:----------:|:---------:|:----------------|
+| Student1   |  90%       | 88%       | 100%            |
+| Student2   |  85%       | 89%       | 50%             |
+| Student3   |  80%       | 83%       | 10%             |
+
+"
+cat(tabl)
+```
+
+LTR system includes bipartite ranking, k-partite ranking, real value based ranking. We only talk about bipartite ranking here.
+
+**1. <span style="color:green">Bipartite RankSVM Algorithm</span>**
+
+
+Bipartite RankSVM Algorithm uses hinge loss. The hinge loss is a loss function used for "maximum-margin" classification, most notably for support vector machine (SVM). It's equivalent to minimize the loss function $L_{hinge}(f,x_i^+,x_i^-) = [1-(f(x_i^+)-f(x_i^-))]_+ [u_+ = max(u,0)]$
+
+With $f = W * X =$ ranking score, the optimization problem is loss + penalty:
+$$ \min_{f \in F_k} \frac{1}{mn}\sum_{i=1}^{m} \sum_{j=1}^{n}L_{hinge}(f,x_i^+,x_i^-) + \frac{\lambda}{2}||f||_k^2 $$
+
+Thus, the term $f(x_i^+)-f(x_i^-)$ the larger, the better.If  $f(x_i^+)-f(x_i^-) <0$, it means that it's making mistakes so the objection function is penalized.
+
+**2. <span style="color:DeepSkyBlue">Bipartite RankBoost Algorithm</span>**
+
+Bipartite RankBoost Algorithm uses the exponential loss.
+
+The population minimizer is:
+$$\min_{f \in L(F_{base})} \frac{1}{mn}\sum_{i=1}^{m} \sum_{j=1}^{n}L_{exp}(f,x_i^+,x_i^-)$$
+
+where $L_{exp}(f,x_i^+,x_i^-) = exp(-f(x_i^+)-f(x_i^-))$.
+
+**3. <span style="color:Gold">Bipartite RankNet Algorithm</span>**
+
+Bipartite RankNet Algorithm uses the logistic loss (binomial log-likelihood loss or cross entropy loss).
+
+The binomial log-likelihood loss function is:
+$$\min_{f \in F_{neural}} \frac{1}{mn}\sum_{i=1}^{m} \sum_{j=1}^{n}L_{logistic}(f,x_i^+,x_i^-)$$
+
+where $L_{logistic}(f,x_i^+,x_i^-) = log(1+ exp((-f(x_i^+)-f(x_i^-)))$.
+
+
+\
+\
+*Reference:*
+
+*Computer Science & Artificial Intelligence Laboratory, MIT*
