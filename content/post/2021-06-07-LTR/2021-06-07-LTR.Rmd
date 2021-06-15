@@ -25,7 +25,7 @@ image:
   preview_only: no
 projects: []
 ---
-Previously, [Loss Functions in Machine Learning and LTR](https://yuan-du.com/post/2020-12-13-loss-functions/decision-theory/) disscussed how lose functions were used in ML and briefly mentioned LTR. Here I'll discuss about LTR. LTR uses Machine Learning (ML)/Artifical Intelligence (AI) to predict rankings/ordinal data. It's useful for google search, drug discovery, bioinformatics. Here is a list that seperates traditional ML from LTR:
+Previously, [Loss Functions in Machine Learning and LTR](https://yuan-du.com/post/2020-12-13-loss-functions/decision-theory/) disscussed how loss functions were used in ML and briefly mentioned LTR. Here I'll discuss about LTR. LTR uses Machine Learning (ML)/Artifical Intelligence (AI) to predict rankings/ordinal data. It's useful for google search, drug discovery, bioinformatics. Here is a list that seperates traditional ML from LTR:
 
 - Solve a ranking on a list of items
 
@@ -35,7 +35,7 @@ Previously, [Loss Functions in Machine Learning and LTR](https://yuan-du.com/pos
 
 - only care the relative score/ordering among all the items
 
-For example, if we have 2 ML models to predict student's score. and our goal is to rank student. and we have below results from the models. In this case, <span style="color:red">Model 2</span> is better at ranking compared to Model 1 even though Model 1 has better prediction accuracy.
+For example, if we have 2 ML models to predict students' score. and our goal is to rank students. and we have below results from the ML models. In this case, <span style="color:red">Model 2</span> is better at ranking compared to Model 1 even though Model 1 has better prediction accuracy.
 
 ```{r table, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
 tabl <- " 
