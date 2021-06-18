@@ -23,9 +23,10 @@ bio: My interests include applied Statitics, Data Science and Healthcare.
 interests:
 - Applied Statistics
 - Statistical Consulting
-- Data Science/Data Mining/Machine Learning
+- Data Science/Data Mining/Machine Learning/Deep Learning
 - Healthcare
-- Precision Medicine/Personalized Medicine
+- Personalized Medicine
+- Generative Model
 
 education:
   courses:
@@ -74,6 +75,6 @@ email: ""
 #- Visitors
 ---
 
-Yuan Du is an experienced Statistician at AdventHealth in Orlando, FL with years of professional experience in the academic and Healthcare research setting. She is also working on her PhD in Big Data Analytics. Her research experience includes Medical research, Healthcare policy, Clinical trials, etc. This is her blog that contains topics in Statistics and Data Science. 
+Yuan Du is an experienced Statistician at AdventHealth in Orlando, FL with years of professional experience in the academic and Healthcare research setting. Her research experience includes Medical research, Healthcare policy, Clinical trials, etc. She is also working on her PhD in Big Data Analytics. Her PhD reserach is on deep generative modeling. This is her blog that contains topics in Statistics, Data Science and Deep Learning. 
 
 You may find Yuan's last name as Du or Eldaif since she married Bassem Eldaif, MD in 2019. If you want to find out more about Urologic Robotic Surgery, please check out his practice website [**Center for Advanced Urology & Robotics**](https://www.eldaifurology.com/).
