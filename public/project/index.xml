@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects | Yuan Du</title>
+    <link>https://yuan-du.com/project/</link>
+      <atom:link href="https://yuan-du.com/project/index.xml" rel="self" type="application/rss+xml" />
+    <description>Projects</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Mon, 17 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Projects</title>
+      <link>https://yuan-du.com/project/</link>
+    </image>
+    
+    <item>
+      <title>Kaggle Instant Gratification Competition Project</title>
+      <link>https://yuan-du.com/project/kaggle-project/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/project/kaggle-project/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://yuan-du.com/files/ExamReport.pdf&#34;&gt; Read Report &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://yuan-du.com/files/RSampleCode.html&#34;&gt; A sample code &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Summary: This stack modeling approach is quite unique based on the data distribution. Choosing the appropreciate machine learning method based on the data distribution is the key of the success.&lt;/p&gt;
+
+&lt;p&gt;It would be interesting to see similar problems in a global multi-locations problem, where each location has multivariate normal distribution but globally the data is non-normal with high kutotusis.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Customer Churn Project - 1st Place winner</title>
+      <link>https://yuan-du.com/project/churn-project/</link>
+      <pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/project/churn-project/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://yuan-du.com/files/ChurnReportppt.pdf&#34;&gt; Review the Short Version of the Presentation &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Summary: This result provided the best solution for the issue of the increasing members&amp;rsquo; churn rate for &lt;a href=&#34;https://www.additionfi.com/&#34; target=&#34;_blank&#34;&gt;AFCU&lt;/a&gt; (Addition Financial Credit Union) Churn Analytics Competition, and was reward as the 1st Place Winner in 2020.&lt;/p&gt;
+
+&lt;p&gt;This analytical approach based on transation activities could be also applied to similar problems in a Healthcare setting, such as predicting patient outcomes by prescription activities, predicting wellness outcomes or status by digital health activities (fitness, sleep), etc.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

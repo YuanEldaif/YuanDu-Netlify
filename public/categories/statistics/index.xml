@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Statistics | Yuan Du</title>
+    <link>https://yuan-du.com/categories/statistics/</link>
+      <atom:link href="https://yuan-du.com/categories/statistics/index.xml" rel="self" type="application/rss+xml" />
+    <description>Statistics</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Mon, 07 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Statistics</title>
+      <link>https://yuan-du.com/categories/statistics/</link>
+    </image>
+    
+    <item>
+      <title>Learning To Rank (LTR)</title>
+      <link>https://yuan-du.com/post/2021-06-07-ltr/decision-theory/</link>
+      <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/post/2021-06-07-ltr/decision-theory/</guid>
+      <description>
+
+
+&lt;p&gt;Previously, in the post &lt;a href=&#34;https://yuan-du.com/post/2020-12-13-loss-functions/decision-theory/&#34;&gt;Loss Functions in Machine Learning and LTR&lt;/a&gt; we disscussed about how loss functions were used in ML and briefly mentioned LTR. Here I’ll discuss about LTR. LTR uses Machine Learning (ML)/Artifical Intelligence (AI) to predict rankings/ordinal data. It’s useful for google search, drug discovery, bioinformatics. Here is a list that seperates traditional ML from LTR:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Solve a ranking on a list of items&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Predict the optimal ordering of the list&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Doesn’t care much about the score of each item/point&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;only care the relative score/ordering among all the items&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For example, if we have 2 ML models to predict students’ score. and our goal is to rank students. and we have below results from the ML models. In this case, &lt;span style=&#34;color:red&#34;&gt;Model 2&lt;/span&gt; is better at ranking compared to Model 1 even though Model 1 has better prediction accuracy. Rank error is pair-wise based and is defined as &lt;span class=&#34;math inline&#34;&gt;\(\frac{ \# \textrm{ of discordant pairs} }{ \#\textrm{ of total pairs between + and -} }\)&lt;/span&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;Student&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;True Score&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Model 1&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Model 2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Student1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;90%&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;88%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;100%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Student2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;85%&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;89%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;50%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Student3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;80%&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;83%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;10%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;LTR system includes bipartite ranking, k-partite ranking, real value based ranking. We only talk about bipartite ranking here.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. &lt;span style=&#34;color:green&#34;&gt;Bipartite RankSVM Algorithm&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Bipartite RankSVM Algorithm uses hinge loss. The hinge loss is a loss function used for “maximum-margin” classification, most notably for support vector machine (SVM). It’s equivalent to minimize the loss function &lt;span class=&#34;math inline&#34;&gt;\(L_{hinge}(f,x_i^+,x_i^-) = [1-(f(x_i^+)-f(x_i^-))]_+ [u_+ = max(u,0)]\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;With &lt;span class=&#34;math inline&#34;&gt;\(f = W * X =\)&lt;/span&gt; ranking score, the optimization problem is loss + penalty:
+&lt;span class=&#34;math display&#34;&gt;\[ \min_{f \in F_k} \frac{1}{mn}\sum_{i=1}^{m} \sum_{j=1}^{n}L_{hinge}(f,x_i^+,x_i^-) + \frac{\lambda}{2}||f||_k^2 \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Thus, the term &lt;span class=&#34;math inline&#34;&gt;\(f(x_i^+)-f(x_i^-)\)&lt;/span&gt; the larger, the better.If &lt;span class=&#34;math inline&#34;&gt;\(f(x_i^+)-f(x_i^-) &amp;lt;0\)&lt;/span&gt;, it means that it’s making mistakes so the objection function is penalized.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. &lt;span style=&#34;color:DeepSkyBlue&#34;&gt;Bipartite RankBoost Algorithm&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Bipartite RankBoost Algorithm uses the exponential loss.&lt;/p&gt;
+&lt;p&gt;The population minimizer is:
+&lt;span class=&#34;math display&#34;&gt;\[\min_{f \in L(F_{base})} \frac{1}{mn}\sum_{i=1}^{m} \sum_{j=1}^{n}L_{exp}(f,x_i^+,x_i^-)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(L_{exp}(f,x_i^+,x_i^-) = exp(-f(x_i^+)-f(x_i^-))\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. &lt;span style=&#34;color:Gold&#34;&gt;Bipartite RankNet Algorithm&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Bipartite RankNet Algorithm uses the logistic loss (binomial log-likelihood loss or cross entropy loss).&lt;/p&gt;
+&lt;p&gt;The binomial log-likelihood loss function is:
+&lt;span class=&#34;math display&#34;&gt;\[\min_{f \in F_{neural}} \frac{1}{mn}\sum_{i=1}^{m} \sum_{j=1}^{n}L_{logistic}(f,x_i^+,x_i^-)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(L_{logistic}(f,x_i^+,x_i^-) = log(1+ exp((-f(x_i^+)-f(x_i^-)))\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;em&gt;Reference:&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://archive.siam.org/meetings/sdm10/tutorial1.pdf&#34;&gt;Computer Science &amp;amp; Artificial Intelligence Laboratory, MIT&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Loss Functions in Machine Learning and LTR</title>
+      <link>https://yuan-du.com/post/2020-12-13-loss-functions/decision-theory/</link>
+      <pubDate>Sun, 13 Dec 2020 22:27:29 -0400</pubDate>
+      <guid>https://yuan-du.com/post/2020-12-13-loss-functions/decision-theory/</guid>
+      <description>
+&lt;link href=&#34;https://yuan-du.com/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://yuan-du.com/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Previously, &lt;a href=&#34;https://yuan-du.com/post/2020-09-23-decision-theory/decision-theory/&#34;&gt;decision theory&lt;/a&gt; was disscussed and an important part of is to evaluate a decision rule for decision making. Since the risk is the average &lt;strong&gt;loss &lt;span class=&#34;math inline&#34;&gt;\(L(\theta,d)\)&lt;/span&gt;&lt;/strong&gt;, different loss functions were used in Machine Learning models. Mean squared error (MSE) was mentioned as the most famous meausre by using squared error loss proposed by Gauss. Regression, Linear discriminant analysis (&lt;a href=&#34;https://en.wikipedia.org/wiki/Linear_discriminant_analysis&#34;&gt;LDA&lt;/a&gt;) use squared error loss. The squared loss function tends to penalize outliers excessively, leading to slower convergence rates. There are other popular loss functions and they are applied in various Machine Learning and Deep Learning models. The plot shows the loss function for two class classification.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://yuan-du.com/img/Hinge_expo_log.jpg&#34; alt=&#34;Loss Functions: &amp;quot;Loss vs y*f(x); y= \pm 1, the prediction is f, with class prediction sign(f)&amp;quot;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Loss Functions: &#34;Loss vs y*f(x); &lt;span class=&#34;math inline&#34;&gt;\(y= \pm 1\)&lt;/span&gt;, the prediction is f, with class prediction sign(f)&#34;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;1. &lt;span style=&#34;color:green&#34;&gt;Hinge loss&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The hinge loss is a loss function used for “maximum-margin” classification, most notably for support vector machine (SVM).It’s equivalent to minimize the loss function &lt;span class=&#34;math inline&#34;&gt;\(L(y,f) = [1-yf]_+\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;With &lt;span class=&#34;math inline&#34;&gt;\(f(x) = h(x)^T \beta + \beta_0\)&lt;/span&gt;, the optimization problem is loss + penalty:
+&lt;span class=&#34;math display&#34;&gt;\[ \min_{\beta_0,\beta} \sum_{n=1}^{\infty}[1-y_if(x_i)]_+ + \frac{\lambda}{2}||\beta||^2 \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. &lt;span style=&#34;color:DeepSkyBlue&#34;&gt;Exponential loss&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The exponential loss is convex and grows exponentially for negative values which makes it more sensitive to outliers. The exponential loss is used in the &lt;a href=&#34;https://en.wikipedia.org/wiki/AdaBoost&#34;&gt;AdaBoost algorithm&lt;/a&gt;. The principal attraction of exponential loss in the context of additive modeling is computational. The additive expansion produced by AdaBoost is estimating onehalf of the log-odds of P(Y = 1|x). This justifies using its sign as the classification rule.&lt;/p&gt;
+&lt;p&gt;The population minimizer is:
+&lt;span class=&#34;math display&#34;&gt;\[f^*(x) = \arg\min_{f(x)} E_{Y|x}(e^{-Yf(x)}) = \frac{1}{2} log\frac{Pr(Y = 1|x)}{Pr(Y = -1|x)}\]&lt;/span&gt;
+or
+&lt;span class=&#34;math display&#34;&gt;\[Pr(Y = 1|x) = \frac{1}{1+e^{-2f*(x)}}\]&lt;/span&gt;
+&lt;strong&gt;3. &lt;span style=&#34;color:Gold&#34;&gt;Logistic loss(Binomial Deviance)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The logistic loss is also called as binomial log-likelihood loss or cross entropy loss. It’s used for logistic regression and in the &lt;a href=&#34;https://en.wikipedia.org/wiki/LogitBoost&#34;&gt;LogitBoost algorithm&lt;/a&gt;. The cross entropy loss is ubiquitous in &lt;a href=&#34;https://en.wikipedia.org/wiki/Deep_learning&#34;&gt;deep neural networks/Deep Learning&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The binomial log-likelihood loss function is:
+&lt;span class=&#34;math display&#34;&gt;\[l(Y,p(x)) = Y&amp;#39;logp(x) + (1-Y&amp;#39;)log(1-p(x))\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;or the deviance
+&lt;span class=&#34;math display&#34;&gt;\[-l(Y,f(x) = log(1+e^{-2Yf(x)})\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Summary Table&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;11%&#34; /&gt;
+&lt;col width=&#34;28%&#34; /&gt;
+&lt;col width=&#34;37%&#34; /&gt;
+&lt;col width=&#34;22%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;Loss Function&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(L[y,f(x)]\)&lt;/span&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Minimizing Function&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Advantage/Disadvantage&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Squared loss&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\([y-f(x)] = [1-yf(x)]^2\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(2Pr(Y=+1|x)-1\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;easy cross validation of regularization parameters/slower convergence rates&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Hinge loss&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\([1-yf]_+\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(sign[Pr(Y=+1|x)-\frac{1}{2}]\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;support points/not differentiable at&lt;span class=&#34;math inline&#34;&gt;\(yf(x)=1\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Exponential loss&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(\frac {1}{2} log(1+e^{-Yf(x)})\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(\frac{1}{2}log\frac{Pr(Y =+1|x)}{Pr(Y =-1|x)}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;grows exponentially for negative values,more sensitive to outliers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Logistic loss&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(log(1+e^{-Yf(x)})\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(log\frac{Pr(Y =+1|x)}{Pr(Y =-1|x)}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;grows linearly for negative values,less sensitive to outliers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Similarities between loss functions: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Hinge loss, Exponential loss, Logistic loss have very similar tails, giving zero penalty to points well inside their margin and linear or exponential penalty to points on the wrong side adn far away. &lt;span style=&#34;color:FireBrick&#34;&gt;Squared error loss&lt;/span&gt; gives a quadratic penalty and points inside their own margin have a strong influence on othe model as well.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Exponential loss and Logistic loss have the same asymptotes as the SVM hinge loss but are rounded in the interrior.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;br /&gt;
+The above popular loss functions are also used in deep learning, for example, Learing To Rank (&lt;a href=&#34;https://en.wikipedia.org/wiki/Learning_to_rank&#34;&gt;LTR&lt;/a&gt;) for a Recommender System (&lt;a href=&#34;https://en.wikipedia.org/wiki/Recommender_system&#34;&gt;RS&lt;/a&gt;). Differently from traditional machine learning problem that’s to predict the target either classification or regression, LTR optimizes the ranking accruacy instead of the prediction probability accuracy.&lt;/p&gt;
+&lt;p&gt;Ranking is useful in our daily life for Recommendation system like Netflix, Amazon; Information Retrieval like goole; Drug discovery; Bioinformatics. Generally speaking, there are three types of rankings: &lt;em&gt;bipartie ranking, k-partite ranking, real-valued labels based ranking&lt;/em&gt;. &lt;code&gt;RankSVM, RankBoost, RankNet&lt;/code&gt; with corresponding loss functions are used for the ranking problems. A seperate post will be written to further demonstrate LTR framework and how the loss functions are used.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;em&gt;Reference:&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Hastie, T., Tibshirani, R., &amp;amp; Friedman, J. H. (2009). The elements of statistical learning: data mining, inference, and prediction. 2nd ed. New York: Springer.&lt;/em&gt;
+&lt;em&gt;Computer Science &amp;amp; Artificial Intelligence Laboratory, MIT&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Game Theory and Decision Theory</title>
+      <link>https://yuan-du.com/post/2020-09-23-decision-theory/decision-theory/</link>
+      <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/post/2020-09-23-decision-theory/decision-theory/</guid>
+      <description>
+
+
+&lt;p&gt;Statistics starts with probability theory, particularly in the analysis of games of chance. To be refferred to as a game, it involves three elements mathmatically:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Parameter space &lt;span class=&#34;math inline&#34;&gt;\(\Theta\)&lt;/span&gt;, a population characteristics, a physical quantity for example, mean.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Actions/Decisions space &lt;span class=&#34;math inline&#34;&gt;\(\mathscr{D}\)&lt;/span&gt; available to statistician.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;A loss function, &lt;span class=&#34;math inline&#34;&gt;\(L(\theta,d)\)&lt;/span&gt;, a real-valued function defined on &lt;span class=&#34;math inline&#34;&gt;\(\Theta \times \mathscr{D}\)&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Thus, any such triplet &lt;span class=&#34;math inline&#34;&gt;\((\Theta, \mathscr{D}, L )\)&lt;/span&gt; defines a game. For example, Black jack, poker, chess, tic-tac-toe and so on are games that are played by strategy. &lt;a href=&#34;https://en.wikipedia.org/wiki/Game_theory&#34;&gt;“Game Theory”&lt;/a&gt; was proposed by two economists: John Von Neuman and John Nash in 1950s. Two or more players competing against one another. Neither player generally knows the others’ strategy. The goal of the game is to pick a strategy that guarentees he/she can’t be “too bad”.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Real life examples: &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Product pricing decisions: &lt;/strong&gt; Seasonal promotions allow retailers to sell more stock of products and consumers to get best deals. The focus of retailers is on using the best pricing strategy while the preference of consumers is to choose the best deal in terms of discount and variety.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Investment decisions: &lt;/strong&gt; The different distributions of the investment on bond, stocks, short-term reserves will result in different returns. A historical risk/return (1926-2018) can be found at &lt;a href=&#34;https://personal.vanguard.com/us/insights/saving-investing/model-portfolio-allocations&#34;&gt;Vanguard portfolio allocation models&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Prisoners’ dilemma: &lt;/strong&gt;The moral of the story in terms of decisions in a legal setting: &lt;code&gt;You have the right to stay silent and please shut the f* up and let your attoney to do the talk&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yuan-du.com/img/Game-Theory.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://studiousguy.com/game-theory-examples/#4_Product_Pricing_Decisions&#34;&gt;More examples&lt;/a&gt; can be found in this post.&lt;/p&gt;
+&lt;p&gt;Decision theory is similar to the game theory. The main differences are :&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;In the statistical context, the players are the statistician and “Nature”, who knows the true value of the parameter. In two-player game, both are trying simultaneously to maximize their winnings, whereas in decision theory nature chooses a state without this view in mind.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;All statistical games allow statistician to gain information by sampling. However, it is the exploitation of the structure which such gathering of information gives to a game that distinguishes decision theory from game theory proper.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;A real life example:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Medical diagnosis:&lt;/code&gt; Sometimes you never know until you open up the patient to see if the cancer is absent because of the limitations on imaging diagnosis. A surgeon needs to decide if a surgery (an action/ a decision) is necessary based on if the patient has cancer or not. There are 4 combinations between the 2 decisions and 2 conditions, thus 4 outcomes scored by %.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#34;color:green&#34;&gt;Combination 1&lt;/span&gt;: The presence of cancer is confirmed and the surgeon decides to perform a surgery. The score is 100% because that’s the best decision.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#34;color:red&#34;&gt;Combination 2&lt;/span&gt;: There is presence of cancer and the surgoen decides not to perform a surgery. The score is 0% because that’s the worst consequence.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#34;color:brown&#34;&gt;Combination 3&lt;/span&gt;: Cancer is absent and the surgeon decides to perform a surgery. The score is 40% because it doesn’t results in serious consequence.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#34;color:blue&#34;&gt;Combination 4&lt;/span&gt;: Cancer is absent and surgoen decides not to perform a surgery. The score is 85% because it’s a good decision and no consequence as well.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yuan-du.com/img/Decision-Theory.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Models, Decision rules and Risk&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Statistical model (class or family of distributions):&lt;/strong&gt; The parameter &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; and data &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; are related through a model in which the distribution of &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; is determined by &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; The distribution when the parameter &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; is denoted &lt;span class=&#34;math inline&#34;&gt;\(P_\theta\)&lt;/span&gt; and we write &lt;span class=&#34;math inline&#34;&gt;\(X \sim P_\theta\)&lt;/span&gt;. Formally, a model is written as the set of distributions for &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\mathscr{P} = {P_\theta: \theta \in \Theta}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Decision rules:&lt;/strong&gt; a non-randomized decision rule is a function &lt;span class=&#34;math inline&#34;&gt;\(\delta : \mathscr{X} -&amp;gt; \mathscr{D}\)&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The set of decision rules: &lt;span class=&#34;math inline&#34;&gt;\(\mathscr{D} =&amp;gt; d \in \mathscr{D}, \theta \in \mathscr{D}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\delta(x) \in \mathscr{D}\)&lt;/span&gt; &lt;span class=&#34;math inline&#34;&gt;\(d=\delta(x)\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\delta\)&lt;/span&gt; prescribes a course of action for every observable dataset &lt;span class=&#34;math inline&#34;&gt;\(x\in \mathscr{X}\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Risk:&lt;/strong&gt; to evaluate a decision rule, we use &lt;strong&gt;risk &lt;span class=&#34;math inline&#34;&gt;\(R(\theta, \delta)\)&lt;/span&gt;&lt;/strong&gt;. It is the average &lt;strong&gt;loss &lt;span class=&#34;math inline&#34;&gt;\(L(\theta,d)\)&lt;/span&gt;&lt;/strong&gt; between the estimand &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; and the estimator &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt; –&amp;gt; an expected loss &lt;span class=&#34;math inline&#34;&gt;\(E_\theta\{ L[\theta,\delta(X)] \}\)&lt;/span&gt;. One wants the estmator &lt;span class=&#34;math inline&#34;&gt;\(\delta(x)\)&lt;/span&gt; to be accurate, but just what measure of accuracy should be used is fairly arbitrary. Mean squared error (MSE) is the most famous measure. In 1820s, Gauss proposed the square of the error as a measure of loss. He defends his choice by an appeal to mathmematical simplicity and convenience.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;em&gt;Reference:&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;1. Mathematical Statistics: A Decision Theoretic Approach by Thomas S. Ferguson, Academic Press; 1st edition&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2. Theoretical Statistics: Topics for a Core Course by Robert W. Keener, Springer; 2010 edition&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;3. Theory of Point Estimation by Erich L. Lehmann, George Casella, Springer; 2nd edition&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Research Experience - Comparing Statistics vs Machine Learning</title>
+      <link>https://yuan-du.com/post/2020-07-30-statvsml/statisticsvsml/</link>
+      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/post/2020-07-30-statvsml/statisticsvsml/</guid>
+      <description>
+&lt;link href=&#34;https://yuan-du.com/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://yuan-du.com/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;There are so many terms regarding the field of Statistics and Data Science. We often heard Statistics, Data Mining, Machine Learning, Big Data, etc. It especially confuses people that’s in a different field. I remember that over five years ago, a radiologist asked me if I can mine data from the radiology system because she saw that I have Data Mining skills. I was blown away by the understanding of Data Mining to a doctor. Data Mining and data extraction is totally different. After data extraction and data preparation, data mining is used to identify patterns and relationships based on the research/business questions.&lt;/p&gt;
+&lt;p&gt;Generally speaking, due to the storage and advancement of computers, our data analysis power which builds on Statistical knowledge expanded by using more complicated statistical theory and algorithms that are applied to multidisciplinary science such as Biostatistics, Medicine, Public Health, Computer Science, Engineering, Physicis, etc.
+&lt;img src=&#34;https://yuan-du.com/img/History-DM.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Nature has a paper &lt;a href=&#34;https://www.nature.com/articles/nmeth.4642#:~:text=Statistics%20draws%20population%20inferences%20from,learning%20finds%20generalizable%20predictive%20patterns.&amp;amp;text=Two%20major%20goals%20in%20the,systems%20are%20inference%20and%20prediction.&#34;&gt;“Statistics versus machine learning”&lt;/a&gt; that explains the relationships.&lt;a href=&#34;https://www.aaai.org/ojs/index.php/aimagazine/article/view/1230/1131&#34;&gt;From Data Mining to Knowledge Discovery in Databases&lt;/a&gt; discussed and summrized the history of Knowledge discovery of database (KDD).&lt;/p&gt;
+&lt;p&gt;In the realm of healthcare research studies, I would like to share my own experience of what types of statistical learning were used. Based on the objectives of a study, we generally have two types of goals:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Inference&lt;/strong&gt;: Identify risk factors that associate with response outcome(s). It normally has smaller sample size. This is the most common goal in medical research. It requires clinical knowledge to start with research questions that involve hypothesis. Univariate analysis (Hypothesis testing) and Multivariable analysis are used. Both types of analysis need assumptions on the data distribution, variance and linear/nonlinear relationship with response variable(s) to perform correct statistical tests. For univariate analysis, please check out my slides for the most commonly used &lt;a href=&#34;https://yuan-du.com/slides/2019-09-advancedstat&#34;&gt;hypothesis testings&lt;/a&gt;. The most common problem is &lt;code&gt;significance (p-value) fishing&lt;/code&gt;. There are difference p-value adjustment methods to consider when there are multiple testings. Physicians/researchers often want to publish significant testing result only which is not healthy for medical research. Non significant factors are important to the literature. It’s useful for meta analysis. For multivariable analysis, here are some examples that difference statistical models were used:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Clinical Outcome Study&lt;/strong&gt;: &lt;a href=&#34;https://yuan-du.com/publication/2017-1-copd/&#34;&gt;Comparison of hospital outcomes and resource utilization in acute COPD exacerbation patients managed by teaching versus non-teaching services in a community hospital&lt;/a&gt;: The data was from both national database &lt;a href=&#34;https://www.premierinc.com/about&#34;&gt;Premier&lt;/a&gt; and hospital EHR(Electric Health Record). &lt;code&gt;Multiple logistic regression&lt;/code&gt; was used for the multivariable analysis to identify the factors that contribute to resource utilization in the acute COPD patients.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Commercial Device Study&lt;/strong&gt;: &lt;a href=&#34;https://yuan-du.com/publication/2020-4-pharm/&#34;&gt;Characterisation of ICU sleep by a commercially available activity tracker and its agreement with patient-perceived sleep quality&lt;/a&gt;: This data was collected from ICU patients that used fitbits as alternative sleep tracking devices. Since each patient was measured several times, a &lt;code&gt;mixed model repeated measure&lt;/code&gt; was used to detect the correlation/agreement between each sleep quality measure and the gold standard Richard-Campbell Sleep Questionnaire (RCSQ). Instead of a single pearson correlation coefficient, the &lt;code&gt;bootstrap method&lt;/code&gt; with 1000 times was implemented to generate Confidence Interval for statistical inference.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Population Health Study&lt;/strong&gt;: &lt;a href=&#34;https://yuan-du.com/publication/2015-9-rhc/&#34;&gt;Contextual, Organizational and Ecological Effects on the Variations in Hospital Readmissions of Rural Medicare Beneficiaries in Eight Southeastern States&lt;/a&gt;: This a longitudinal study funded by NIH. Data was from mainly from CMS data warehouse on beneficiaries and providers. First, &lt;code&gt;risk-adjusted readmission&lt;/code&gt; was calculated by Logistic regression model on patient level. Then Generalized Estimating Equation (&lt;code&gt;GEE&lt;/code&gt;) method was performed on the rurual clinic level for 6 years of data. This is a type of &lt;code&gt;hierarchical regression&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If the number of variables is very large compared to observations (p&amp;gt;n), for example genomics, a person has hundreds of genes. Or when the ratio of p/n is larger than normal and the linear/nonlinear relationships and assumptions are vague, noval machine learning methods are preferred.&lt;/p&gt;
+&lt;p&gt;One example is the &lt;a href=&#34;https://yuan-du.com/talk/2019-11-25-breast-cancer-by-svm/&#34;&gt;breast cancer tumor classification&lt;/a&gt;. Another example is a Leukemia project that i’m currently working on to identify unknown gene mutation effects to the mortality of the patients. There are only 125 patients, and each patient has over 38 gene mutations. The gene mutations are sparse. Methods with penalty and constraints will be suitable for this type of data. I’ll discuss more about this project seperately later.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Prediction&lt;/strong&gt;: Predict outcomes. It preferrs big sample size for better prediction accuracy.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Covid 19 Study&lt;/strong&gt; &lt;a href=&#34;https://pubmed.ncbi.nlm.nih.gov/27544541/&#34;&gt;This paper&lt;/a&gt; was reference for prediciton: Due to the extensive research studies on Covid 19. Our hospital identified various data and interesting risk factors to predict Covid 19 positive cases. On one hand, the study aims to identify additional risk factors. and on the other hand, with over 10K patients’ data, the study aims to predict Covid 19 cases based on the massive data. &lt;code&gt;Multiple logistic regression&lt;/code&gt;, &lt;code&gt;Random Forest&lt;/code&gt;, and &lt;code&gt;XGboost&lt;/code&gt; were used to predict the outcome. Since the risk factors and response variable have more linear relationship, and with a better interpretability, &lt;code&gt;Multiple logistic regression&lt;/code&gt; with training and validation test was picked and each patient has a risk score for decision makers to utilize the hospital resources.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Closing Note&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In healthcare research, asking the right questions and have clinical knowledge is very essential to determine the patient population and appropriate methods. Understanding the problems and using the efficient methods provides a strong solution. Statistical inference is essential in traditional Health care research. Maching learning method is more flexible and is generally better for prediction, big data or unknown assumptions.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bayesian Analysis</title>
+      <link>https://yuan-du.com/post/2020-04-18-bayesian-analysis/bayesian-analysis/</link>
+      <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/post/2020-04-18-bayesian-analysis/bayesian-analysis/</guid>
+      <description>
+
+
+&lt;p&gt;Bayesian approach becomes more and more popular because of the improvement of the mordern computing ability for machine learning and big data. Bayesian analysis is a completely different approach compared to frequentist approach. Yet, it’s more challenging. To be able to understand and learn the Bayesian approach, &lt;code&gt;first&lt;/code&gt;, we will need to have the knowledge of conditional probability. &lt;code&gt;Second&lt;/code&gt;, to have the knowledge of different distributions such as normal, bernoulli, binomial, gamma, beta, cauchy, possion, etc. &lt;code&gt;Third&lt;/code&gt;, to be familiar with calculus. We need to calculate derivatives and integration of different distributions. &lt;code&gt;Last but not at least&lt;/code&gt;, to be familiar with simulation sampling techniques such as Grid sampling, Variational Bayes and Monte Carlo Markov Chian (MCMC) including popular Gibbs sampling, Metropolis Hastings Sampling, Hamiltonian Monte Carlo (HMC),etc. Luckily, there are a few software tools &lt;a href=&#34;https://web.sgh.waw.pl/~atoroj/ekonometria_bayesowska/jags_user_manual.pdf&#34;&gt;Jags&lt;/a&gt;, &lt;a href=&#34;https://mc-stan.org/users/documentation/&#34;&gt;Stan&lt;/a&gt; .etc can be used for Gibbs sampling and HMC.
+&lt;img src=&#34;https://yuan-du.com/img/Human.jpg&#34; alt=&#34;‘Credit: https://www2.isye.gatech.edu/~brani/isyebayes/jokes.html’&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The concept is simple. According to Bayes Theorem &lt;span class=&#34;math inline&#34;&gt;\(p(\theta|y) = \frac{p(y|\theta)p(\theta)}{p(y)}\)&lt;/span&gt; or without normalization &lt;span class=&#34;math inline&#34;&gt;\(p(\theta|y) \sim p(y|\theta)p(\theta)\)&lt;/span&gt;, we want to gain the posterior distribution by using prior information and likelihood of the data information. Most of the time, we use log likelihood instead for easier calculation since &lt;span class=&#34;math inline&#34;&gt;\(log( a*b )= loga +logb\)&lt;/span&gt;. Bayesian approach involves much more math than frequentist approach and more complicated. Frequentist focus on one point estimate (hypothesis and Confidence Interval), and bayesian focuses on a looking forward range (Credible Interval).
+&lt;img src=&#34;https://yuan-du.com/img/FreBay.png&#34; alt=&#34;Credit: https://365datascience.com/bayesian-vs-frequentist-approach/&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;If friquentist and bayesian approach are just two different ways to look into things, Why and when is recommended to use Bayesian approach instead of frequentist approach?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Here are a few examples to use Bayesian approach over frequentist approach:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Clear prior information: the example in the book &lt;a href=&#34;http://www.stat.columbia.edu/~gelman/book/BDA3.pdf&#34;&gt;BD3&lt;/a&gt; of Andrew Gelman’s in Chapter 1, problem 6. The prior information is that approximately 1/125 of all births are fraternal twins and 1/300 of births are identical twins.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Seperation problems. For example logistic regression couldn’t converge due to high dimension and small sample size.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Estimate multiple outcomes with credible interval. For example, family doctors try to diagnosis diseases (such as cold, flu) based on multiple symptoms (such as headache, sore throat, high temprature) and the probabilities of all symptoms sum up to limited possible diseases.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Small sample size with multiple experiments and limited budget.It’s a preferred meta analysis than tranditional meta analysis that has high heterogeneity with different recources since it provides a credible interval instead of confident interval.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;Reference:&lt;/code&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.stat.columbia.edu/~gelman/stuff_for_blog/ohagan.pdf&#34;&gt;Dicing with the unknown&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-use-bayesian-statistics-medical-device-clinical-trials#3&#34;&gt;FDA Guidance for the Use of Bayesian Statistics in Medical Device Clinical Trials&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SIR Model for Covid19</title>
+      <link>https://yuan-du.com/post/2020-04-17-sir-model/2020-04-18-sir-model-for-covid19/</link>
+      <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/post/2020-04-17-sir-model/2020-04-18-sir-model-for-covid19/</guid>
+      <description>
+
+
+&lt;p&gt;It’s been a hectic few months since my last post. Working and schooling at home during this pandemic chaos is challenging, but it doesn’t stop the hope of renew and transformation. One of the most popular statistcal modeling method for epidemiology and network science-Spreading Phenomena is SIR (susceptible-infected-recovered) model from &lt;a href=&#34;https://timchurches.github.io/blog/posts/2020-02-18-analysing-covid-19-2019-ncov-outbreak-data-with-r-part-1/&#34;&gt;Tim Churches&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Susceptible (S)&lt;/strong&gt;: Healthy individuals who have not yet contacted the pathogen.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Infectious (I)&lt;/strong&gt;: Contagious individuals who have contacted the pathogen and hence can infect others.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Recovered/Removed (R)&lt;/strong&gt;: Infected individuals become immune or die, i.e., will not be infected again and cannot infect anyone else.
+&lt;img src=&#34;https://yuan-du.com/img/SIR-SIRS.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;As shown in the picture above, there are two important rates &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;(transmission rate of the pathogen), &lt;span class=&#34;math inline&#34;&gt;\(\gamma\)&lt;/span&gt;(recovery rate). You probablily heard of the basic reproduction number &lt;span class=&#34;math inline&#34;&gt;\(R_0\)&lt;/span&gt; value (R-nought), which can be calculated by &lt;span class=&#34;math inline&#34;&gt;\(\frac{\beta}{\gamma}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;If &lt;span class=&#34;math inline&#34;&gt;\(R_0\)&lt;/span&gt; &amp;gt; 1, epidemic is in the epidemic state;&lt;/p&gt;
+&lt;p&gt;If &lt;span class=&#34;math inline&#34;&gt;\(R_0\)&lt;/span&gt; &amp;lt; 1, epidemic dies out.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The purpose of the post is to estiamte the basic reproduction number R-nought / &lt;a href=&#34;https://en.wikipedia.org/wiki/Basic_reproduction_number&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(R_0\)&lt;/span&gt;&lt;/a&gt; value based on US data and then make predictions for the future.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. Load packages&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#install.packages(c(&amp;quot;httr&amp;quot;, &amp;quot;jsonlite&amp;quot;))
+library(httr)
+library(jsonlite)
+#install.packages(&amp;quot;optimr&amp;quot;)
+library(optimr)
+library(deSolve)
+library(tidyverse)
+library(lubridate)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;2. Retrieve data from John’s Hopkins and use date March 1st till March 15 to fit SIR Model and check if the fit is reasonable&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#by Johns Hopkins CSSE
+res = GET(&amp;quot;https://pomber.github.io/covid19/timeseries.json&amp;quot;)
+
+data = fromJSON(rawToChar(res$content))
+#names(data) all contries 
+US = data$US
+US$date=as.Date(US$date) 
+
+new&amp;lt;-US %&amp;gt;% dplyr::filter(date&amp;gt;= &amp;quot;2020-03-01&amp;quot;&amp;amp; date&amp;lt;&amp;quot;2020-03-15&amp;quot;) #for US data only
+head(new) #first six rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##         date confirmed deaths recovered
+## 1 2020-03-01        32      1         7
+## 2 2020-03-02        54      6         7
+## 3 2020-03-03        74      7         7
+## 4 2020-03-04       107     11         7
+## 5 2020-03-05       184     12         7
+## 6 2020-03-06       237     14         7&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tail(new) #last six rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##          date confirmed deaths recovered
+## 9  2020-03-09       589     22         7
+## 10 2020-03-10       782     28         8
+## 11 2020-03-11      1145     33         8
+## 12 2020-03-12      1584     43        12
+## 13 2020-03-13      2214     51        12
+## 14 2020-03-14      2971     58        12&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;3. build SIR Model and find &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\gamma\)&lt;/span&gt; by optimization method &lt;a href=&#34;https://en.wikipedia.org/wiki/Residual_sum_of_squares&#34;&gt;RSS&lt;/a&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Initial values:
+Infected &amp;lt;- new$confirmed
+Day &amp;lt;- 1:(length(new$date))
+N&amp;lt;-327200000 #US population
+init &amp;lt;- c(S = N - Infected[1], I = Infected[1], R = 0) #Inital value
+
+## SIR Model
+SIR &amp;lt;- function(time, state, parameters) {
+  par &amp;lt;- as.list(c(state, parameters))
+  with(par, {
+    dS &amp;lt;- -beta * I * S/N
+    dI &amp;lt;- beta * I * S/N - gamma * I
+    dR &amp;lt;- gamma * I
+    list(c(dS, dI, dR))
+  })
+}
+
+#Optimization by RSS to get beta and gamma
+RSS &amp;lt;- function(parameters) {
+  names(parameters) &amp;lt;- c(&amp;quot;beta&amp;quot;, &amp;quot;gamma&amp;quot;)
+  out &amp;lt;- ode(y = init, times = Day, func = SIR, parms = parameters)
+  fit &amp;lt;- out[, 3]
+  sum((Infected - fit)^2)
+}
+
+Opt &amp;lt;- optim(c(0.5, 0.5), RSS, method = &amp;quot;L-BFGS-B&amp;quot;, lower = c(0,0), upper = c(1, 1))
+
+Opt_par &amp;lt;- setNames(Opt$par, c(&amp;quot;beta&amp;quot;, &amp;quot;gamma&amp;quot;))
+Opt_par&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      beta     gamma 
+## 0.6755947 0.3244053&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#R0
+Opt$par[1]/Opt$par[2]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2.082563&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;4. Plot the predicted value vs raw data&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sir_start_date &amp;lt;- &amp;quot;2020-03-01&amp;quot;
+t &amp;lt;- 1:as.integer(ymd(&amp;quot;2020-03-15&amp;quot;) - ymd(sir_start_date))
+
+# get the fitted values from our SIR model
+fitted_cumulative_incidence &amp;lt;- data.frame(ode(y = init, times = t, 
+                                              func = SIR, parms = Opt_par))
+# add a Date column and join the observed incidence data
+fitted_cumulative_incidence &amp;lt;- fitted_cumulative_incidence %&amp;gt;% 
+  mutate(date = ymd(sir_start_date) + days(t - 1)) %&amp;gt;% 
+  left_join(new %&amp;gt;% ungroup() %&amp;gt;% select(date, confirmed))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Joining, by = &amp;quot;date&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plot the data
+fitted_cumulative_incidence %&amp;gt;% 
+  ggplot(aes(x = date)) + geom_line(aes(y = I), colour = &amp;quot;red&amp;quot;) + 
+  geom_point(aes(y = confirmed), colour = &amp;quot;orange&amp;quot;) + 
+  labs(y = &amp;quot;Cumulative incidence&amp;quot;, title = &amp;quot;COVID-19 fitted vs observed cumulative incidence, US 03/01-03/15&amp;quot;, 
+       subtitle = &amp;quot;(red=fitted incidence from SIR model, orange=observed incidence)&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yuan-du.com/post/2020-04-17-SIR-model/2020-04-18-sir-model-for-covid19_files/figure-html/plot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5. The fit looks reasonable with R0=1.78, now we use the model to predict the curve for 3 months starting from March&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Prediction
+# time in days for predictions
+t &amp;lt;- 1:90
+# get the fitted values from our SIR model
+fitted_cumulative_incidence &amp;lt;- data.frame(ode(y = init, times = t, 
+                                              func = SIR, parms = Opt_par))
+# add a Date column and join the observed incidence data
+fitted_cumulative_incidence &amp;lt;- fitted_cumulative_incidence %&amp;gt;% 
+  mutate(date = ymd(sir_start_date) + days(t - 1)) %&amp;gt;% 
+  left_join(new %&amp;gt;% ungroup() %&amp;gt;% select(date, confirmed))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Joining, by = &amp;quot;date&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plot the data
+fitted_cumulative_incidence %&amp;gt;% ggplot(aes(x = date)) + geom_line(aes(y = I), 
+                                                                  colour = &amp;quot;red&amp;quot;) + geom_line(aes(y = S), colour = &amp;quot;black&amp;quot;) + 
+  geom_line(aes(y = R), colour = &amp;quot;green&amp;quot;) + geom_point(aes(y = confirmed), 
+                                                       colour = &amp;quot;orange&amp;quot;) + scale_y_continuous(labels = scales::comma) + 
+  labs(y = &amp;quot;Persons&amp;quot;, title = &amp;quot;COVID-19 3 months prediction&amp;quot;) + 
+  scale_colour_manual(name = &amp;quot;&amp;quot;, values = c(red = &amp;quot;red&amp;quot;, black = &amp;quot;black&amp;quot;, 
+                                            green = &amp;quot;green&amp;quot;, orange = &amp;quot;orange&amp;quot;), labels = c(&amp;quot;Susceptible&amp;quot;, 
+                                                                                            &amp;quot;Recovered&amp;quot;, &amp;quot;Observed incidence&amp;quot;, &amp;quot;Infectious&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yuan-du.com/post/2020-04-17-SIR-model/2020-04-18-sir-model-for-covid19_files/figure-html/Prediction-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Conclusion: It looks like the peak will be in the end of April and it will die down at the end of May.&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Important asymptotic theorems</title>
+      <link>https://yuan-du.com/post/2019-09-28-asymtotic-theory/important-asymtotic-theorems/</link>
+      <pubDate>Sat, 28 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/post/2019-09-28-asymtotic-theory/important-asymtotic-theorems/</guid>
+      <description>
+
+
+&lt;p&gt;Machine learning algorithms are very populuar. However, machine learing algorithms are not stable/consistant on the performance because lots of them are not using statistical inference. Thus, statistical theory for estimating function which has established hundreds of years ago becomes a more and more interesting research direction.&lt;/p&gt;
+&lt;p&gt;In this blog, I will introduce a few important asymptotic theorems that are fundamental to prove some machine learning algorithms, such as SVM and Markov Chain.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Fatou-Lebesgue Lemma&lt;/strong&gt;:
+if the random variable &lt;span class=&#34;math inline&#34;&gt;\(X_n \xrightarrow{a.s} X\)&lt;/span&gt; and if for all n &lt;span class=&#34;math inline&#34;&gt;\(X_n \geq Y\)&lt;/span&gt; with &lt;span class=&#34;math inline&#34;&gt;\(E|Y| &amp;lt; \infty\)&lt;/span&gt;, then
+&lt;span class=&#34;math display&#34;&gt;\[E(\liminf_{n \to \infty} X_n) \leq \liminf_{n \to \infty} E(X_n)\]&lt;/span&gt;
+It holds if &lt;span class=&#34;math inline&#34;&gt;\(X_n \geq 0\)&lt;/span&gt; for all n. &lt;/p&gt;
+&lt;p&gt;By using &lt;code&gt;Fatou-Lebesgue Lemma&lt;/code&gt;, we can prove the &lt;code&gt;(a) Monotone convergence Theorem&lt;/code&gt;, and the &lt;code&gt;(b) Lebesgue Dominated Convergence Theorem&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;(a) Monotone convergence Theorem&lt;/strong&gt;: If &lt;span class=&#34;math inline&#34;&gt;\(X_n\)&lt;/span&gt; is a sequence of nonnegative measurable functions denoted by &lt;span class=&#34;math inline&#34;&gt;\(0 \leq x_1 \leq x_2 \dots \leq x_n \leq x_{n+1}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(X_n \xrightarrow{a.s} X\)&lt;/span&gt;, then &lt;span class=&#34;math inline&#34;&gt;\(\lim_{0\to\infty}E(X_n)=E(\lim_{0\to\infty}X_n) = EX\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;(b) Lebesgue Dominated Convergence Theorem&lt;/strong&gt;：If the random variables &lt;span class=&#34;math inline&#34;&gt;\(X_n \to X\)&lt;/span&gt;, then we have &lt;span class=&#34;math inline&#34;&gt;\(|X_n| \leq Y\)&lt;/span&gt;, almost surely for all n. Then &lt;span class=&#34;math inline&#34;&gt;\(X_n \in L^1\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(X \in L^1\)&lt;/span&gt;, and &lt;span class=&#34;math inline&#34;&gt;\(\lim_{0\to\infty}E(X_n) = E(X)\)&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Partical converge relation&lt;/strong&gt;：&lt;span class=&#34;math inline&#34;&gt;\(X_n \xrightarrow{P}X\)&lt;/span&gt; if and only if every subsequence &lt;span class=&#34;math inline&#34;&gt;\(n_1, N_2, \dots \epsilon \{1,2,\dots\}\)&lt;/span&gt; has a sub-sequence &lt;span class=&#34;math inline&#34;&gt;\(m_1, m_2, \dots \epsilon \{n_1,n_2,\dots \}\)&lt;/span&gt; such that &lt;span class=&#34;math inline&#34;&gt;\(X_{m_j} \xrightarrow{a.s}X\)&lt;/span&gt; as &lt;span class=&#34;math inline&#34;&gt;\(j\to\infty\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Borel-Cantelli Lemma&lt;/strong&gt;: for {&lt;span class=&#34;math inline&#34;&gt;\(A_n: n \geq 1\)&lt;/span&gt;} a sequence of events in a probability space if &lt;span class=&#34;math inline&#34;&gt;\(\sum_{n=1}^{\infty}P(A_n) &amp;lt; \infty\)&lt;/span&gt; then &lt;span class=&#34;math inline&#34;&gt;\(P(A_n i.o.)=0\)&lt;/span&gt;; only a finite number of the events occur, with probability 1. Conversely, if the &lt;span class=&#34;math inline&#34;&gt;\(A_n\)&lt;/span&gt; are independent and &lt;span class=&#34;math inline&#34;&gt;\(\sum_{n=1}^{\infty}P(A_n) = \infty\)&lt;/span&gt;, then &lt;span class=&#34;math inline&#34;&gt;\(P(A_n i.o.)=1\)&lt;/span&gt;; an infinite number of the events occur, with probability 1.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Borel-Cantelli Lemma&lt;/code&gt; is useful in problems related to the a.s. convergence. It could be written as &lt;span class=&#34;math inline&#34;&gt;\(P(|X_n - X|&amp;gt;\epsilon i.o.) = 0, \forall \epsilon &amp;gt; 0\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Laws of Large Numbers&lt;/strong&gt;: When the convergence is in probability or law, this is known as weak law of large numbers (WLLN). if &lt;span class=&#34;math inline&#34;&gt;\(E|X| &amp;lt; \infty\)&lt;/span&gt;, then &lt;span class=&#34;math inline&#34;&gt;\(\bar{X_n} \xrightarrow{P} \mu = EX\)&lt;/span&gt;. When the convergence is almost surely, it is the strong laws of large nubmers (SLLN). &lt;span class=&#34;math inline&#34;&gt;\(\bar{X_n} \xrightarrow{a.s.} \mu \Leftrightarrow EX &amp;lt; \infty\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\mu = EX\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Central Limit Theorems&lt;/strong&gt;: Let &lt;span class=&#34;math inline&#34;&gt;\(X_1,X_2,\dots\)&lt;/span&gt; be i.i.d. random vectors with mean &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; and finite covariance matrix, &lt;span class=&#34;math inline&#34;&gt;\(\Sigma\)&lt;/span&gt;. Then &lt;span class=&#34;math inline&#34;&gt;\(\sqrt{n}(\bar{X_n} - \mu) \xrightarrow{L} N(0,\Sigma)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Slutsky’s Theorem&lt;/strong&gt;: Let &lt;span class=&#34;math inline&#34;&gt;\(\{X_n\}, \{Y_n\}\)&lt;/span&gt; be sequences of scalar/vector/matrix random elements. If &lt;span class=&#34;math inline&#34;&gt;\(X_n\)&lt;/span&gt; converges in distribution to a random element X; and &lt;span class=&#34;math inline&#34;&gt;\(Y_n\)&lt;/span&gt; converges in probability to a constant c, then &lt;span class=&#34;math inline&#34;&gt;\(X_n + Y_n \xrightarrow{d} X + c\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(X_nY_n \xrightarrow{d} cX\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\frac{X_n}{Y_n} \xrightarrow{d} \frac{X_n}{c}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SVM&lt;/strong&gt;&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;could be an application of &lt;code&gt;Lebesgue Dominated Convergence Theorem&lt;/code&gt; and &lt;code&gt;Central Limit Theorem&lt;/code&gt;. We can use the theorem and &lt;code&gt;Partical converge relation&lt;/code&gt; to prove the hinge loss function, when the data is not linearly separable. By limiting on Hilbert space, a weakly convergent subsequence. We can apply asymptotic normality property on the regularization parameter &lt;span class=&#34;math inline&#34;&gt;\(\lambda_i \to 0\)&lt;/span&gt; and thus to solve the miminization problem on the hyperplane &lt;span class=&#34;math inline&#34;&gt;\(\omega_n\)&lt;/span&gt;, where the solution &lt;span class=&#34;math inline&#34;&gt;\(\tilde{\omega}= \omega_*\)&lt;/span&gt; because &lt;span class=&#34;math inline&#34;&gt;\(\omega_*(\lambda_i) \xrightarrow{a.s.} \omega_*\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Markov chain&lt;/strong&gt;&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; can be proved by using &lt;code&gt;Borel-Cantelli Lemma&lt;/code&gt;. The probability of having state from &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; and eventually return to &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; is 1. If this probability is strictly less than 1, &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; is called transient.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;&lt;strong&gt;SVM&lt;/strong&gt; is supervised learning model with associated learning algorithm that analyzes data used for classification and regression analysis.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;A &lt;strong&gt;Markov chain&lt;/strong&gt; is a stochastic model describing a sequence of possible events in which the probability of each event depends only on the state attained in the previous event. In probability theory and related fields, a Markov process, named after the Russian mathematician &lt;a href=&#34;https://en.wikipedia.org/wiki/Andrey_Markov&#34;&gt;Andrey Markov&lt;/a&gt;, is a &lt;a href=&#34;https://en.wikipedia.org/wiki/Stochastic_process&#34;&gt;stochastic process&lt;/a&gt; that satisfies the &lt;a href=&#34;https://en.wikipedia.org/wiki/Markov_property&#34;&gt;Markov property&lt;/a&gt;. The defining characteristic of a Markov chain is that no matter how the process arrived at its present state, the possible future states are fixed. In other words, the probability of transitioning to any particular state is dependent solely on the current state and time elapsed. The &lt;strong&gt;state space&lt;/strong&gt;, or set of all possible states, can be anything: letters, numbers, weather conditions, sales volume，etc.&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

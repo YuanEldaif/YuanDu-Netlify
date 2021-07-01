@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Driver mutation | Yuan Du</title>
+    <link>https://yuan-du.com/tags/driver-mutation/</link>
+      <atom:link href="https://yuan-du.com/tags/driver-mutation/index.xml" rel="self" type="application/rss+xml" />
+    <description>Driver mutation</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Wed, 15 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Driver mutation</title>
+      <link>https://yuan-du.com/tags/driver-mutation/</link>
+    </image>
+    
+    <item>
+      <title>Prognostic Value of KRAS Mutation Subtypes and PD-L1 Expression in Patients With Lung Adenocarcinoma</title>
+      <link>https://yuan-du.com/publication/2020-7-clc/</link>
+      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/publication/2020-7-clc/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

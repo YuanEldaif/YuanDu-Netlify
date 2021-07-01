@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recent &amp; Upcoming Talks | Yuan Du</title>
+    <link>https://yuan-du.com/talk/</link>
+      <atom:link href="https://yuan-du.com/talk/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent &amp; Upcoming Talks</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Wed, 25 Dec 2019 16:30:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Recent &amp; Upcoming Talks</title>
+      <link>https://yuan-du.com/talk/</link>
+    </image>
+    
+    <item>
+      <title>Breast Cancer Image Classification Analysis by SVM</title>
+      <link>https://yuan-du.com/talk/2019-11-25-breast-cancer-by-svm/</link>
+      <pubDate>Wed, 25 Dec 2019 16:30:00 +0000</pubDate>
+      <guid>https://yuan-du.com/talk/2019-11-25-breast-cancer-by-svm/</guid>
+      <description>&lt;p&gt;Breast Cancer Image Classification Analysis Mainly by SVM&lt;/p&gt;
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click on the &lt;strong&gt;report&lt;/strong&gt; button above to view the built-in slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hypothesis Testing</title>
+      <link>https://yuan-du.com/talk/2019-09-advancedstat/</link>
+      <pubDate>Thu, 07 Nov 2019 09:30:00 +0000</pubDate>
+      <guid>https://yuan-du.com/talk/2019-09-advancedstat/</guid>
+      <description>&lt;p&gt;This is an Advanced Statistical course followed by the Statistical Basics. The most commonly used tests are introduced in this class for general research. I highly recommend that you attend the Statistical Basics before attending this course.&lt;/p&gt;
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click on the &lt;strong&gt;demo slides&lt;/strong&gt; button above to view the built-in slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SVM Asymptotic properties review</title>
+      <link>https://yuan-du.com/talk/2019-10-svm/</link>
+      <pubDate>Tue, 05 Nov 2019 16:30:00 +0000</pubDate>
+      <guid>https://yuan-du.com/talk/2019-10-svm/</guid>
+      <description>&lt;p&gt;This is a SVM Asymptotic normality review of the article &amp;ldquo;Asymptotic normality of support vector machine variants and other regularized kernel methods&amp;rdquo;.&lt;/p&gt;
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click on the &lt;strong&gt;slides&lt;/strong&gt; button above to view the built-in slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

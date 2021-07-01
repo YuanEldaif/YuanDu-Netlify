@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Theorem | Yuan Du</title>
+    <link>https://yuan-du.com/tags/theorem/</link>
+      <atom:link href="https://yuan-du.com/tags/theorem/index.xml" rel="self" type="application/rss+xml" />
+    <description>Theorem</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Wed, 25 Dec 2019 16:30:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Theorem</title>
+      <link>https://yuan-du.com/tags/theorem/</link>
+    </image>
+    
+    <item>
+      <title>Breast Cancer Image Classification Analysis by SVM</title>
+      <link>https://yuan-du.com/talk/2019-11-25-breast-cancer-by-svm/</link>
+      <pubDate>Wed, 25 Dec 2019 16:30:00 +0000</pubDate>
+      <guid>https://yuan-du.com/talk/2019-11-25-breast-cancer-by-svm/</guid>
+      <description>&lt;p&gt;Breast Cancer Image Classification Analysis Mainly by SVM&lt;/p&gt;
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click on the &lt;strong&gt;report&lt;/strong&gt; button above to view the built-in slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SVM Asymptotic properties review</title>
+      <link>https://yuan-du.com/talk/2019-10-svm/</link>
+      <pubDate>Tue, 05 Nov 2019 16:30:00 +0000</pubDate>
+      <guid>https://yuan-du.com/talk/2019-10-svm/</guid>
+      <description>&lt;p&gt;This is a SVM Asymptotic normality review of the article &amp;ldquo;Asymptotic normality of support vector machine variants and other regularized kernel methods&amp;rdquo;.&lt;/p&gt;
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click on the &lt;strong&gt;slides&lt;/strong&gt; button above to view the built-in slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Important asymptotic theorems</title>
+      <link>https://yuan-du.com/post/2019-09-28-asymtotic-theory/important-asymtotic-theorems/</link>
+      <pubDate>Sat, 28 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/post/2019-09-28-asymtotic-theory/important-asymtotic-theorems/</guid>
+      <description>
+
+
+&lt;p&gt;Machine learning algorithms are very populuar. However, machine learing algorithms are not stable/consistant on the performance because lots of them are not using statistical inference. Thus, statistical theory for estimating function which has established hundreds of years ago becomes a more and more interesting research direction.&lt;/p&gt;
+&lt;p&gt;In this blog, I will introduce a few important asymptotic theorems that are fundamental to prove some machine learning algorithms, such as SVM and Markov Chain.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Fatou-Lebesgue Lemma&lt;/strong&gt;:
+if the random variable &lt;span class=&#34;math inline&#34;&gt;\(X_n \xrightarrow{a.s} X\)&lt;/span&gt; and if for all n &lt;span class=&#34;math inline&#34;&gt;\(X_n \geq Y\)&lt;/span&gt; with &lt;span class=&#34;math inline&#34;&gt;\(E|Y| &amp;lt; \infty\)&lt;/span&gt;, then
+&lt;span class=&#34;math display&#34;&gt;\[E(\liminf_{n \to \infty} X_n) \leq \liminf_{n \to \infty} E(X_n)\]&lt;/span&gt;
+It holds if &lt;span class=&#34;math inline&#34;&gt;\(X_n \geq 0\)&lt;/span&gt; for all n. &lt;/p&gt;
+&lt;p&gt;By using &lt;code&gt;Fatou-Lebesgue Lemma&lt;/code&gt;, we can prove the &lt;code&gt;(a) Monotone convergence Theorem&lt;/code&gt;, and the &lt;code&gt;(b) Lebesgue Dominated Convergence Theorem&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;(a) Monotone convergence Theorem&lt;/strong&gt;: If &lt;span class=&#34;math inline&#34;&gt;\(X_n\)&lt;/span&gt; is a sequence of nonnegative measurable functions denoted by &lt;span class=&#34;math inline&#34;&gt;\(0 \leq x_1 \leq x_2 \dots \leq x_n \leq x_{n+1}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(X_n \xrightarrow{a.s} X\)&lt;/span&gt;, then &lt;span class=&#34;math inline&#34;&gt;\(\lim_{0\to\infty}E(X_n)=E(\lim_{0\to\infty}X_n) = EX\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;(b) Lebesgue Dominated Convergence Theorem&lt;/strong&gt;：If the random variables &lt;span class=&#34;math inline&#34;&gt;\(X_n \to X\)&lt;/span&gt;, then we have &lt;span class=&#34;math inline&#34;&gt;\(|X_n| \leq Y\)&lt;/span&gt;, almost surely for all n. Then &lt;span class=&#34;math inline&#34;&gt;\(X_n \in L^1\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(X \in L^1\)&lt;/span&gt;, and &lt;span class=&#34;math inline&#34;&gt;\(\lim_{0\to\infty}E(X_n) = E(X)\)&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Partical converge relation&lt;/strong&gt;：&lt;span class=&#34;math inline&#34;&gt;\(X_n \xrightarrow{P}X\)&lt;/span&gt; if and only if every subsequence &lt;span class=&#34;math inline&#34;&gt;\(n_1, N_2, \dots \epsilon \{1,2,\dots\}\)&lt;/span&gt; has a sub-sequence &lt;span class=&#34;math inline&#34;&gt;\(m_1, m_2, \dots \epsilon \{n_1,n_2,\dots \}\)&lt;/span&gt; such that &lt;span class=&#34;math inline&#34;&gt;\(X_{m_j} \xrightarrow{a.s}X\)&lt;/span&gt; as &lt;span class=&#34;math inline&#34;&gt;\(j\to\infty\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Borel-Cantelli Lemma&lt;/strong&gt;: for {&lt;span class=&#34;math inline&#34;&gt;\(A_n: n \geq 1\)&lt;/span&gt;} a sequence of events in a probability space if &lt;span class=&#34;math inline&#34;&gt;\(\sum_{n=1}^{\infty}P(A_n) &amp;lt; \infty\)&lt;/span&gt; then &lt;span class=&#34;math inline&#34;&gt;\(P(A_n i.o.)=0\)&lt;/span&gt;; only a finite number of the events occur, with probability 1. Conversely, if the &lt;span class=&#34;math inline&#34;&gt;\(A_n\)&lt;/span&gt; are independent and &lt;span class=&#34;math inline&#34;&gt;\(\sum_{n=1}^{\infty}P(A_n) = \infty\)&lt;/span&gt;, then &lt;span class=&#34;math inline&#34;&gt;\(P(A_n i.o.)=1\)&lt;/span&gt;; an infinite number of the events occur, with probability 1.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Borel-Cantelli Lemma&lt;/code&gt; is useful in problems related to the a.s. convergence. It could be written as &lt;span class=&#34;math inline&#34;&gt;\(P(|X_n - X|&amp;gt;\epsilon i.o.) = 0, \forall \epsilon &amp;gt; 0\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Laws of Large Numbers&lt;/strong&gt;: When the convergence is in probability or law, this is known as weak law of large numbers (WLLN). if &lt;span class=&#34;math inline&#34;&gt;\(E|X| &amp;lt; \infty\)&lt;/span&gt;, then &lt;span class=&#34;math inline&#34;&gt;\(\bar{X_n} \xrightarrow{P} \mu = EX\)&lt;/span&gt;. When the convergence is almost surely, it is the strong laws of large nubmers (SLLN). &lt;span class=&#34;math inline&#34;&gt;\(\bar{X_n} \xrightarrow{a.s.} \mu \Leftrightarrow EX &amp;lt; \infty\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\mu = EX\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Central Limit Theorems&lt;/strong&gt;: Let &lt;span class=&#34;math inline&#34;&gt;\(X_1,X_2,\dots\)&lt;/span&gt; be i.i.d. random vectors with mean &lt;span class=&#34;math inline&#34;&gt;\(\mu\)&lt;/span&gt; and finite covariance matrix, &lt;span class=&#34;math inline&#34;&gt;\(\Sigma\)&lt;/span&gt;. Then &lt;span class=&#34;math inline&#34;&gt;\(\sqrt{n}(\bar{X_n} - \mu) \xrightarrow{L} N(0,\Sigma)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Slutsky’s Theorem&lt;/strong&gt;: Let &lt;span class=&#34;math inline&#34;&gt;\(\{X_n\}, \{Y_n\}\)&lt;/span&gt; be sequences of scalar/vector/matrix random elements. If &lt;span class=&#34;math inline&#34;&gt;\(X_n\)&lt;/span&gt; converges in distribution to a random element X; and &lt;span class=&#34;math inline&#34;&gt;\(Y_n\)&lt;/span&gt; converges in probability to a constant c, then &lt;span class=&#34;math inline&#34;&gt;\(X_n + Y_n \xrightarrow{d} X + c\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(X_nY_n \xrightarrow{d} cX\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\frac{X_n}{Y_n} \xrightarrow{d} \frac{X_n}{c}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SVM&lt;/strong&gt;&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;could be an application of &lt;code&gt;Lebesgue Dominated Convergence Theorem&lt;/code&gt; and &lt;code&gt;Central Limit Theorem&lt;/code&gt;. We can use the theorem and &lt;code&gt;Partical converge relation&lt;/code&gt; to prove the hinge loss function, when the data is not linearly separable. By limiting on Hilbert space, a weakly convergent subsequence. We can apply asymptotic normality property on the regularization parameter &lt;span class=&#34;math inline&#34;&gt;\(\lambda_i \to 0\)&lt;/span&gt; and thus to solve the miminization problem on the hyperplane &lt;span class=&#34;math inline&#34;&gt;\(\omega_n\)&lt;/span&gt;, where the solution &lt;span class=&#34;math inline&#34;&gt;\(\tilde{\omega}= \omega_*\)&lt;/span&gt; because &lt;span class=&#34;math inline&#34;&gt;\(\omega_*(\lambda_i) \xrightarrow{a.s.} \omega_*\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Markov chain&lt;/strong&gt;&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; can be proved by using &lt;code&gt;Borel-Cantelli Lemma&lt;/code&gt;. The probability of having state from &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; and eventually return to &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; is 1. If this probability is strictly less than 1, &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; is called transient.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;&lt;strong&gt;SVM&lt;/strong&gt; is supervised learning model with associated learning algorithm that analyzes data used for classification and regression analysis.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;A &lt;strong&gt;Markov chain&lt;/strong&gt; is a stochastic model describing a sequence of possible events in which the probability of each event depends only on the state attained in the previous event. In probability theory and related fields, a Markov process, named after the Russian mathematician &lt;a href=&#34;https://en.wikipedia.org/wiki/Andrey_Markov&#34;&gt;Andrey Markov&lt;/a&gt;, is a &lt;a href=&#34;https://en.wikipedia.org/wiki/Stochastic_process&#34;&gt;stochastic process&lt;/a&gt; that satisfies the &lt;a href=&#34;https://en.wikipedia.org/wiki/Markov_property&#34;&gt;Markov property&lt;/a&gt;. The defining characteristic of a Markov chain is that no matter how the process arrived at its present state, the possible future states are fixed. In other words, the probability of transitioning to any particular state is dependent solely on the current state and time elapsed. The &lt;strong&gt;state space&lt;/strong&gt;, or set of all possible states, can be anything: letters, numbers, weather conditions, sales volume，etc.&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

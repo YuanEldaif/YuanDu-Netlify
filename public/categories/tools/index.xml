@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools | Yuan Du</title>
+    <link>https://yuan-du.com/categories/tools/</link>
+      <atom:link href="https://yuan-du.com/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+    <description>Tools</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Fri, 16 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Tools</title>
+      <link>https://yuan-du.com/categories/tools/</link>
+    </image>
+    
+    <item>
+      <title>Awesome data science presentations and tools</title>
+      <link>https://yuan-du.com/post/tools-reference/</link>
+      <pubDate>Fri, 16 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/post/tools-reference/</guid>
+      <description>&lt;p&gt;Recently, I discovered a few pretty cool tools, R-based and easy to follow.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;R Presentation Themes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Why uses R presentation?&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Take advantage of &lt;a href=&#34;https://yuandueldaif.netlify.com/post/rmarkdown_intro/&#34; target=&#34;_blank&#34;&gt;R Markdown&lt;/a&gt; .&lt;/strong&gt; You can write all your slides in Markdown text&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Power of interchange.&lt;/strong&gt; You can include chunks of R code and rendered output like plots, results, tables, etc. in your slides&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Version control and sharing.&lt;/strong&gt; You can use git for version control and share your GitHub repository&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;My current favorate &lt;a href=&#34;https://github.com/yihui/xaringan/wiki/Themes&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;Xaringan&lt;/strong&gt;&lt;/a&gt; &lt;a href=&#34;https://github.com/emitanaka/ninja-theme&#34; target=&#34;_blank&#34;&gt;nanja-theme&lt;/a&gt; was developed by Emi Tanaka.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Data Cleaning/Data Wrangling tool kit - Tidyverse&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Book&lt;/strong&gt; &lt;a href=&#34;https://r4ds.had.co.nz/&#34; target=&#34;_blank&#34;&gt;R for Data Science&lt;/a&gt; by Garrett Grolemund &amp;amp; Hadley Wickham.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Visual&lt;/strong&gt; Data cleaning post- &lt;a href=&#34;https://jules32.github.io/2016-07-12-Oxford/dplyr_tidyr/#3_tidyr_overview&#34; target=&#34;_blank&#34;&gt;Tidyverse overview&lt;/a&gt; by Julia Stewart Lowndes.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;I&amp;rsquo;m finishing up on an advanced statistical class &lt;a href=&#34;https://yuandueldaif.netlify.com/talk/2019-09-advancedstat/&#34; target=&#34;_blank&#34;&gt;&amp;ldquo;Significance Test&amp;rdquo;&lt;/a&gt; by using R presentation and will share the code on Github.
+&lt;br/&gt;so stay tuned&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

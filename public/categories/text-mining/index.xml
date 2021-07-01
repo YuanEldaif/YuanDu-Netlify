@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Text Mining | Yuan Du</title>
+    <link>https://yuan-du.com/categories/text-mining/</link>
+      <atom:link href="https://yuan-du.com/categories/text-mining/index.xml" rel="self" type="application/rss+xml" />
+    <description>Text Mining</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Fri, 19 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Text Mining</title>
+      <link>https://yuan-du.com/categories/text-mining/</link>
+    </image>
+    
+    <item>
+      <title>Tidy Text Mining</title>
+      <link>https://yuan-du.com/post/tidy-text-mining/</link>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/post/tidy-text-mining/</guid>
+      <description>
+
+
+&lt;p&gt;Thanks to the short course at SDSS 2019, I learned how to do tf-idf to topic modeling and sentiment analysis by using tidytext taught by Julia Silge, author of &lt;a href=&#34;https://www.tidytextmining.com/&#34;&gt;Text Mining with R&lt;/a&gt; and Mara Averick. They did a great job on teaching the four hour class. I didn’t expect to have so much covered in the short course.&lt;/p&gt;
+&lt;p&gt;Here is an example that I used the method to analyze &lt;strong&gt;A Tale of Two Cities&lt;/strong&gt; and &lt;strong&gt;Great Expectations&lt;/strong&gt; by Charles Dickens by using sentiment analysis.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Install the &lt;code&gt;tidytext&lt;/code&gt; package for text mining.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;install.packages(&#34;tidytext&#34;)&lt;/code&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Read the book from gutenbergr package, after install gutenbergr package&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We can Downloading books by ID (98 and 1400) from &lt;a href=&#34;http://www.gutenberg.org/&#34;&gt;Project Gutenbergr&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gutenbergr)
+library(dplyr)
+
+book &amp;lt;-  gutenberg_download(c(98, 1400), meta_fields = &amp;quot;title&amp;quot;) %&amp;gt;%
+  group_by(title) %&amp;gt;%
+  mutate(line = row_number()) %&amp;gt;%
+  ungroup()
+
+book&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 35,889 x 4
+##    gutenberg_id text                             title                 line
+##           &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;                            &amp;lt;chr&amp;gt;                &amp;lt;int&amp;gt;
+##  1           98 A TALE OF TWO CITIES             A Tale of Two Cities     1
+##  2           98 &amp;quot;&amp;quot;                               A Tale of Two Cities     2
+##  3           98 A STORY OF THE FRENCH REVOLUTION A Tale of Two Cities     3
+##  4           98 &amp;quot;&amp;quot;                               A Tale of Two Cities     4
+##  5           98 By Charles Dickens               A Tale of Two Cities     5
+##  6           98 &amp;quot;&amp;quot;                               A Tale of Two Cities     6
+##  7           98 &amp;quot;&amp;quot;                               A Tale of Two Cities     7
+##  8           98 CONTENTS                         A Tale of Two Cities     8
+##  9           98 &amp;quot;&amp;quot;                               A Tale of Two Cities     9
+## 10           98 &amp;quot;&amp;quot;                               A Tale of Two Cities    10
+## # ... with 35,879 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Process books into chapters and words in tidy data form&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;we need to restructure it as one-token-per-row format. As pre-processing, we divide these into chapters, use tidytext’s &lt;code&gt;unnest_tokens&lt;/code&gt; to separate them into words, then remove &lt;code&gt;stop_word&lt;/code&gt;s. We’re treating every chapter as a separate “document”, each with a name like &lt;em&gt;A Tale of Two cities&lt;/em&gt; or &lt;em&gt;Great Expectations&lt;/em&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidytext)
+tidy_book &amp;lt;- book %&amp;gt;%
+  unnest_tokens(word, text)
+
+tidy_book&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 323,972 x 4
+##    gutenberg_id title                 line word  
+##           &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;                &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt; 
+##  1           98 A Tale of Two Cities     1 a     
+##  2           98 A Tale of Two Cities     1 tale  
+##  3           98 A Tale of Two Cities     1 of    
+##  4           98 A Tale of Two Cities     1 two   
+##  5           98 A Tale of Two Cities     1 cities
+##  6           98 A Tale of Two Cities     3 a     
+##  7           98 A Tale of Two Cities     3 story 
+##  8           98 A Tale of Two Cities     3 of    
+##  9           98 A Tale of Two Cities     3 the   
+## 10           98 A Tale of Two Cities     3 french
+## # ... with 323,962 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tidy_book &amp;lt;- tidy_book %&amp;gt;%
+  anti_join(get_stopwords())
+
+#We can also use count to find the most common words in all the book as a whole
+tidy_book %&amp;gt;%
+  count(word, sort = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 14,594 x 2
+##    word       n
+##    &amp;lt;chr&amp;gt;  &amp;lt;int&amp;gt;
+##  1 said    2010
+##  2 mr      1333
+##  3 one      940
+##  4 now      715
+##  5 joe      698
+##  6 upon     655
+##  7 time     640
+##  8 little   638
+##  9 miss     616
+## 10 know     613
+## # ... with 14,584 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Sentiment analysis&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Sentiment analysis can be done as an inner join. Three sentiment lexicons are available via the &lt;code&gt;get_sentiments()&lt;/code&gt; function. Let’s examine how sentiment changes during each novel. Let’s find a sentiment score for each word using the Bing lexicon, then count the number of positive and negative words in defined sections of each novel.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyr)
+get_sentiments(&amp;quot;bing&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6,786 x 2
+##    word        sentiment
+##    &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;    
+##  1 2-faces     negative 
+##  2 abnormal    negative 
+##  3 abolish     negative 
+##  4 abominable  negative 
+##  5 abominably  negative 
+##  6 abominate   negative 
+##  7 abomination negative 
+##  8 abort       negative 
+##  9 aborted     negative 
+## 10 aborts      negative 
+## # ... with 6,776 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sentiment &amp;lt;- tidy_book %&amp;gt;%
+  inner_join(get_sentiments(&amp;quot;bing&amp;quot;), by = &amp;quot;word&amp;quot;) %&amp;gt;% 
+  count(title, index = line %/% 80, sentiment) %&amp;gt;% 
+  spread(sentiment, n, fill = 0) %&amp;gt;% 
+  mutate(sentiment = positive - negative)
+
+sentiment&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 450 x 5
+##    title                index negative positive sentiment
+##    &amp;lt;chr&amp;gt;                &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+##  1 A Tale of Two Cities     0        5        9         4
+##  2 A Tale of Two Cities     1       28       28         0
+##  3 A Tale of Two Cities     2       27       15       -12
+##  4 A Tale of Two Cities     3       17       10        -7
+##  5 A Tale of Two Cities     4       13       12        -1
+##  6 A Tale of Two Cities     5       19       18        -1
+##  7 A Tale of Two Cities     6       24       16        -8
+##  8 A Tale of Two Cities     7       24       19        -5
+##  9 A Tale of Two Cities     8        9       27        18
+## 10 A Tale of Two Cities     9       29       23        -6
+## # ... with 440 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Now we can plot these sentiment scores across the plot trajectory of each novel.&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+
+ggplot(sentiment, aes(index, sentiment, fill = title)) +
+  geom_bar(stat = &amp;quot;identity&amp;quot;, show.legend = FALSE) +
+  facet_wrap(~title, ncol = 2, scales = &amp;quot;free_x&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yuan-du.com/post/2019-07-18-tidy-text-mining/index_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;It looks like that &lt;strong&gt;A Table of Two Cities&lt;/strong&gt; has more negative emotions and &lt;strong&gt;Great Expectations&lt;/strong&gt; is more balanced on emotions.&lt;/p&gt;
+&lt;ol start=&#34;5&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Most common positive and negative words&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;One advantage of having the data frame with both sentiment and word is that we can analyze word counts that contribute to each sentiment.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;bing_word_counts &amp;lt;- tidy_book %&amp;gt;%
+  inner_join(get_sentiments(&amp;quot;bing&amp;quot;)) %&amp;gt;%
+  count(word, sentiment, sort = TRUE)
+
+bing_word_counts&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2,575 x 3
+##    word   sentiment     n
+##    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;     &amp;lt;int&amp;gt;
+##  1 miss   negative    616
+##  2 like   positive    541
+##  3 well   positive    483
+##  4 good   positive    473
+##  5 great  positive    360
+##  6 better positive    221
+##  7 right  positive    172
+##  8 poor   negative    164
+##  9 dark   negative    160
+## 10 work   positive    152
+## # ... with 2,565 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This can be shown visually, and we can pipe straight into ggplot2 because of the way we are consistently using tools built for handling tidy data frames.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;bing_word_counts %&amp;gt;%
+  filter(n &amp;gt; 100) %&amp;gt;%
+  mutate(n = ifelse(sentiment == &amp;quot;negative&amp;quot;, -n, n)) %&amp;gt;%
+  mutate(word = reorder(word, n)) %&amp;gt;%
+  ggplot(aes(word, n, fill = sentiment)) +
+  geom_col() +
+  coord_flip() +
+  labs(y = &amp;quot;Contribution to sentiment&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yuan-du.com/post/2019-07-18-tidy-text-mining/index_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;
+This lets us spot an anomaly in the sentiment analysis; the word “miss” is coded as negative but it is used as a title for young, unmarried women in Jane Austen’s works. If it were appropriate for our purposes, we could easily add “miss” to a custom &lt;code&gt;stop-words&lt;/code&gt; list using &lt;code&gt;bind_rows&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;custom_stop_words &amp;lt;- bind_rows(get_stopwords(),
+                               tibble(word = &amp;quot;miss&amp;quot;,
+                                          lexicon = &amp;quot;custom&amp;quot;))
+
+tidy_book2 &amp;lt;- tidy_book %&amp;gt;%
+  anti_join(custom_stop_words) %&amp;gt;%
+  count(word, sort = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;6&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Wordclouds&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We’ve seen that this tidy text mining approach works well with ggplot2, but having our data in a tidy format is useful for other plots as well.&lt;/p&gt;
+&lt;p&gt;For example, consider the wordcloud package. Let’s look at the most common words in Charles Dickens’ two books as a whole again.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(wordcloud)
+
+tidy_book %&amp;gt;%
+  count(word) %&amp;gt;%
+  with(wordcloud(word, n, max.words = 100))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yuan-du.com/post/2019-07-18-tidy-text-mining/index_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;In other functions, such as comparison.cloud, you may need to turn it into a matrix with &lt;code&gt;reshape2&lt;/code&gt;’s acast. Let’s do the sentiment analysis to tag positive and negative words using an inner join, then find the most common positive and negative words. Until the step where we need to send the data to comparison.cloud, this can all be done with joins, piping, and dplyr because our data is in tidy format.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(reshape2)
+
+tidy_book %&amp;gt;%
+  inner_join(get_sentiments(&amp;quot;bing&amp;quot;)) %&amp;gt;%
+  count(word, sentiment, sort = TRUE) %&amp;gt;%
+  acast(word ~ sentiment, value.var = &amp;quot;n&amp;quot;, fill = 0) %&amp;gt;%
+  comparison.cloud(colors = c(&amp;quot;#F8766D&amp;quot;, &amp;quot;#00BFC4&amp;quot;),
+                   max.words = 100)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://yuan-du.com/post/2019-07-18-tidy-text-mining/index_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;For “Converting to and from Document-Term Matrix and Corpus objects”, You can visit &lt;a href=&#34;https://cran.r-project.org/web/packages/tidytext/vignettes/tidying_casting.html&#34;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

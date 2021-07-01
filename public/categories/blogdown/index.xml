@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogdown | Yuan Du</title>
+    <link>https://yuan-du.com/categories/blogdown/</link>
+      <atom:link href="https://yuan-du.com/categories/blogdown/index.xml" rel="self" type="application/rss+xml" />
+    <description>Blogdown</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Thu, 18 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Blogdown</title>
+      <link>https://yuan-du.com/categories/blogdown/</link>
+    </image>
+    
+    <item>
+      <title>Publish R blogdown by Netlify</title>
+      <link>https://yuan-du.com/post/netlifypub/</link>
+      <pubDate>Thu, 18 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/post/netlifypub/</guid>
+      <description>
+&lt;script src=&#34;https://yuan-du.com/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://yuan-du.com/rmarkdown-libs/viz/viz.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://yuan-du.com/rmarkdown-libs/DiagrammeR-styles/styles.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://yuan-du.com/rmarkdown-libs/grViz-binding/grViz.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;I’m a noobie on using Github and Hugo. 😊 It took me quite a while to figure out how to use version control on Github through Rstudio. In this blog, I would like to share my obstacles on publishing website to Github and deploying my website by Netflify. Some of the obstacles were caused by not understanding the structure and workflow of Github/Blogdown because I took a shortcut by googling and trials &amp;amp; errors and didn’t have patience to read all the details of the Yihui’s excellent &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;guidelines&lt;/a&gt;. If you are a really new user as me with no website experience, hope this blog is helpful for you. You can skip some of the dump obstacles that you hopefully will not run into. 🙏&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Make sure your R and Rstudio version is up-to-date. &lt;a href=&#34;https://bootstrappers.umassmed.edu/bootstrappers-courses/courses/rCourse/Additional_Resources/Updating_R.html&#34;&gt;Here&lt;/a&gt; you can find how to update R and Rstudio.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Steps of creating blogdown in Rstudio, github repo and Netlify&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;General steps Recommended:
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:672px;height:150px;&#34; class=&#34;grViz html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;digraph {\ngraph [layout = dot, rankdir = LR]\n\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled, fillcolor = Linen]\nFirst [label =  \&#34;1. \n Create \n Github Repository\&#34;]\nSecond [label = \&#34;2. \n Create R blogdown \n in R Studio\&#34;]\nThird [label= \&#34;3. \n Deploy the web \n by Netlify\&#34;]\n\n# edge definitions with the node IDs\nFirst -&gt; Second -&gt; Third\n}&#34;,&#34;config&#34;:{&#34;engine&#34;:&#34;dot&#34;,&#34;options&#34;:null}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;I highly recommend you create a Github repository &lt;strong&gt;before&lt;/strong&gt; you create blogdown as we have to use Github repo &lt;code&gt;&amp;lt;repo name&amp;gt;&lt;/code&gt; to store all blogdown source files and deploy the &lt;code&gt;_public_&lt;/code&gt; folder by Netlify.Here are the steps that needs to pay attention when using Github:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Click the &lt;em&gt;Clone or download&lt;/em&gt; green button and copy URL.&lt;/li&gt;
+&lt;li&gt;In Rstudio terminal &lt;strong&gt;Change&lt;/strong&gt; directory to Github repo you just created &lt;code&gt;&amp;lt;repo name&amp;gt;&lt;/code&gt; by using &lt;code&gt;cd &amp;lt;repo name&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;git clone &amp;lt;GitHub URL&amp;gt;&lt;/code&gt; to clone new repository.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Build your blogdown in R Studio. I believe this step is easy to find either by watching the great &lt;a href=&#34;https://resources.rstudio.com/wistia-rstudio-conf-2018-2/create-and-maintain-websites-with-r-markdown-and-blogdown-yihui-xie-2&#34;&gt;RStudio Blogdown Webnair Video 2018&lt;/a&gt; to get started or read some parts in the book by Yihui. You can refer to my previous blog about &lt;a href=&#34;https://yuandu.netlify.com/2019/07/07/create-your-own-logo/&#34;&gt;change to your own logo&lt;/a&gt;. You should decide if you will use R markdown or Markdown for each blog.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;A tip to select multiple items to commit is by &lt;code&gt;git add .&lt;/code&gt;&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; and &lt;code&gt;git commit -m &#34;your message&#34;&lt;/code&gt; and &lt;code&gt;git push origin master&lt;/code&gt; in the terminal.&lt;/li&gt;
+&lt;li&gt;Add a file for the post that contains pictures. To reference the picture from the post, a folder &lt;code&gt;img&lt;/code&gt; should be created under the folder - &lt;code&gt;static&lt;/code&gt; and you can reference it as for example, &lt;code&gt;![](/img/imgname.png)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Sometimes the &lt;code&gt;Viewer&lt;/code&gt; doesn’t display the content. What worked for me is that I restart the R session and render my post with &lt;strong&gt;&lt;code&gt;blogdown::serve_site()&lt;/code&gt;&lt;/strong&gt; manually in the Console.Also, try to update packages by using &lt;code&gt;update.packages(ask = FALSE, checkBuilt = TRUE)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;My post that’s written by R markdown doesn’t generate html file and then the blog coudln’t be deployed. so by manually &lt;strong&gt;Knit&lt;/strong&gt; to html to generate the file solved the problem.&lt;/li&gt;
+&lt;li&gt;Add emojis. In &lt;code&gt;config.toml&lt;/code&gt;, put &lt;code&gt;enableEmoji = true&lt;/code&gt; to enable the function. You can find emoji cheatsheet &lt;a href=&#34;https://www.webfx.com/tools/emoji-cheat-sheet/&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Deploy the website on netlify for free requires below steps:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a netlify account by linking with Github&lt;/li&gt;
+&lt;li&gt;Name your website in &lt;code&gt;config.toml&lt;/code&gt; file under &lt;code&gt;baseurl =&lt;/code&gt;. followed by the netlify subdomain &lt;code&gt;.netlify.com/&lt;/code&gt;. Remember to have &lt;strong&gt;backslash “/”&lt;/strong&gt; at the end.&lt;/li&gt;
+&lt;li&gt;Add the build settings. Push the “hugo” as the Build command and “public” as the Publish directory.
+&lt;img src=&#34;https://yuan-du.com/img/NetlifySet.png&#34; /&gt;
+#{idth=800px height=600px}&lt;/li&gt;
+&lt;li&gt;check Hugo version &lt;code&gt;blogdown::hugo_version()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hope above solutions are helpful to you. 🍻&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;There is a space between “add” and “.”&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to create your own logo and apply to your own website</title>
+      <link>https://yuan-du.com/post/create-your-own-logo/</link>
+      <pubDate>Sun, 07 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/post/create-your-own-logo/</guid>
+      <description>&lt;p&gt;I have no background of editing html and css. It took me a while to figure out how to modify the &lt;a href=&#34;https://github.com/yihui/hugo-lithium&#34; target=&#34;_blank&#34;&gt;Hugo Lithium theme&lt;/a&gt; for my own blog. I started with this simple theme because the fancier theme, the more knowledge of configuration will be needed. This make it easier for me to transision to the &lt;a href=&#34;https://github.com/gcushen/hugo-academic&#34; target=&#34;_blank&#34;&gt;Academic Thmeme&lt;/a&gt; that I&amp;rsquo;m currently using. so I would like to share it with you, by no means that this is the only way to do it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 1:&lt;/strong&gt;
+Generate your own favicon ico by using free &lt;a href=&#34;https://favicon.io/&#34; target=&#34;_blank&#34;&gt;favicon generator&lt;/a&gt;. I generated it by using my inital of my first name.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 2:&lt;/strong&gt;
+Save the download package and save the &lt;code&gt;favicon.ico&lt;/code&gt; logo in the path &lt;code&gt;\thmemes\hugo-lithium\static\&lt;/code&gt; (Hugo will copy it to root directory).and copy the small logo named &lt;code&gt;apple-touch-icon.png&lt;/code&gt; under the path &lt;code&gt;\thmemes\hugo-lithium\static\images&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 3:&lt;/strong&gt;
+change the url &lt;code&gt;logo.png&lt;/code&gt; name in the file &lt;code&gt;config.toml&lt;/code&gt; under&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;[params.logo] url = &amp;quot;apple-touch-icon.png&amp;quot;&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

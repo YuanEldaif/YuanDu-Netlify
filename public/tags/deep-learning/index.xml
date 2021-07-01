@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deep Learning | Yuan Du</title>
+    <link>https://yuan-du.com/tags/deep-learning/</link>
+      <atom:link href="https://yuan-du.com/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <description>Deep Learning</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Mon, 07 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Deep Learning</title>
+      <link>https://yuan-du.com/tags/deep-learning/</link>
+    </image>
+    
+    <item>
+      <title>Learning To Rank (LTR)</title>
+      <link>https://yuan-du.com/post/2021-06-07-ltr/decision-theory/</link>
+      <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/post/2021-06-07-ltr/decision-theory/</guid>
+      <description>
+
+
+&lt;p&gt;Previously, in the post &lt;a href=&#34;https://yuan-du.com/post/2020-12-13-loss-functions/decision-theory/&#34;&gt;Loss Functions in Machine Learning and LTR&lt;/a&gt; we disscussed about how loss functions were used in ML and briefly mentioned LTR. Here I’ll discuss about LTR. LTR uses Machine Learning (ML)/Artifical Intelligence (AI) to predict rankings/ordinal data. It’s useful for google search, drug discovery, bioinformatics. Here is a list that seperates traditional ML from LTR:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Solve a ranking on a list of items&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Predict the optimal ordering of the list&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Doesn’t care much about the score of each item/point&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;only care the relative score/ordering among all the items&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For example, if we have 2 ML models to predict students’ score. and our goal is to rank students. and we have below results from the ML models. In this case, &lt;span style=&#34;color:red&#34;&gt;Model 2&lt;/span&gt; is better at ranking compared to Model 1 even though Model 1 has better prediction accuracy. Rank error is pair-wise based and is defined as &lt;span class=&#34;math inline&#34;&gt;\(\frac{ \# \textrm{ of discordant pairs} }{ \#\textrm{ of total pairs between + and -} }\)&lt;/span&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;Student&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;True Score&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Model 1&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Model 2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Student1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;90%&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;88%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;100%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Student2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;85%&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;89%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;50%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Student3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;80%&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;83%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;10%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;LTR system includes bipartite ranking, k-partite ranking, real value based ranking. We only talk about bipartite ranking here.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. &lt;span style=&#34;color:green&#34;&gt;Bipartite RankSVM Algorithm&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Bipartite RankSVM Algorithm uses hinge loss. The hinge loss is a loss function used for “maximum-margin” classification, most notably for support vector machine (SVM). It’s equivalent to minimize the loss function &lt;span class=&#34;math inline&#34;&gt;\(L_{hinge}(f,x_i^+,x_i^-) = [1-(f(x_i^+)-f(x_i^-))]_+ [u_+ = max(u,0)]\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;With &lt;span class=&#34;math inline&#34;&gt;\(f = W * X =\)&lt;/span&gt; ranking score, the optimization problem is loss + penalty:
+&lt;span class=&#34;math display&#34;&gt;\[ \min_{f \in F_k} \frac{1}{mn}\sum_{i=1}^{m} \sum_{j=1}^{n}L_{hinge}(f,x_i^+,x_i^-) + \frac{\lambda}{2}||f||_k^2 \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Thus, the term &lt;span class=&#34;math inline&#34;&gt;\(f(x_i^+)-f(x_i^-)\)&lt;/span&gt; the larger, the better.If &lt;span class=&#34;math inline&#34;&gt;\(f(x_i^+)-f(x_i^-) &amp;lt;0\)&lt;/span&gt;, it means that it’s making mistakes so the objection function is penalized.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. &lt;span style=&#34;color:DeepSkyBlue&#34;&gt;Bipartite RankBoost Algorithm&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Bipartite RankBoost Algorithm uses the exponential loss.&lt;/p&gt;
+&lt;p&gt;The population minimizer is:
+&lt;span class=&#34;math display&#34;&gt;\[\min_{f \in L(F_{base})} \frac{1}{mn}\sum_{i=1}^{m} \sum_{j=1}^{n}L_{exp}(f,x_i^+,x_i^-)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(L_{exp}(f,x_i^+,x_i^-) = exp(-f(x_i^+)-f(x_i^-))\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. &lt;span style=&#34;color:Gold&#34;&gt;Bipartite RankNet Algorithm&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Bipartite RankNet Algorithm uses the logistic loss (binomial log-likelihood loss or cross entropy loss).&lt;/p&gt;
+&lt;p&gt;The binomial log-likelihood loss function is:
+&lt;span class=&#34;math display&#34;&gt;\[\min_{f \in F_{neural}} \frac{1}{mn}\sum_{i=1}^{m} \sum_{j=1}^{n}L_{logistic}(f,x_i^+,x_i^-)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(L_{logistic}(f,x_i^+,x_i^-) = log(1+ exp((-f(x_i^+)-f(x_i^-)))\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;em&gt;Reference:&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://archive.siam.org/meetings/sdm10/tutorial1.pdf&#34;&gt;Computer Science &amp;amp; Artificial Intelligence Laboratory, MIT&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Loss Functions in Machine Learning and LTR</title>
+      <link>https://yuan-du.com/post/2020-12-13-loss-functions/decision-theory/</link>
+      <pubDate>Sun, 13 Dec 2020 22:27:29 -0400</pubDate>
+      <guid>https://yuan-du.com/post/2020-12-13-loss-functions/decision-theory/</guid>
+      <description>
+&lt;link href=&#34;https://yuan-du.com/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://yuan-du.com/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Previously, &lt;a href=&#34;https://yuan-du.com/post/2020-09-23-decision-theory/decision-theory/&#34;&gt;decision theory&lt;/a&gt; was disscussed and an important part of is to evaluate a decision rule for decision making. Since the risk is the average &lt;strong&gt;loss &lt;span class=&#34;math inline&#34;&gt;\(L(\theta,d)\)&lt;/span&gt;&lt;/strong&gt;, different loss functions were used in Machine Learning models. Mean squared error (MSE) was mentioned as the most famous meausre by using squared error loss proposed by Gauss. Regression, Linear discriminant analysis (&lt;a href=&#34;https://en.wikipedia.org/wiki/Linear_discriminant_analysis&#34;&gt;LDA&lt;/a&gt;) use squared error loss. The squared loss function tends to penalize outliers excessively, leading to slower convergence rates. There are other popular loss functions and they are applied in various Machine Learning and Deep Learning models. The plot shows the loss function for two class classification.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://yuan-du.com/img/Hinge_expo_log.jpg&#34; alt=&#34;Loss Functions: &amp;quot;Loss vs y*f(x); y= \pm 1, the prediction is f, with class prediction sign(f)&amp;quot;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Loss Functions: &#34;Loss vs y*f(x); &lt;span class=&#34;math inline&#34;&gt;\(y= \pm 1\)&lt;/span&gt;, the prediction is f, with class prediction sign(f)&#34;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;1. &lt;span style=&#34;color:green&#34;&gt;Hinge loss&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The hinge loss is a loss function used for “maximum-margin” classification, most notably for support vector machine (SVM).It’s equivalent to minimize the loss function &lt;span class=&#34;math inline&#34;&gt;\(L(y,f) = [1-yf]_+\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;With &lt;span class=&#34;math inline&#34;&gt;\(f(x) = h(x)^T \beta + \beta_0\)&lt;/span&gt;, the optimization problem is loss + penalty:
+&lt;span class=&#34;math display&#34;&gt;\[ \min_{\beta_0,\beta} \sum_{n=1}^{\infty}[1-y_if(x_i)]_+ + \frac{\lambda}{2}||\beta||^2 \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. &lt;span style=&#34;color:DeepSkyBlue&#34;&gt;Exponential loss&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The exponential loss is convex and grows exponentially for negative values which makes it more sensitive to outliers. The exponential loss is used in the &lt;a href=&#34;https://en.wikipedia.org/wiki/AdaBoost&#34;&gt;AdaBoost algorithm&lt;/a&gt;. The principal attraction of exponential loss in the context of additive modeling is computational. The additive expansion produced by AdaBoost is estimating onehalf of the log-odds of P(Y = 1|x). This justifies using its sign as the classification rule.&lt;/p&gt;
+&lt;p&gt;The population minimizer is:
+&lt;span class=&#34;math display&#34;&gt;\[f^*(x) = \arg\min_{f(x)} E_{Y|x}(e^{-Yf(x)}) = \frac{1}{2} log\frac{Pr(Y = 1|x)}{Pr(Y = -1|x)}\]&lt;/span&gt;
+or
+&lt;span class=&#34;math display&#34;&gt;\[Pr(Y = 1|x) = \frac{1}{1+e^{-2f*(x)}}\]&lt;/span&gt;
+&lt;strong&gt;3. &lt;span style=&#34;color:Gold&#34;&gt;Logistic loss(Binomial Deviance)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The logistic loss is also called as binomial log-likelihood loss or cross entropy loss. It’s used for logistic regression and in the &lt;a href=&#34;https://en.wikipedia.org/wiki/LogitBoost&#34;&gt;LogitBoost algorithm&lt;/a&gt;. The cross entropy loss is ubiquitous in &lt;a href=&#34;https://en.wikipedia.org/wiki/Deep_learning&#34;&gt;deep neural networks/Deep Learning&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The binomial log-likelihood loss function is:
+&lt;span class=&#34;math display&#34;&gt;\[l(Y,p(x)) = Y&amp;#39;logp(x) + (1-Y&amp;#39;)log(1-p(x))\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;or the deviance
+&lt;span class=&#34;math display&#34;&gt;\[-l(Y,f(x) = log(1+e^{-2Yf(x)})\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Summary Table&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;11%&#34; /&gt;
+&lt;col width=&#34;28%&#34; /&gt;
+&lt;col width=&#34;37%&#34; /&gt;
+&lt;col width=&#34;22%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;Loss Function&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(L[y,f(x)]\)&lt;/span&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Minimizing Function&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Advantage/Disadvantage&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Squared loss&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\([y-f(x)] = [1-yf(x)]^2\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(2Pr(Y=+1|x)-1\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;easy cross validation of regularization parameters/slower convergence rates&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Hinge loss&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\([1-yf]_+\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(sign[Pr(Y=+1|x)-\frac{1}{2}]\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;support points/not differentiable at&lt;span class=&#34;math inline&#34;&gt;\(yf(x)=1\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Exponential loss&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(\frac {1}{2} log(1+e^{-Yf(x)})\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(\frac{1}{2}log\frac{Pr(Y =+1|x)}{Pr(Y =-1|x)}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;grows exponentially for negative values,more sensitive to outliers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Logistic loss&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(log(1+e^{-Yf(x)})\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;span class=&#34;math inline&#34;&gt;\(log\frac{Pr(Y =+1|x)}{Pr(Y =-1|x)}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;grows linearly for negative values,less sensitive to outliers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Similarities between loss functions: &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Hinge loss, Exponential loss, Logistic loss have very similar tails, giving zero penalty to points well inside their margin and linear or exponential penalty to points on the wrong side adn far away. &lt;span style=&#34;color:FireBrick&#34;&gt;Squared error loss&lt;/span&gt; gives a quadratic penalty and points inside their own margin have a strong influence on othe model as well.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Exponential loss and Logistic loss have the same asymptotes as the SVM hinge loss but are rounded in the interrior.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;br /&gt;
+The above popular loss functions are also used in deep learning, for example, Learing To Rank (&lt;a href=&#34;https://en.wikipedia.org/wiki/Learning_to_rank&#34;&gt;LTR&lt;/a&gt;) for a Recommender System (&lt;a href=&#34;https://en.wikipedia.org/wiki/Recommender_system&#34;&gt;RS&lt;/a&gt;). Differently from traditional machine learning problem that’s to predict the target either classification or regression, LTR optimizes the ranking accruacy instead of the prediction probability accuracy.&lt;/p&gt;
+&lt;p&gt;Ranking is useful in our daily life for Recommendation system like Netflix, Amazon; Information Retrieval like goole; Drug discovery; Bioinformatics. Generally speaking, there are three types of rankings: &lt;em&gt;bipartie ranking, k-partite ranking, real-valued labels based ranking&lt;/em&gt;. &lt;code&gt;RankSVM, RankBoost, RankNet&lt;/code&gt; with corresponding loss functions are used for the ranking problems. A seperate post will be written to further demonstrate LTR framework and how the loss functions are used.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;em&gt;Reference:&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Hastie, T., Tibshirani, R., &amp;amp; Friedman, J. H. (2009). The elements of statistical learning: data mining, inference, and prediction. 2nd ed. New York: Springer.&lt;/em&gt;
+&lt;em&gt;Computer Science &amp;amp; Artificial Intelligence Laboratory, MIT&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

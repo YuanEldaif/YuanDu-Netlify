@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Neelam Khetpal | Yuan Du</title>
+    <link>https://yuan-du.com/authors/neelam-khetpal/</link>
+      <atom:link href="https://yuan-du.com/authors/neelam-khetpal/index.xml" rel="self" type="application/rss+xml" />
+    <description>Neelam Khetpal</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Thu, 01 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Neelam Khetpal</title>
+      <link>https://yuan-du.com/authors/neelam-khetpal/</link>
+    </image>
+    
+    <item>
+      <title>Colon mucosal neoplasia referred for endoscopic mucosal resection: Recurrence of adenomas and prediction of submucosal invasion</title>
+      <link>https://yuan-du.com/publication/2021-4-smj/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/publication/2021-4-smj/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Colon mucosal neoplasia referred for endoscopic mucosal resection: Recurrence of adenomas and prediction of submucosal invasion</title>
+      <link>https://yuan-du.com/publication/2020-7-wjge/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/publication/2020-7-wjge/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

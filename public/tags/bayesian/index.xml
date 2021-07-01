@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bayesian | Yuan Du</title>
+    <link>https://yuan-du.com/tags/bayesian/</link>
+      <atom:link href="https://yuan-du.com/tags/bayesian/index.xml" rel="self" type="application/rss+xml" />
+    <description>Bayesian</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Sat, 18 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Bayesian</title>
+      <link>https://yuan-du.com/tags/bayesian/</link>
+    </image>
+    
+    <item>
+      <title>Bayesian Analysis</title>
+      <link>https://yuan-du.com/post/2020-04-18-bayesian-analysis/bayesian-analysis/</link>
+      <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/post/2020-04-18-bayesian-analysis/bayesian-analysis/</guid>
+      <description>
+
+
+&lt;p&gt;Bayesian approach becomes more and more popular because of the improvement of the mordern computing ability for machine learning and big data. Bayesian analysis is a completely different approach compared to frequentist approach. Yet, it’s more challenging. To be able to understand and learn the Bayesian approach, &lt;code&gt;first&lt;/code&gt;, we will need to have the knowledge of conditional probability. &lt;code&gt;Second&lt;/code&gt;, to have the knowledge of different distributions such as normal, bernoulli, binomial, gamma, beta, cauchy, possion, etc. &lt;code&gt;Third&lt;/code&gt;, to be familiar with calculus. We need to calculate derivatives and integration of different distributions. &lt;code&gt;Last but not at least&lt;/code&gt;, to be familiar with simulation sampling techniques such as Grid sampling, Variational Bayes and Monte Carlo Markov Chian (MCMC) including popular Gibbs sampling, Metropolis Hastings Sampling, Hamiltonian Monte Carlo (HMC),etc. Luckily, there are a few software tools &lt;a href=&#34;https://web.sgh.waw.pl/~atoroj/ekonometria_bayesowska/jags_user_manual.pdf&#34;&gt;Jags&lt;/a&gt;, &lt;a href=&#34;https://mc-stan.org/users/documentation/&#34;&gt;Stan&lt;/a&gt; .etc can be used for Gibbs sampling and HMC.
+&lt;img src=&#34;https://yuan-du.com/img/Human.jpg&#34; alt=&#34;‘Credit: https://www2.isye.gatech.edu/~brani/isyebayes/jokes.html’&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The concept is simple. According to Bayes Theorem &lt;span class=&#34;math inline&#34;&gt;\(p(\theta|y) = \frac{p(y|\theta)p(\theta)}{p(y)}\)&lt;/span&gt; or without normalization &lt;span class=&#34;math inline&#34;&gt;\(p(\theta|y) \sim p(y|\theta)p(\theta)\)&lt;/span&gt;, we want to gain the posterior distribution by using prior information and likelihood of the data information. Most of the time, we use log likelihood instead for easier calculation since &lt;span class=&#34;math inline&#34;&gt;\(log( a*b )= loga +logb\)&lt;/span&gt;. Bayesian approach involves much more math than frequentist approach and more complicated. Frequentist focus on one point estimate (hypothesis and Confidence Interval), and bayesian focuses on a looking forward range (Credible Interval).
+&lt;img src=&#34;https://yuan-du.com/img/FreBay.png&#34; alt=&#34;Credit: https://365datascience.com/bayesian-vs-frequentist-approach/&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;If friquentist and bayesian approach are just two different ways to look into things, Why and when is recommended to use Bayesian approach instead of frequentist approach?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Here are a few examples to use Bayesian approach over frequentist approach:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Clear prior information: the example in the book &lt;a href=&#34;http://www.stat.columbia.edu/~gelman/book/BDA3.pdf&#34;&gt;BD3&lt;/a&gt; of Andrew Gelman’s in Chapter 1, problem 6. The prior information is that approximately 1/125 of all births are fraternal twins and 1/300 of births are identical twins.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Seperation problems. For example logistic regression couldn’t converge due to high dimension and small sample size.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Estimate multiple outcomes with credible interval. For example, family doctors try to diagnosis diseases (such as cold, flu) based on multiple symptoms (such as headache, sore throat, high temprature) and the probabilities of all symptoms sum up to limited possible diseases.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Small sample size with multiple experiments and limited budget.It’s a preferred meta analysis than tranditional meta analysis that has high heterogeneity with different recources since it provides a credible interval instead of confident interval.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;Reference:&lt;/code&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.stat.columbia.edu/~gelman/stuff_for_blog/ohagan.pdf&#34;&gt;Dicing with the unknown&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-use-bayesian-statistics-medical-device-clinical-trials#3&#34;&gt;FDA Guidance for the Use of Bayesian Statistics in Medical Device Clinical Trials&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

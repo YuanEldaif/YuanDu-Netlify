@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Victor Herrera MD | Yuan Du</title>
+    <link>https://yuan-du.com/authors/victor-herrera-md/</link>
+      <atom:link href="https://yuan-du.com/authors/victor-herrera-md/index.xml" rel="self" type="application/rss+xml" />
+    <description>Victor Herrera MD</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Wed, 04 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Victor Herrera MD</title>
+      <link>https://yuan-du.com/authors/victor-herrera-md/</link>
+    </image>
+    
+    <item>
+      <title>Comparison of hospital outcomes and resource utilization in acute COPD exacerbation patients managed by teaching versus non-teaching services in a community hospital</title>
+      <link>https://yuan-du.com/publication/2017-1-copd/</link>
+      <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/publication/2017-1-copd/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

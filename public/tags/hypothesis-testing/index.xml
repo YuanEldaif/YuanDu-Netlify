@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hypothesis testing | Yuan Du</title>
+    <link>https://yuan-du.com/tags/hypothesis-testing/</link>
+      <atom:link href="https://yuan-du.com/tags/hypothesis-testing/index.xml" rel="self" type="application/rss+xml" />
+    <description>Hypothesis testing</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Thu, 07 Nov 2019 09:30:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Hypothesis testing</title>
+      <link>https://yuan-du.com/tags/hypothesis-testing/</link>
+    </image>
+    
+    <item>
+      <title>Hypothesis Testing</title>
+      <link>https://yuan-du.com/talk/2019-09-advancedstat/</link>
+      <pubDate>Thu, 07 Nov 2019 09:30:00 +0000</pubDate>
+      <guid>https://yuan-du.com/talk/2019-09-advancedstat/</guid>
+      <description>&lt;p&gt;This is an Advanced Statistical course followed by the Statistical Basics. The most commonly used tests are introduced in this class for general research. I highly recommend that you attend the Statistical Basics before attending this course.&lt;/p&gt;
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click on the &lt;strong&gt;demo slides&lt;/strong&gt; button above to view the built-in slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>External pancreatic stents after pancreaticoduodenectomy reduce pancreatic fistula rates and severity</title>
+      <link>https://yuan-du.com/publication/2019-3-hpb/</link>
+      <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/publication/2019-3-hpb/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

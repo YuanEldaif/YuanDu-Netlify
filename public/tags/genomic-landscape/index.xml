@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Genomic Landscape | Yuan Du</title>
+    <link>https://yuan-du.com/tags/genomic-landscape/</link>
+      <atom:link href="https://yuan-du.com/tags/genomic-landscape/index.xml" rel="self" type="application/rss+xml" />
+    <description>Genomic Landscape</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Thu, 05 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Genomic Landscape</title>
+      <link>https://yuan-du.com/tags/genomic-landscape/</link>
+    </image>
+    
+    <item>
+      <title>Genomic Landscape of Acute Myeloid Leukemia (AML) on the Basis of 2017 ELN Classification and Other Mutations in Adult AML - Single Healthcare System Data</title>
+      <link>https://yuan-du.com/publication/2020-11-blood2/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/publication/2020-11-blood2/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

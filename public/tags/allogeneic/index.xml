@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Allogeneic | Yuan Du</title>
+    <link>https://yuan-du.com/tags/allogeneic/</link>
+      <atom:link href="https://yuan-du.com/tags/allogeneic/index.xml" rel="self" type="application/rss+xml" />
+    <description>Allogeneic</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Wed, 21 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Allogeneic</title>
+      <link>https://yuan-du.com/tags/allogeneic/</link>
+    </image>
+    
+    <item>
+      <title>Comparison of Myeloablative versus Reduced-Intensity Conditioning Regimens in Allogeneic Stem Cell Transplantation Recipients with Acute Myelogenous Leukemia with Measurable Residual Disease-Negative Disease at the Time of Transplantation: A Retrospective Cohort Study</title>
+      <link>https://yuan-du.com/publication/2021-4-tct/</link>
+      <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/publication/2021-4-tct/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

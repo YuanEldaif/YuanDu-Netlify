@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Logo | Yuan Du</title>
+    <link>https://yuan-du.com/tags/logo/</link>
+      <atom:link href="https://yuan-du.com/tags/logo/index.xml" rel="self" type="application/rss+xml" />
+    <description>Logo</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Sun, 07 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Logo</title>
+      <link>https://yuan-du.com/tags/logo/</link>
+    </image>
+    
+    <item>
+      <title>How to create your own logo and apply to your own website</title>
+      <link>https://yuan-du.com/post/create-your-own-logo/</link>
+      <pubDate>Sun, 07 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/post/create-your-own-logo/</guid>
+      <description>&lt;p&gt;I have no background of editing html and css. It took me a while to figure out how to modify the &lt;a href=&#34;https://github.com/yihui/hugo-lithium&#34; target=&#34;_blank&#34;&gt;Hugo Lithium theme&lt;/a&gt; for my own blog. I started with this simple theme because the fancier theme, the more knowledge of configuration will be needed. This make it easier for me to transision to the &lt;a href=&#34;https://github.com/gcushen/hugo-academic&#34; target=&#34;_blank&#34;&gt;Academic Thmeme&lt;/a&gt; that I&amp;rsquo;m currently using. so I would like to share it with you, by no means that this is the only way to do it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 1:&lt;/strong&gt;
+Generate your own favicon ico by using free &lt;a href=&#34;https://favicon.io/&#34; target=&#34;_blank&#34;&gt;favicon generator&lt;/a&gt;. I generated it by using my inital of my first name.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 2:&lt;/strong&gt;
+Save the download package and save the &lt;code&gt;favicon.ico&lt;/code&gt; logo in the path &lt;code&gt;\thmemes\hugo-lithium\static\&lt;/code&gt; (Hugo will copy it to root directory).and copy the small logo named &lt;code&gt;apple-touch-icon.png&lt;/code&gt; under the path &lt;code&gt;\thmemes\hugo-lithium\static\images&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 3:&lt;/strong&gt;
+change the url &lt;code&gt;logo.png&lt;/code&gt; name in the file &lt;code&gt;config.toml&lt;/code&gt; under&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;[params.logo] url = &amp;quot;apple-touch-icon.png&amp;quot;&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

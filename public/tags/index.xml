@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags | Yuan Du</title>
+    <link>https://yuan-du.com/tags/</link>
+      <atom:link href="https://yuan-du.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <description>Tags</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Mon, 07 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Tags</title>
+      <link>https://yuan-du.com/tags/</link>
+    </image>
+    
+    <item>
+      <title>Data Science</title>
+      <link>https://yuan-du.com/tags/data-science/</link>
+      <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Decision Theory</title>
+      <link>https://yuan-du.com/tags/decision-theory/</link>
+      <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/decision-theory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Learning</title>
+      <link>https://yuan-du.com/tags/deep-learning/</link>
+      <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LTR</title>
+      <link>https://yuan-du.com/tags/ltr/</link>
+      <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/ltr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://yuan-du.com/tags/machine-learning/</link>
+      <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AML</title>
+      <link>https://yuan-du.com/tags/aml/</link>
+      <pubDate>Sat, 29 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/aml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DNA methylation</title>
+      <link>https://yuan-du.com/tags/dna-methylation/</link>
+      <pubDate>Sat, 29 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/dna-methylation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gene mutation</title>
+      <link>https://yuan-du.com/tags/gene-mutation/</link>
+      <pubDate>Sat, 29 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/gene-mutation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Precision medicine</title>
+      <link>https://yuan-du.com/tags/precision-medicine/</link>
+      <pubDate>Sat, 29 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/precision-medicine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prognosis</title>
+      <link>https://yuan-du.com/tags/prognosis/</link>
+      <pubDate>Sat, 29 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/prognosis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Survival</title>
+      <link>https://yuan-du.com/tags/survival/</link>
+      <pubDate>Sat, 29 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/survival/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Allogeneic</title>
+      <link>https://yuan-du.com/tags/allogeneic/</link>
+      <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/allogeneic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flow cytometry</title>
+      <link>https://yuan-du.com/tags/flow-cytometry/</link>
+      <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/flow-cytometry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Minimal residual disease</title>
+      <link>https://yuan-du.com/tags/minimal-residual-disease/</link>
+      <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/minimal-residual-disease/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Myeloablative</title>
+      <link>https://yuan-du.com/tags/myeloablative/</link>
+      <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/myeloablative/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reduced-intensity conditioning</title>
+      <link>https://yuan-du.com/tags/reduced-intensity-conditioning/</link>
+      <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/reduced-intensity-conditioning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stem cell</title>
+      <link>https://yuan-du.com/tags/stem-cell/</link>
+      <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/stem-cell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EMR</title>
+      <link>https://yuan-du.com/tags/emr/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/emr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Logistic regression</title>
+      <link>https://yuan-du.com/tags/logistic-regression/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/logistic-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SMI</title>
+      <link>https://yuan-du.com/tags/smi/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/smi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fitbit</title>
+      <link>https://yuan-du.com/tags/fitbit/</link>
+      <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/fitbit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ICU</title>
+      <link>https://yuan-du.com/tags/icu/</link>
+      <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/icu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mixed model</title>
+      <link>https://yuan-du.com/tags/mixed-model/</link>
+      <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/mixed-model/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pharmacy</title>
+      <link>https://yuan-du.com/tags/pharmacy/</link>
+      <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/pharmacy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Repeated Measures</title>
+      <link>https://yuan-du.com/tags/repeated-measures/</link>
+      <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/repeated-measures/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sleep quality</title>
+      <link>https://yuan-du.com/tags/sleep-quality/</link>
+      <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/sleep-quality/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Genomic Landscape</title>
+      <link>https://yuan-du.com/tags/genomic-landscape/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/genomic-landscape/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Game Theory</title>
+      <link>https://yuan-du.com/tags/game-theory/</link>
+      <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/game-theory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistics</title>
+      <link>https://yuan-du.com/tags/statistics/</link>
+      <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/statistics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistical Learning</title>
+      <link>https://yuan-du.com/tags/statistical-learning/</link>
+      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/statistical-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistical Modeling</title>
+      <link>https://yuan-du.com/tags/statistical-modeling/</link>
+      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/statistical-modeling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Driver mutation</title>
+      <link>https://yuan-du.com/tags/driver-mutation/</link>
+      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/driver-mutation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gene</title>
+      <link>https://yuan-du.com/tags/gene/</link>
+      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/gene/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Immunotherapy</title>
+      <link>https://yuan-du.com/tags/immunotherapy/</link>
+      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/immunotherapy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lung Caner</title>
+      <link>https://yuan-du.com/tags/lung-caner/</link>
+      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/lung-caner/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Molecular profiling</title>
+      <link>https://yuan-du.com/tags/molecular-profiling/</link>
+      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/molecular-profiling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayesian</title>
+      <link>https://yuan-du.com/tags/bayesian/</link>
+      <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/bayesian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Covid19</title>
+      <link>https://yuan-du.com/tags/covid19/</link>
+      <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/covid19/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Epidemiology</title>
+      <link>https://yuan-du.com/tags/epidemiology/</link>
+      <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/epidemiology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MCMC</title>
+      <link>https://yuan-du.com/tags/mcmc/</link>
+      <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/mcmc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Network Science</title>
+      <link>https://yuan-du.com/tags/network-science/</link>
+      <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/network-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bootstrap</title>
+      <link>https://yuan-du.com/tags/bootstrap/</link>
+      <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/bootstrap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>correlation</title>
+      <link>https://yuan-du.com/tags/correlation/</link>
+      <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/correlation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Asymptotic Theory</title>
+      <link>https://yuan-du.com/tags/asymptotic-theory/</link>
+      <pubDate>Wed, 25 Dec 2019 16:30:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/asymptotic-theory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SVM</title>
+      <link>https://yuan-du.com/tags/svm/</link>
+      <pubDate>Wed, 25 Dec 2019 16:30:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/svm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Theorem</title>
+      <link>https://yuan-du.com/tags/theorem/</link>
+      <pubDate>Wed, 25 Dec 2019 16:30:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/theorem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hypothesis testing</title>
+      <link>https://yuan-du.com/tags/hypothesis-testing/</link>
+      <pubDate>Thu, 07 Nov 2019 09:30:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/hypothesis-testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Cleaning</title>
+      <link>https://yuan-du.com/tags/data-cleaning/</link>
+      <pubDate>Fri, 16 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/data-cleaning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Wrangling</title>
+      <link>https://yuan-du.com/tags/data-wrangling/</link>
+      <pubDate>Fri, 16 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/data-wrangling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reference</title>
+      <link>https://yuan-du.com/tags/reference/</link>
+      <pubDate>Fri, 16 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/reference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tidyverse</title>
+      <link>https://yuan-du.com/tags/tidyverse/</link>
+      <pubDate>Fri, 16 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/tidyverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tools</title>
+      <link>https://yuan-du.com/tags/tools/</link>
+      <pubDate>Fri, 16 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Biostatistician</title>
+      <link>https://yuan-du.com/tags/biostatistician/</link>
+      <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/biostatistician/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Scientist</title>
+      <link>https://yuan-du.com/tags/data-scientist/</link>
+      <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/data-scientist/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>https://yuan-du.com/tags/research/</link>
+      <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistician</title>
+      <link>https://yuan-du.com/tags/statistician/</link>
+      <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/statistician/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tidytext</title>
+      <link>https://yuan-du.com/tags/tidytext/</link>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/tidytext/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Logo</title>
+      <link>https://yuan-du.com/tags/logo/</link>
+      <pubDate>Sun, 07 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/logo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Markdown</title>
+      <link>https://yuan-du.com/tags/r-markdown/</link>
+      <pubDate>Sun, 07 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/r-markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cancer</title>
+      <link>https://yuan-du.com/tags/cancer/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/cancer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Oncology</title>
+      <link>https://yuan-du.com/tags/oncology/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/oncology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pancreatic fistula</title>
+      <link>https://yuan-du.com/tags/pancreatic-fistula/</link>
+      <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/pancreatic-fistula/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pancreaticoduodenectomy</title>
+      <link>https://yuan-du.com/tags/pancreaticoduodenectomy/</link>
+      <pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/pancreaticoduodenectomy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cultural bias</title>
+      <link>https://yuan-du.com/tags/cultural-bias/</link>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/cultural-bias/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>demographic bias</title>
+      <link>https://yuan-du.com/tags/demographic-bias/</link>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/demographic-bias/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>peer assessment</title>
+      <link>https://yuan-du.com/tags/peer-assessment/</link>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/peer-assessment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Resident education</title>
+      <link>https://yuan-du.com/tags/resident-education/</link>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/resident-education/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ACO</title>
+      <link>https://yuan-du.com/tags/aco/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/aco/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Affordable Care Act</title>
+      <link>https://yuan-du.com/tags/affordable-care-act/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/affordable-care-act/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Population Health</title>
+      <link>https://yuan-du.com/tags/population-health/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/population-health/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Survey</title>
+      <link>https://yuan-du.com/tags/survey/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/survey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Contrast upper gastrointestinal series</title>
+      <link>https://yuan-du.com/tags/contrast-upper-gastrointestinal-series/</link>
+      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/contrast-upper-gastrointestinal-series/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Duodenal perforation</title>
+      <link>https://yuan-du.com/tags/duodenal-perforation/</link>
+      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/duodenal-perforation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gastric perforation</title>
+      <link>https://yuan-du.com/tags/gastric-perforation/</link>
+      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/gastric-perforation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Graham patch</title>
+      <link>https://yuan-du.com/tags/graham-patch/</link>
+      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/graham-patch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Omental patch</title>
+      <link>https://yuan-du.com/tags/omental-patch/</link>
+      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/omental-patch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Surgery</title>
+      <link>https://yuan-du.com/tags/surgery/</link>
+      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/surgery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UGI</title>
+      <link>https://yuan-du.com/tags/ugi/</link>
+      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/ugi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chronic obstructive pulmonary disease</title>
+      <link>https://yuan-du.com/tags/chronic-obstructive-pulmonary-disease/</link>
+      <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/chronic-obstructive-pulmonary-disease/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clinical outcomes</title>
+      <link>https://yuan-du.com/tags/clinical-outcomes/</link>
+      <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/clinical-outcomes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cost</title>
+      <link>https://yuan-du.com/tags/cost/</link>
+      <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/cost/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LOS</title>
+      <link>https://yuan-du.com/tags/los/</link>
+      <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/los/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>resource use</title>
+      <link>https://yuan-du.com/tags/resource-use/</link>
+      <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/resource-use/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Risk adjustment</title>
+      <link>https://yuan-du.com/tags/risk-adjustment/</link>
+      <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/risk-adjustment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Generalized estimating equation</title>
+      <link>https://yuan-du.com/tags/generalized-estimating-equation/</link>
+      <pubDate>Tue, 15 Sep 2015 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/generalized-estimating-equation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>readmissions Risk-adjusted rate</title>
+      <link>https://yuan-du.com/tags/readmissions-risk-adjusted-rate/</link>
+      <pubDate>Tue, 15 Sep 2015 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/readmissions-risk-adjusted-rate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rural health clinics</title>
+      <link>https://yuan-du.com/tags/rural-health-clinics/</link>
+      <pubDate>Tue, 15 Sep 2015 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/tags/rural-health-clinics/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

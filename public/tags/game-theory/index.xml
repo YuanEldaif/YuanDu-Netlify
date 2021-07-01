@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Game Theory | Yuan Du</title>
+    <link>https://yuan-du.com/tags/game-theory/</link>
+      <atom:link href="https://yuan-du.com/tags/game-theory/index.xml" rel="self" type="application/rss+xml" />
+    <description>Game Theory</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Wed, 23 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Game Theory</title>
+      <link>https://yuan-du.com/tags/game-theory/</link>
+    </image>
+    
+    <item>
+      <title>Game Theory and Decision Theory</title>
+      <link>https://yuan-du.com/post/2020-09-23-decision-theory/decision-theory/</link>
+      <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/post/2020-09-23-decision-theory/decision-theory/</guid>
+      <description>
+
+
+&lt;p&gt;Statistics starts with probability theory, particularly in the analysis of games of chance. To be refferred to as a game, it involves three elements mathmatically:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Parameter space &lt;span class=&#34;math inline&#34;&gt;\(\Theta\)&lt;/span&gt;, a population characteristics, a physical quantity for example, mean.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Actions/Decisions space &lt;span class=&#34;math inline&#34;&gt;\(\mathscr{D}\)&lt;/span&gt; available to statistician.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;A loss function, &lt;span class=&#34;math inline&#34;&gt;\(L(\theta,d)\)&lt;/span&gt;, a real-valued function defined on &lt;span class=&#34;math inline&#34;&gt;\(\Theta \times \mathscr{D}\)&lt;/span&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Thus, any such triplet &lt;span class=&#34;math inline&#34;&gt;\((\Theta, \mathscr{D}, L )\)&lt;/span&gt; defines a game. For example, Black jack, poker, chess, tic-tac-toe and so on are games that are played by strategy. &lt;a href=&#34;https://en.wikipedia.org/wiki/Game_theory&#34;&gt;“Game Theory”&lt;/a&gt; was proposed by two economists: John Von Neuman and John Nash in 1950s. Two or more players competing against one another. Neither player generally knows the others’ strategy. The goal of the game is to pick a strategy that guarentees he/she can’t be “too bad”.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Real life examples: &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Product pricing decisions: &lt;/strong&gt; Seasonal promotions allow retailers to sell more stock of products and consumers to get best deals. The focus of retailers is on using the best pricing strategy while the preference of consumers is to choose the best deal in terms of discount and variety.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Investment decisions: &lt;/strong&gt; The different distributions of the investment on bond, stocks, short-term reserves will result in different returns. A historical risk/return (1926-2018) can be found at &lt;a href=&#34;https://personal.vanguard.com/us/insights/saving-investing/model-portfolio-allocations&#34;&gt;Vanguard portfolio allocation models&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Prisoners’ dilemma: &lt;/strong&gt;The moral of the story in terms of decisions in a legal setting: &lt;code&gt;You have the right to stay silent and please shut the f* up and let your attoney to do the talk&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yuan-du.com/img/Game-Theory.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://studiousguy.com/game-theory-examples/#4_Product_Pricing_Decisions&#34;&gt;More examples&lt;/a&gt; can be found in this post.&lt;/p&gt;
+&lt;p&gt;Decision theory is similar to the game theory. The main differences are :&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;In the statistical context, the players are the statistician and “Nature”, who knows the true value of the parameter. In two-player game, both are trying simultaneously to maximize their winnings, whereas in decision theory nature chooses a state without this view in mind.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;All statistical games allow statistician to gain information by sampling. However, it is the exploitation of the structure which such gathering of information gives to a game that distinguishes decision theory from game theory proper.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;A real life example:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Medical diagnosis:&lt;/code&gt; Sometimes you never know until you open up the patient to see if the cancer is absent because of the limitations on imaging diagnosis. A surgeon needs to decide if a surgery (an action/ a decision) is necessary based on if the patient has cancer or not. There are 4 combinations between the 2 decisions and 2 conditions, thus 4 outcomes scored by %.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#34;color:green&#34;&gt;Combination 1&lt;/span&gt;: The presence of cancer is confirmed and the surgeon decides to perform a surgery. The score is 100% because that’s the best decision.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#34;color:red&#34;&gt;Combination 2&lt;/span&gt;: There is presence of cancer and the surgoen decides not to perform a surgery. The score is 0% because that’s the worst consequence.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#34;color:brown&#34;&gt;Combination 3&lt;/span&gt;: Cancer is absent and the surgeon decides to perform a surgery. The score is 40% because it doesn’t results in serious consequence.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#34;color:blue&#34;&gt;Combination 4&lt;/span&gt;: Cancer is absent and surgoen decides not to perform a surgery. The score is 85% because it’s a good decision and no consequence as well.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://yuan-du.com/img/Decision-Theory.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Models, Decision rules and Risk&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Statistical model (class or family of distributions):&lt;/strong&gt; The parameter &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; and data &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; are related through a model in which the distribution of &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; is determined by &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; The distribution when the parameter &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; is denoted &lt;span class=&#34;math inline&#34;&gt;\(P_\theta\)&lt;/span&gt; and we write &lt;span class=&#34;math inline&#34;&gt;\(X \sim P_\theta\)&lt;/span&gt;. Formally, a model is written as the set of distributions for &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\mathscr{P} = {P_\theta: \theta \in \Theta}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Decision rules:&lt;/strong&gt; a non-randomized decision rule is a function &lt;span class=&#34;math inline&#34;&gt;\(\delta : \mathscr{X} -&amp;gt; \mathscr{D}\)&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The set of decision rules: &lt;span class=&#34;math inline&#34;&gt;\(\mathscr{D} =&amp;gt; d \in \mathscr{D}, \theta \in \mathscr{D}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\delta(x) \in \mathscr{D}\)&lt;/span&gt; &lt;span class=&#34;math inline&#34;&gt;\(d=\delta(x)\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(\delta\)&lt;/span&gt; prescribes a course of action for every observable dataset &lt;span class=&#34;math inline&#34;&gt;\(x\in \mathscr{X}\)&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Risk:&lt;/strong&gt; to evaluate a decision rule, we use &lt;strong&gt;risk &lt;span class=&#34;math inline&#34;&gt;\(R(\theta, \delta)\)&lt;/span&gt;&lt;/strong&gt;. It is the average &lt;strong&gt;loss &lt;span class=&#34;math inline&#34;&gt;\(L(\theta,d)\)&lt;/span&gt;&lt;/strong&gt; between the estimand &lt;span class=&#34;math inline&#34;&gt;\(\theta\)&lt;/span&gt; and the estimator &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt; –&amp;gt; an expected loss &lt;span class=&#34;math inline&#34;&gt;\(E_\theta\{ L[\theta,\delta(X)] \}\)&lt;/span&gt;. One wants the estmator &lt;span class=&#34;math inline&#34;&gt;\(\delta(x)\)&lt;/span&gt; to be accurate, but just what measure of accuracy should be used is fairly arbitrary. Mean squared error (MSE) is the most famous measure. In 1820s, Gauss proposed the square of the error as a measure of loss. He defends his choice by an appeal to mathmematical simplicity and convenience.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;em&gt;Reference:&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;1. Mathematical Statistics: A Decision Theoretic Approach by Thomas S. Ferguson, Academic Press; 1st edition&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2. Theoretical Statistics: Topics for a Core Course by Robert W. Keener, Springer; 2010 edition&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;3. Theory of Point Estimation by Erich L. Lehmann, George Casella, Springer; 2nd edition&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

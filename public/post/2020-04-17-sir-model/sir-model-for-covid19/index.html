@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.5.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Yuan Du">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="It’s been a hectic few months since my last post. Working and schooling at home during this pandemic chaos is challenging, but it doesn’t stop the hope of renew and transformation. One of the most popular statistcal modeling method for epidemiology and network science-Spreading Phenomena is SIR (susceptible-infected-recovered) model from Tim Churches.
+Susceptible (S): Healthy individuals who have not yet contacted the pathogen.
+Infectious (I): Contagious individuals who have contacted the pathogen and hence can infect others.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2020-04-17-sir-model/sir-model-for-covid19/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="rgb(251, 191, 183)">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
+    
+
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono%7CLora:400,700%7CRoboto:400,700&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.9985071f06fdf8e69922a7ae2061b748.css">
+
+  
+
+  
+
+
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/2020-04-17-sir-model/sir-model-for-covid19/">
+
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Yuan Du">
+  <meta property="og:url" content="/post/2020-04-17-sir-model/sir-model-for-covid19/">
+  <meta property="og:title" content="SIR Model for Covid19 | Yuan Du">
+  <meta property="og:description" content="It’s been a hectic few months since my last post. Working and schooling at home during this pandemic chaos is challenging, but it doesn’t stop the hope of renew and transformation. One of the most popular statistcal modeling method for epidemiology and network science-Spreading Phenomena is SIR (susceptible-infected-recovered) model from Tim Churches.
+Susceptible (S): Healthy individuals who have not yet contacted the pathogen.
+Infectious (I): Contagious individuals who have contacted the pathogen and hence can infect others."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-04-18T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-04-18T22:35:54-04:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/2020-04-17-sir-model/sir-model-for-covid19/"
+  },
+  "headline": "SIR Model for Covid19",
+  
+  "datePublished": "2020-04-18T00:00:00Z",
+  "dateModified": "2020-04-18T22:35:54-04:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Yuan Du"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Yuan Du",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/icon-512.png"
+    }
+  },
+  "description": "It’s been a hectic few months since my last post. Working and schooling at home during this pandemic chaos is challenging, but it doesn’t stop the hope of renew and transformation. One of the most popular statistcal modeling method for epidemiology and network science-Spreading Phenomena is SIR (susceptible-infected-recovered) model from Tim Churches.\nSusceptible (S): Healthy individuals who have not yet contacted the pathogen.\nInfectious (I): Contagious individuals who have contacted the pathogen and hence can infect others."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>SIR Model for Covid19 | Yuan Du</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Yuan Du</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Blog</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>SIR Model for Covid19</h1>
+
+  
+
+  
+    
+
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Apr 18, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/categories/statistics/">Statistics</a></span>
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/2020-04-17-sir-model/sir-model-for-covid19/&amp;text=SIR%20Model%20for%20Covid19" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/2020-04-17-sir-model/sir-model-for-covid19/&amp;t=SIR%20Model%20for%20Covid19" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=SIR%20Model%20for%20Covid19&amp;body=/post/2020-04-17-sir-model/sir-model-for-covid19/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/2020-04-17-sir-model/sir-model-for-covid19/&amp;title=SIR%20Model%20for%20Covid19" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=SIR%20Model%20for%20Covid19%20/post/2020-04-17-sir-model/sir-model-for-covid19/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/2020-04-17-sir-model/sir-model-for-covid19/&amp;title=SIR%20Model%20for%20Covid19" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+
+<p>It’s been a hectic few months since my last post. Working and schooling at home during this pandemic chaos is challenging, but it doesn’t stop the hope of renew and transformation. One of the most popular statistcal modeling method for epidemiology and network science-Spreading Phenomena is SIR (susceptible-infected-recovered) model from <a href="https://timchurches.github.io/blog/posts/2020-02-18-analysing-covid-19-2019-ncov-outbreak-data-with-r-part-1/">Tim Churches</a>.</p>
+<p><strong>Susceptible (S)</strong>: Healthy individuals who have not yet contacted the pathogen.</p>
+<p><strong>Infectious (I)</strong>: Contagious individuals who have contacted the pathogen and hence can infect others.</p>
+<p><strong>Recovered/Removed (R)</strong>: Infected individuals become immune or die, i.e., will not be infected again and cannot infect anyone else.
+<img src="/img/SIR-SIRS.png" /></p>
+<p>As shown in the picture above, there are two important rates <span class="math inline">\(\beta\)</span>(transmission rate of the pathogen), <span class="math inline">\(\gamma\)</span>(recovery rate). You probablily heard of the basic reproduction number <span class="math inline">\(R_0\)</span> value (R-nought), which can be calculated by <span class="math inline">\(\frac{\beta}{\gamma}\)</span>.</p>
+<p>If <span class="math inline">\(R_0\)</span> &gt; 1, epidemic is in the epidemic state;</p>
+<p>If <span class="math inline">\(R_0\)</span> &lt; 1, epidemic dies out.</p>
+<p><strong>The purpose of the post is to estiamte the basic reproduction number R-nought / <a href="https://en.wikipedia.org/wiki/Basic_reproduction_number"><span class="math inline">\(R_0\)</span></a> value based on US data and then make predictions for the future.</strong></p>
+<p><strong>1. Load packages</strong>:</p>
+<pre class="r"><code>#install.packages(c(&quot;httr&quot;, &quot;jsonlite&quot;))
+library(httr)
+library(jsonlite)
+#install.packages(&quot;optimr&quot;)
+library(optimr)
+library(deSolve)
+library(tidyverse)
+library(lubridate)
+library(ggplot2)</code></pre>
+<p><strong>2. Retrieve data from John’s Hopkins and use date March 1st till March 15 to fit SIR Model and check if the fit is reasonable</strong>:</p>
+<pre class="r"><code>#by Johns Hopkins CSSE
+res = GET(&quot;https://pomber.github.io/covid19/timeseries.json&quot;)
+
+data = fromJSON(rawToChar(res$content))
+#names(data) all contries 
+US = data$US
+US$date=as.Date(US$date) 
+
+new&lt;-US %&gt;% filter(date&gt;= &quot;2020-03-01&quot;&amp; date&lt;&quot;2020-03-15&quot;) #for US data only
+head(new) #first six rows</code></pre>
+<pre><code>##         date confirmed deaths recovered
+## 1 2020-03-01        32      1         7
+## 2 2020-03-02        54      6         7
+## 3 2020-03-03        74      7         7
+## 4 2020-03-04       107     11         7
+## 5 2020-03-05       184     12         7
+## 6 2020-03-06       237     14         7</code></pre>
+<pre class="r"><code>tail(new) #last six rows</code></pre>
+<pre><code>##          date confirmed deaths recovered
+## 9  2020-03-09       589     22         7
+## 10 2020-03-10       782     28         8
+## 11 2020-03-11      1145     33         8
+## 12 2020-03-12      1584     43        12
+## 13 2020-03-13      2214     51        12
+## 14 2020-03-14      2971     58        12</code></pre>
+<p><strong>3. build SIR Model and find <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span> by optimization method <a href="https://en.wikipedia.org/wiki/Residual_sum_of_squares">RSS</a></strong>:</p>
+<pre class="r"><code>#Initial values:
+Infected &lt;- new$confirmed
+Day &lt;- 1:(length(new$date))
+N&lt;-327200000 #US population
+init &lt;- c(S = N - Infected[1], I = Infected[1], R = 0) #Inital value
+
+## SIR Model
+SIR &lt;- function(time, state, parameters) {
+  par &lt;- as.list(c(state, parameters))
+  with(par, {
+    dS &lt;- -beta * I * S/N
+    dI &lt;- beta * I * S/N - gamma * I
+    dR &lt;- gamma * I
+    list(c(dS, dI, dR))
+  })
+}
+
+#Optimization by RSS to get beta and gamma
+RSS &lt;- function(parameters) {
+  names(parameters) &lt;- c(&quot;beta&quot;, &quot;gamma&quot;)
+  out &lt;- ode(y = init, times = Day, func = SIR, parms = parameters)
+  fit &lt;- out[, 3]
+  sum((Infected - fit)^2)
+}
+
+Opt &lt;- optim(c(0.5, 0.5), RSS, method = &quot;L-BFGS-B&quot;, lower = c(0,0), upper = c(1, 1))
+
+Opt_par &lt;- setNames(Opt$par, c(&quot;beta&quot;, &quot;gamma&quot;))
+Opt_par</code></pre>
+<pre><code>##      beta     gamma 
+## 0.6755947 0.3244053</code></pre>
+<pre class="r"><code>#R0
+Opt$par[1]/Opt$par[2]</code></pre>
+<pre><code>## [1] 2.082563</code></pre>
+<p><strong>4. Plot the predicted value vs raw data</strong></p>
+<pre class="r"><code>sir_start_date &lt;- &quot;2020-03-01&quot;
+t &lt;- 1:as.integer(ymd(&quot;2020-03-15&quot;) - ymd(sir_start_date))
+
+# get the fitted values from our SIR model
+fitted_cumulative_incidence &lt;- data.frame(ode(y = init, times = t, 
+                                              func = SIR, parms = Opt_par))
+# add a Date column and join the observed incidence data
+fitted_cumulative_incidence &lt;- fitted_cumulative_incidence %&gt;% 
+  mutate(date = ymd(sir_start_date) + days(t - 1)) %&gt;% 
+  left_join(new %&gt;% ungroup() %&gt;% select(date, confirmed))</code></pre>
+<pre><code>## Joining, by = &quot;date&quot;</code></pre>
+<pre class="r"><code># plot the data
+fitted_cumulative_incidence %&gt;% 
+  ggplot(aes(x = date)) + geom_line(aes(y = I), colour = &quot;red&quot;) + 
+  geom_point(aes(y = confirmed), colour = &quot;orange&quot;) + 
+  labs(y = &quot;Cumulative incidence&quot;, title = &quot;COVID-19 fitted vs observed cumulative incidence, US 03/01-03/15&quot;, 
+       subtitle = &quot;(red=fitted incidence from SIR model, orange=observed incidence)&quot;)</code></pre>
+<p><img src="/post/2020-04-17-SIR-model/2020-04-18-sir-model-for-covid19_files/figure-html/plot-1.png" width="672" /></p>
+<p><strong>5. The fit looks reasonable with R0=1.78, now we use the model to predict the curve for 3 months starting from March</strong></p>
+<pre class="r"><code>#Prediction
+# time in days for predictions
+t &lt;- 1:90
+# get the fitted values from our SIR model
+fitted_cumulative_incidence &lt;- data.frame(ode(y = init, times = t, 
+                                              func = SIR, parms = Opt_par))
+# add a Date column and join the observed incidence data
+fitted_cumulative_incidence &lt;- fitted_cumulative_incidence %&gt;% 
+  mutate(date = ymd(sir_start_date) + days(t - 1)) %&gt;% 
+  left_join(new %&gt;% ungroup() %&gt;% select(date, confirmed))</code></pre>
+<pre><code>## Joining, by = &quot;date&quot;</code></pre>
+<pre class="r"><code># plot the data
+fitted_cumulative_incidence %&gt;% ggplot(aes(x = date)) + geom_line(aes(y = I), 
+                                                                  colour = &quot;red&quot;) + geom_line(aes(y = S), colour = &quot;black&quot;) + 
+  geom_line(aes(y = R), colour = &quot;green&quot;) + geom_point(aes(y = confirmed), 
+                                                       colour = &quot;orange&quot;) + scale_y_continuous(labels = scales::comma) + 
+  labs(y = &quot;Persons&quot;, title = &quot;COVID-19 3 months prediction&quot;) + 
+  scale_colour_manual(name = &quot;&quot;, values = c(red = &quot;red&quot;, black = &quot;black&quot;, 
+                                            green = &quot;green&quot;, orange = &quot;orange&quot;), labels = c(&quot;Susceptible&quot;, 
+                                                                                            &quot;Recovered&quot;, &quot;Observed incidence&quot;, &quot;Infectious&quot;))</code></pre>
+<p><img src="/post/2020-04-17-SIR-model/2020-04-18-sir-model-for-covid19_files/figure-html/Prediction-1.png" width="672" /></p>
+<p><strong>Conclusion: It looks like the peak will be in the end of April and it will die down at the end of May.</strong></p>
+
+    </div>
+
+    
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/research/">Research</a>
+  
+  <a class="badge badge-light" href="/tags/statistical-modeling/">Statistical Modeling</a>
+  
+  <a class="badge badge-light" href="/tags/network-science/">Network Science</a>
+  
+  <a class="badge badge-light" href="/tags/covid19/">COVID19</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card">
+    
+      
+      <img class="portrait mr-3" src="/authors/admin/avatar_hu256edfcb7e5017748129576372c78297_1464515_250x250_fill_q90_lanczos_center.jpg" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">Yuan Du</a></h5>
+      <h6 class="card-subtitle">Statistician / Data Scientist</h6>
+      <p class="card-text">My interests include applied Statitics, Data Science and Healthcare.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?view_op=list_works&amp;hl=en&amp;user=WXROPRYAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/YuanEldaif" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/yuaneldaif/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/2020-04-18-bayesian-analysis/bayesian-analysis/">Bayesian Analysis</a></li>
+          
+          <li><a href="/talk/2019-11-25-breast-cancer-by-svm/">Breast Cancer Image Classification Analysis by SVM</a></li>
+          
+          <li><a href="/post/tools-reference/">Awesome data science presentations and tools</a></li>
+          
+          <li><a href="/post/my-journey-of-being-research-statistician/">My journey of being a research statistician</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js" integrity="sha256-0w92bcB21IY5+rGI84MGj52jNfHNbXVeQLrZ0CGdjNY=" crossorigin="anonymous" title="mermaid"></script>
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+      
+    
+    
+    
+    <script src="/js/academic.min.178b0ffae270403f2b091a5e05e58078.js"></script>
+
+    <footer class="site-footer">
+
+<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=e3c1e2&w=300&t=n&d=39cx_8ONS0zJNxZU-HLY3ZlBYR_a6imIeSGMWjKD4us&co=ffffff&cmo=3acc3a&cmn=ff5353&ct=808080'></script>
+
+</footer>
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; Yuan Du, 2020 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

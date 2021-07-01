@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Resident education | Yuan Du</title>
+    <link>https://yuan-du.com/tags/resident-education/</link>
+      <atom:link href="https://yuan-du.com/tags/resident-education/index.xml" rel="self" type="application/rss+xml" />
+    <description>Resident education</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Thu, 14 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>Resident education</title>
+      <link>https://yuan-du.com/tags/resident-education/</link>
+    </image>
+    
+    <item>
+      <title>The effect of demographic characteristics, Country of birth and country of medical training on the peer evaluations of internal medicine resident physicians</title>
+      <link>https://yuan-du.com/publication/2019-2-im/</link>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/publication/2019-2-im/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

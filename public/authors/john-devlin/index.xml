@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>John Devlin | Yuan Du</title>
+    <link>https://yuan-du.com/authors/john-devlin/</link>
+      <atom:link href="https://yuan-du.com/authors/john-devlin/index.xml" rel="self" type="application/rss+xml" />
+    <description>John Devlin</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Yuan Du, 2021 </copyright><lastBuildDate>Mon, 06 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://yuan-du.com/img/icon-192.png</url>
+      <title>John Devlin</title>
+      <link>https://yuan-du.com/authors/john-devlin/</link>
+    </image>
+    
+    <item>
+      <title>Characterisation of ICU sleep by a commercially available activity tracker and its agreement with patient-perceived sleep quality</title>
+      <link>https://yuan-du.com/publication/2020-4-pharm/</link>
+      <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-du.com/publication/2020-4-pharm/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
