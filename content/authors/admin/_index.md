@@ -18,7 +18,7 @@ organizations:
   url: "https://www.adventhealth.com/hospital/adventhealth-orlando"
 
 # Short bio (displayed in user profile at end of posts)
-bio: My interests include applied Statitics, Data Science and Healthcare.
+bio: My interests include applied Statitics, ML/DL and Healthcare.
 
 interests:
 - Applied Statistics
