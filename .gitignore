@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /public/, /resources/
+=======
+/public/
+>>>>>>> ed39fc3a909f382fa082da6a98740d74ac2afc15
 .idea/
 .Rproj.user
 .DS_Store, Thumbs.db
