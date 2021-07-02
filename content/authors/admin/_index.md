@@ -1,6 +1,6 @@
 ---
 # Display name
-name: Yuan Du
+title: Yuan Du
 
 # Username (this should match the folder name)
 authors:
@@ -73,6 +73,8 @@ email: ""
 #user_groups:
 #- Researchers
 #- Visitors
+# Highlight the author in author lists? (true/false)
+highlight_name: true
 ---
 
 Yuan Du is an experienced Statistician at AdventHealth in Orlando, FL with years of professional experience in the academic and Healthcare research setting. Her research experience includes Medical research, Healthcare policy, Clinical trials, etc. She is also working on her PhD in Big Data Analytics. Her PhD reserach is on Energy Based Models, Generative Models, Computer Vision. This is her blog that contains topics in Statistics, Data Science and Deep Learning. 

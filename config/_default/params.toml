@@ -250,3 +250,20 @@ plugins_js  = ["custom"]
   engine = 2
   api_key = ""
   zoom = 15
+# PLACE THIS NEW [CMS] CONFIG SECTION AT THE END OF THE FILE
+
+# Content Management System
+[cms]
+ # Enable the admin panel. See https://wowchemy.com/docs/install/
+ netlify_cms = true
+
+# Icon Pack Extensions
+[icon.pack]
+ ai = true  # Enable the Academicons icon pack https://jpswalsh.github.io/academicons/
+
+media_dir = "img"
+
+# PLACE THESE PARAMS IN THE MAIN CONFIG SECTION (NOT UNDER ANY [SUBSECTION])
+
+# Show related content at the bottom of pages?
+show_related = {page = false, post = true, project = true, publication = true, talk = true}
