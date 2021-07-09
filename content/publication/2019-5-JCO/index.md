@@ -5,7 +5,7 @@ authors:
 - Jingxin Sun
 - Tarek Mekhail
 - Lingbin Meng
-- Yuan Du
+- admin
 - Mark A. Socinski
 - Amanda Allen
 - Brenda L. Rzeszutko

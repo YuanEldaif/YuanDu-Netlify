@@ -3,7 +3,7 @@ title: "Adverse Impact of Mutations in DNA Methylation Regulatory Genes on the P
 authors:  
 - James Yu
 - Jingxin Sun
-- Yuan Du
+- admin
 - Rushang Patel
 - Juan Carlos Varela
 - Shahram Mori

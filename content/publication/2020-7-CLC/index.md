@@ -9,7 +9,7 @@ authors:
 - Cheng Fang
 - Jian Guan
 - Akriti Jain
-- Yuan Du
+- admin
 - Amanda Allen
 - Brenda L Rzeszutko
 - Mark A Socinski

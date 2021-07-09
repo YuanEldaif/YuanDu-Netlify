@@ -6,7 +6,7 @@ authors:
 - Evgeny Idrisov
 - Asad Ur Rahman
 - Sameen Khalid
-- Yuan Du
+- admin
 - Udayakumar Navaneethan
 - Shyam Varadarajulu
 - Robert Hawes

@@ -2,7 +2,7 @@
 title: "Comparison of Myeloablative versus Reduced-Intensity Conditioning Regimens in Allogeneic Stem Cell Transplantation Recipients with Acute Myelogenous Leukemia with Measurable Residual Disease-Negative Disease at the Time of Transplantation: A Retrospective Cohort Study"
 authors:
 - James Yu
-- Yuan Du
+- admin
 - Sarfraz Ahmad
 - Rushang D Patel
 - Juan Carlos Varela
