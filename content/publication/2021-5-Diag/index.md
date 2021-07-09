@@ -1,6 +1,6 @@
 ---
 title: "Adverse Impact of Mutations in DNA Methylation Regulatory Genes on the Prognosis of AML Patients in the 2017 ELN Favorable Risk Group"
-authors:
+authors:  
 - James Yu
 - Jingxin Sun
 - Yuan Du
@@ -8,6 +8,8 @@ authors:
 - Juan Carlos Varela
 - Shahram Mori
 - Chung-Che Chang
+
+
 
 date: "2021-05-29T00:00:00Z"
 doi: "https://doi.org/10.3390/diagnostics11060986"
