@@ -1,9 +1,10 @@
 ---
 title: "Contextual, Organizational and Ecological Effects on the Variations in Hospital Readmissions of Rural Medicare Beneficiaries in Eight Southeastern States"
 authors:
-- Wan, T.T.H.
+- Thomas TH Wan
 - Judith Ortiz
 - admin
+- Adam G Golden
 date: "2015-09-15T00:00:00Z"
 doi: "10.1007/s10729-015-9339-x"
 
