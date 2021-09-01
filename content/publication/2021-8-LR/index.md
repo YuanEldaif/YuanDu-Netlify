@@ -28,7 +28,7 @@ publication_types: ["2"]
 publication: "*Leukemia Research*"
 publication_short: ""
 
-# Abstract: 1. Machine learning may differentiate AML-MRC from non-MRC AML using mutation profile. 2. 3 factors (Age, TP53, FLT3) could aid AML-MRC diagnosis with a scoring system. 3. AML-MRC had higher TP53 and lower NPM1, FLT3, NRAS, PTPN11 mutations frequencies.
+#Abstract: 1. Machine learning may differentiate AML-MRC from non-MRC AML using mutation profile. 2. 3 factors (Age, TP53, FLT3) could aid AML-MRC diagnosis with a scoring system. 3. AML-MRC had higher TP53 and lower NPM1, FLT3, NRAS, PTPN11 mutations frequencies
 
 
 # Summary. An optional shortened abstract.
